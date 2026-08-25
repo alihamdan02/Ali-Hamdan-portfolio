@@ -27,21 +27,9 @@ Directory structure:
     │   ├── elements.md
     │   └── posts/
     │       ├── _index.md
-    │       ├── post-1.md
-    │       ├── post-10.md
-    │       ├── post-11.md
-    │       ├── post-12.md
-    │       ├── post-13.md
-    │       ├── post-14.md
-    │       ├── post-15.md
-    │       ├── post-2.md
-    │       ├── post-3.md
-    │       ├── post-4.md
-    │       ├── post-5.md
-    │       ├── post-6.md
-    │       ├── post-7.md
-    │       ├── post-8.md
-    │       └── post-9.md
+    │       ├── autonomous-graph-rag.md
+    │       ├── on-premise-ai-mofa.md
+    │       └── text-to-sql-analytics.md
     ├── context/
     │   └── state.js
     ├── hooks/
@@ -1052,14 +1040,14 @@ included_files = ["content/**"]
 ================================================
 FILE: next.config.mjs
 ================================================
-
 const isProd = process.env.NODE_ENV === "production";
 
-const basePath = isProd ? "/geeky-nextjs" : "";
+const basePath = "";
 
 const nextConfig = {
   basePath,
-  assetPrefix: basePath,
+  // Only apply assetPrefix if basePath is a non-empty string, avoiding validation warnings
+  ...(basePath ? { assetPrefix: basePath } : {}),
   images: {
     unoptimized: true,
   },
@@ -1073,7 +1061,6 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
 
 
 ================================================
@@ -1099,12 +1086,12 @@ FILE: package.json
     "gray-matter": "^4.0.3",
     "marked": "^4.2.12",
     "next": "13.1.5",
-    "next-mdx-remote": "^4.3.0",
+    "next-mdx-remote": "^4.4.1",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-gtm-module": "^2.0.11",
-    "react-icons": "^4.7.1",
+    "react-icons": "^5.7.0",
     "react-lite-youtube-embed": "^2.3.52",
     "react-mailchimp-subscribe": "^2.1.3",
     "react-syntax-highlighter": "^15.5.0",
@@ -1295,65 +1282,63 @@ FILE: config/config.json
 ================================================
 {
   "site": {
-    "title": "Geeky Nextjs",
+    "title": "Ali Hamdan | AI Engineer",
     "base_url": "/",
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.png",
     "logo_white": "/images/logo-light.png",
     "logo_width": "150",
     "logo_height": "39",
-    "logo_text": "Geeky"
+    "logo_text": "Ali Hamdan"
   },
   "settings": {
     "theme_switcher": true,
-    "default_theme": "system",
+    "default_theme": "dark",
     "pagination": 6,
     "InnerPaginationOptions": {
       "enableTop": false,
-      "enableBottom": true
+      "enableBottom": false
     },
-    "summary_length": 200,
+    "summary_length": 180,
     "blog_folder": "posts"
   },
   "params": {
     "tag_manager_id": "",
-    "footer_content": "Lorem ipsum dolor sit amt, conse adip iscing. donec iaculis tempasus laoreet. Libero ullam rgscper.",
-    "copyright": "Designed and Developed By [Statichunt](https://statichunt.com/) | Distributed by [ThemeWagon](https://themewagon.com/)"
+    "footer_content": "AI Engineer specializing in on-premise generative AI, enterprise RAG, and multi-agent systems.",
+    "copyright": "Â© 2026 Ali Hamdan. All Rights Reserved."
   },
   "metadata": {
-    "meta_author": "Statichunt",
+    "meta_author": "Ali Hamdan",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Geeky Nextjs Personal Blog Template"
+    "meta_description": "AI Engineer portfolio of Ali Hamdan. Focused on Generative AI, LLMs, and RAG architectures."
   },
   "widgets": {
     "about": {
-      "enable": true,
-      "content": "Lorem ipsum dolor sit amet, conse tfctetur adipiscing elit. Vel in in donec iaculis tempasus odio nunc laoreet . Libero ullam rgscorper."
+      "enable": false,
+      "content": ""
     },
     "featured_posts": {
-      "enable": true,
-      "title": "Blog Categories",
-      "showPost": 3
+      "enable": false,
+      "title": ""
     },
     "categories": {
       "enable": true,
-      "title": "Blog Categories"
+      "title": "Core Expertise"
     },
     "newsletter": {
-      "enable": true,
-      "title": "Newsletter",
-      "content": "Join thousands of Tiny Salt subscribers and get our best recipes delivered each week!",
+      "enable": false,
+      "title": "",
+      "content": "",
       "privacy_policy_page": "#",
       "malichipm_url": ""
     }
   },
   "disqus": {
-    "enable": true,
-    "shortname": "themefisher-template",
+    "enable": false,
+    "shortname": "",
     "settings": {}
   }
 }
-
 
 
 ================================================
@@ -1366,27 +1351,12 @@ FILE: config/menu.json
       "url": "/"
     },
     {
-      "name": "About",
+      "name": "About & Experience",
       "url": "/about"
-    },
-    {
-      "name": "Elements",
-      "url": "/elements"
     },
     {
       "name": "Contact",
       "url": "/contact"
-    },
-    {
-      "name": "Pages",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Categories",
-          "url": "/categories"
-        }
-      ]
     }
   ],
   "footer": [
@@ -1401,27 +1371,22 @@ FILE: config/menu.json
     {
       "name": "Contact",
       "url": "/contact"
-    },
-    {
-      "name": "Privacy Policy",
-      "url": "#"
     }
   ]
 }
-
 
 
 ================================================
 FILE: config/social.json
 ================================================
 {
-  "facebook": "https://facebook.com/",
-  "stackoverflow": "https://stackoverflow.com/",
-  "twitter": "https://twitter.com/",
-  "instagram": "https://instagram.com/",
+  "facebook": "",
+  "stackoverflow": "",
+  "twitter": "",
+  "instagram": "",
   "youtube": "",
-  "linkedin": "https://linkedin.com/",
-  "github": "https://github.com/",
+  "linkedin": "https://www.linkedin.com/in/ali-hamdan-a6678a25a/",
+  "github": "https://github.com/alihamdan02",
   "gitlab": "",
   "discord": "",
   "slack": "",
@@ -1441,13 +1406,12 @@ FILE: config/social.json
   "tiktok": "",
   "foursquare": "",
   "rss": "",
-  "email": "",
-  "phone": "",
+  "email": "aliihamdan02@gmail.com",
+  "phone": "962799661576",
   "address": "",
   "skype": "",
-  "website": ""
+  "website": "https://huggingface.co/alihamdan02"
 }
-
 
 
 ================================================
@@ -1457,30 +1421,30 @@ FILE: config/theme.json
   "colors": {
     "default": {
       "theme_color": {
-        "primary": "#2ba283",
-        "body": "#fff",
-        "border": "#e1e1e1",
-        "theme_light": "#f2f2f2",
-        "theme_dark": "#1a202c"
+        "primary": "#707271",
+        "body": "#f3f4f4",
+        "border": "#cfd1d1",
+        "theme_light": "#e3e5e5",
+        "theme_dark": "#404241"
       },
       "text_color": {
-        "default": "#555",
-        "dark": "#222",
-        "light": "#999"
+        "default": "#4a4c4b",
+        "dark": "#1d1f1e",
+        "light": "#707271"
       }
     },
     "darkmode": {
       "theme_color": {
-        "primary": "#059669",
-        "body": "#111",
-        "border": "#636363",
-        "theme_light": "#f4f7f7",
-        "theme_dark": "#383848"
+        "primary": "#8e9190",
+        "body": "#181919",
+        "border": "#2c2d2d",
+        "theme_light": "#707271",
+        "theme_dark": "#252626"
       },
       "text_color": {
-        "default": "#a4a4a4",
-        "dark": "#ddd",
-        "light": "#fff"
+        "default": "#a1a3a2",
+        "dark": "#e2e4e3",
+        "light": "#ffffff"
       }
     }
   },
@@ -1497,7 +1461,6 @@ FILE: config/theme.json
     }
   }
 }
-
 
 
 ================================================
@@ -1517,100 +1480,111 @@ FILE: content/_index.md
 ================================================
 ---
 banner:
-  title: Welcome **!**
-  title_small: "to John Bravo's Blog"
-  content: Are Developer and recently started your own business Already made website to ensure presence wants to develop.
+  title: Ali Hamdan **!**
+  title_small: "AI Engineer"
+  content: "I design and build enterprise-grade AI systems, specializing in secure on-premise Large Language Models (LLMs), RAG, and Agentic Multi-Agent pipelines."
   image_enable: true
-  image: /images/banner-author.png
+  image: /images/ali.jpeg # ØªÙ… ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ù…Ø³Ø§Ø± Ù„ÙŠØ±ØªØ¨Ø· Ø¨ØµÙˆØ±ØªÙƒ Ø§Ù„Ø´Ø®ØµÙŠØ© Ù…Ø¨Ø§Ø´Ø±Ø©
   button:
     enable: true
-    label: Know About Me
+    label: Learn More About Me
     link: /about
     rel: ""
 
 featured_posts:
   enable: true
-  title: Featured Posts
+  title: Featured Systems
 
 promotion:
-  enable: true
-  image: /images/promotion.png
+  enable: false
+  image: ""
   link: "#"
 
 recent_posts:
-  title: Recent Posts
+  title: Technical Projects
   enable: true
-
 ---
-
 
 
 ================================================
 FILE: content/about.md
 ================================================
 ---
-title: About The Author
-image: /images/author.png
-description: "meta description"
+title: About My Professional Journey
+image: "" # ØªÙ… Ù…Ø³Ø­ Ø§Ù„Ø±Ø§Ø¨Ø· Ù„Ø¥Ù„ØºØ§Ø¡ Ø§Ù„ØµÙˆØ±Ø© Ø§Ù„Ù…ÙƒØ±Ø±Ø© Ù‡Ù†Ø§
+description: "AI Engineer specializing in Generative AI, LLMs, RAG, and Agentic Systems."
 layout: about
 education:
-  title: Formal Education
+  title: Education
   degrees:
-    - university: "Southeast University"
-      content: "1985 â€¢ 1991 â€¢ gravida nibh velvelit auctor alimo quet menean solli"
-    - university: "Northeast University"
-      content: "1985 â€¢ 1991 â€¢ gravida nibh velvelit auctor alimo quet menean solli"
-    - university: "Easteast University"
-      content: "1985 â€¢ 1991 â€¢ gravida nibh velvelit auctor alimo quet menean solli"
-    - university: "Southeast University"
-      content: "1985 â€¢ 1991 â€¢ gravida nibh velvelit auctor alimo quet menean solli"  
+    - university: "B.Sc. in AI & Data Science"
+      content: "Tafila Technical University â€¢ GPA: 3.5/4.0 (Ranked 1st in the Graduating Class) â€¢ Oct. 2016 - Sep. 2020"
+    - university: "Industry Certifications"
+      content: "â€¢ Cloudera AI Technical Professional (Sep. 2025)\nâ€¢ Databricks Generative AI Fundamentals (Jun. 2025)\nâ€¢ AWS Certified Cloud Practitioner (Jun. 2025)\nâ€¢ Alteryx Designer Core Certified (Jul. 2025)"
 
 experience:
-  title: Work Experience
+  title: Technical Expertise
   list:
-    - Best Writer Award
-    - Best New Newel
-    - Best Book
-    - Best Article
-    - Best New Newel
-    - Best New Newel
-    - Best Book
-    - Best Article
-    - Best New Newel
-    - Best Book
+    - PyTorch & Transformers
+    - LangChain & LangGraph
+    - Vector Databases (Qdrant, Chroma)
+    - Graph RAG & Knowledge Graphs
+    - FastAPI & Docker
+    - On-Premise LLM Deployments
+    - SFT / LoRA / PEFT
+    - Python Development
+---
+
+### Professional Summary
+
+I am an **AI Engineer with 6+ years of hands-on experience** in Artificial Intelligence, Machine Learning, Generative AI, NLP, and LLM-based systems. My work focuses on designing and deploying secure, production-grade AI platforms for enterprise and government organizations. 
+
+I specialize in **on-premise AI architectures, data privacy, and domain-specific intelligence**, allowing organizations to reason over their private databases safely.
 
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi amet, ultrices scelerisue cras. Tincidunt hendrerit egestas venenatis risus sit nunc. Est esglit non in ipsum lect;aaus adipiscing et enim porttitor. Dui ultrices et volud eetpat nunc, turpis rutrum elit vestibululm ipsum. Arcu fringilla duis vitae mos dsdllis duicras interdum purus cursus massa metus. Acc umsan felaais, egsdvet nisi, viverra turpis fermentum sit suspf bafedfb ndisse fermentum consectetur. Facilisis feugiat trisique orci tempor sed masd fbsssa tristique ultrices sodales. Augue est sapien elementum facilisis. Enim tincidnt cras interdum purus ndisse. morbi quis nunc.
+### Professional Experience
 
-Et dolor placerat tempus risus nunc urna, nunc a. Mattis viverra ut sapidaaen enim sed tortor. Mattis gravida fusce cras interdum purus cursus massa metus. Acc umsan felaais, eget nisi, viverra turpis fermentum sit suspf bafedfb ndisse. morbi quis nunc, at arcu quam facilisi. In in lacus aliquam dictum sagittis morbi odio. Et magnis cursus sem sed condimentum. Nibh non potenti ac amsdfet Tincidunt hendrerit egestas venenatis risus sit nunc. Est esglit non in ipsuasdm lect;aaus adipiscing et enim porttitor. Dui ultrices et volud eetpat nunc, turpis ndisse. morbi quis nunc, at arcu quam facilisi ndisse. morbi quis nunc, at arcu quam facilisi
+#### **AI Engineer** | Tools & Solutions 
+*Jan. 2025 â€“ Present â€¢ Amman, Jordan*
+* Designed and deployed secure, on-premise Generative AI solutions for the **Ministry of Foreign Affairs (MOFA)** and the **National Center for Wildlife (NCW)**.
+* Developed AI-powered data intelligence systems for automated data classification, metadata extraction, and sensitive-data detection, achieving **92% classification accuracy** and reducing manual effort by **70%**.
+* Designed RAG architectures combining vector retrieval, metadata filtering, and graph-based relationships to ground LLM responses in interconnected enterprise entities.
 
+#### **RLHF Engineer** | Optimiza
+*Jun. 2023 â€“ Jan. 2025 â€¢ Amman, Jordan*
+* Developed and curated synthetic and real-world datasets for training and optimizing LLMs across enterprise tasks.
+* Designed evaluation pipelines to measure model accuracy, consistency, reasoning, and alignment.
+* Experimented with supervised fine-tuning (SFT) and parameter-efficient fine-tuning (LoRA/PEFT).
+* Containerized AI applications and evaluation environments using Docker and Docker Compose.
+
+#### **AI / ML Engineer** | Independent Projects & Research
+*2020 â€“ 2023 â€¢ Jordan*
+* Built machine learning, NLP, and deep learning architectures during academic studies and research.
 
 
 ================================================
 FILE: content/contact.md
 ================================================
 ---
-title: "Letâ€™s, Talk </br> About You"
-description: "meta description"
-phone: "+211234565523"
-mail: "info@email.com"
-location: "9567 Turner Trace Apt. BC C3G8A4"
-form_action: "#"
+title: "Let's Connect </br> & Build AI Solutions"
+description: "Contact Ali Hamdan - AI Engineer based in Riyadh, KSA and Amman, Jordan."
+phone: "+966501968175"
+mail: "aliihamdan02@gmail.com"
+location: "Riyadh, Saudi Arabia"
+form_action: "https://formspree.io/f/your_id" # ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªØ¨Ø¯Ø§Ù„Ù‡Ø§ Ù„Ø§Ø­Ù‚Ø§Ù‹ Ù„Ø®Ø¯Ù…Ø© Ø§Ø³ØªÙ‚Ø¨Ø§Ù„ Ø±Ø³Ø§Ø¦Ù„ Ù…Ø¬Ø§Ù†ÙŠØ©
 layout: "contact"
 addresses:
   - icon: FaUserAlt
-    content: +211234565523
-    link: tel:+211234565523
-  - icon: FaMapMarkerAlt
-    content: info@email.com
-    link: mailto:info@email.com
+    content: "+966 501 968 175 (KSA)"
+    link: "tel:+966501968175"
+  - icon: FaEnvelope
+    content: "aliihamdan02@gmail.com"
+    link: "mailto:aliihamdan02@gmail.com"
   - icon: FaLocation
-    content: 9567 Turner Trace Apt. BC C3G8A4
-
+    content: "Riyadh, Saudi Arabia"
 draft: false
 ---
-
 
 
 ================================================
@@ -1875,477 +1849,85 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 ================================================
 FILE: content/posts/_index.md
 ================================================
----
-title: "Blog Posts"
----
-
+[Empty file]
 
 
 ================================================
-FILE: content/posts/post-1.md
+FILE: content/posts/autonomous-graph-rag.md
 ================================================
 ---
-title: "How to make toys from old Olarpaper"
-date: 2022-04-04T01:00:00Z
-image: /images/post/post-1.png
-categories: ["programming"]
-featured: true
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-10.md
-================================================
----
-title: "My work from home workstation"
-date: 2022-04-04T10:00:00Z
-image: /images/post/post-2.png
-categories: ["programming"]
-featured: false
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-11.md
-================================================
----
-title: "Robotic world is growing very fast"
-date: 2022-04-04T11:00:00Z
+title: "Enterprise Autonomous Graph-RAG & Knowledge Graph Orchestrator"
+date: 2024-12-20T08:00:00Z
 image: /images/post/post-3.png
-categories: ["assistance"]
-featured: false
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-12.md
-================================================
----
-title: "What is a Virtual Assistant"
-date: 2022-04-04T12:00:00Z
-image: /images/post/post-4.png
-categories: ["github"]
+categories: ["Graph-RAG", "Knowledge-Graphs", "Neo4j"]
 featured: true
 draft: false
 ---
 
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+Designed and developed an advanced, automated pipeline that parses massive volumes of unstructured corporate documents, builds localized Knowledge Graphs, and queries them utilizing specialized Graph-RAG agents.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+### The Technical Challenges
+Standard vector search algorithms retrieve information based purely on text similarity. However, they lack the ability to connect multi-hop logical relationships or understand how complex company entities (e.g., departments, clients, legacy software) affect each other across isolated PDF documents.
 
-## Covid-19 Situation
+### Solution & Engineering Highlights
+* **Automated Knowledge Harvesting:** Built automated pipeline wrappers using **LlamaIndex** to process complex PDFs and extract entity-relation triplets (Subject-Predicate-Object) using dynamic JSON schema constraints.
+* **Graph Storage & Vector Hybrid:** Deployed **Neo4j** as the graph store, linking entity nodes directly to their dense vectors inside a **Qdrant** database, enabling hybrid hierarchical retrievals.
+* **Specialized Orchestration:** Engineered specialized graph routing agents using **LangGraph** to autonomously traverse semantic relationships, achieving high consistency during reasoning.
 
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
+### Tech Stack
+* **Frameworks:** LangGraph, LlamaIndex, Python
+* **Databases:** Neo4j, Qdrant, MongoDB
+* **Deployment:** Docker, Docker Compose, MLflow
 
 
 ================================================
-FILE: content/posts/post-13.md
+FILE: content/posts/on-premise-ai-mofa.md
 ================================================
 ---
-title: "Why you need to learn PHP"
-date: 2022-04-04T13:00:00Z
-image: /images/post/post-5.png
-categories: ["youtube", "artificial-intelligence"]
-featured: false
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-14.md
-================================================
----
-title: "What you need to know about Programming"
-date: 2022-04-04T14:00:00Z
-image: /images/post/post-6.png
-categories: ["robotics", "youtube"]
-featured: false
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-15.md
-================================================
----
-title: "How to make toys from old Olarpaper"
-date: 2022-04-04T15:00:00Z
-image: /images/post/post-7.png
-categories: ["robotics", "assistance"]
-featured: false
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-2.md
-================================================
----
-title: My work from home workstation
-date: 2022-04-04T02:00:00Z
-image: /images/post/post-2.png
-categories: ["drone"]
-featured: true
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-3.md
-================================================
----
-title: What you need to know about Photography
-date: 2022-04-02T03:00:00+00:00
-image: /images/post/post-3.png
-categories: ["workstation"]
-featured: true
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-4.md
-================================================
----
-title: "How to make toys from old Olarpaper"
-date: 2022-04-04T04:00:00Z
-image: /images/post/post-4.png
-categories: ["robotics", "programming"]
-featured: false
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-5.md
-================================================
----
-title: "How to make toys from old Olarpaper"
-date: 2022-04-04T05:00:00Z
-image: /images/post/post-5.png
-categories: ["assistance", "github"]
-featured: true
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Work From Home
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!quatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-6.md
-================================================
----
-title: "How to make toys from old Olarpaper"
-date: 2022-04-04T06:00:00Z
-image: /images/post/post-6.png
-categories: ["artificial-intelligence", "programming"]
-featured: true
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-7.md
-================================================
----
-title: "Artificial Intelligence and Robotics In A Nutshell"
-date: 2022-04-04T07:00:00Z
-image: /images/post/post-7.png
-categories: ["programming", "youtube"]
-featured: false
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-8.md
-================================================
----
-title: "Drone Software and Development"
-date: 2022-04-04T08:00:00Z
-image: /images/post/post-8.png
-categories: ["drone", "robotics"]
-featured: true
-draft: false
----
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Covid-19 Situation
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-![alter-text](/images/post/post-1.png)
-*Example Caption*
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-
-
-================================================
-FILE: content/posts/post-9.md
-================================================
----
-title: "Github Repository Controls"
-date: 2022-04-04T09:00:00Z
+title: "Government On-Premise AI & Data Intelligence Platform â€” MOFA"
+date: 2025-01-15T08:00:00Z
 image: /images/post/post-1.png
-categories: ["workstation", "youtube"]
-featured: false
+categories: ["On-Premise", "RAG", "Agentic-AI"]
+featured: true
 draft: false
 ---
 
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+Designed an enterprise-grade on-premise AI platform for government data intelligence, enabling secure AI capabilities to operate within controlled infrastructure while maintaining strict data privacy requirements.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+### Key Implementation Details
+* **On-Premise Deployment:** Deployed open-source models (such as `gpt-oss-20b`) locally using **Ollama**, ensuring no sensitive data left the government infrastructure.
+* **Knowledge-Aware Retrieval:** Implemented a robust **Graph RAG** and vector search system, enabling the AI to reason over complex relationships between tables, columns, and business entities.
+* **Automated Governance:** Engineered specialized multi-agent systems to analyze database schemas across 10 enterprise systems (over 6 million records), automatically identifying sensitive data and proposing data quality rules.
 
-## Covid-19 Situation
+### Project Impact
+* Achieved **92% classification accuracy** for sensitive metadata detection.
+* Reduced manual data classification and compliance auditing effort by approximately **70%**.
 
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
 
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+================================================
+FILE: content/posts/text-to-sql-analytics.md
+================================================
+---
+title: "Enterprise AI Text-to-SQL & Analytics Platform"
+date: 2024-10-10T08:00:00Z
+image: /images/post/post-2.png
+categories: ["Text-to-SQL", "Agentic-AI", "FastAPI"]
+featured: true
+draft: false
+---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+Designed and built a complex, schema-aware multi-agent system capable of converting natural language questions into safe, highly accurate SQL queries, executing them, and returning visual analytics.
 
-![alter-text](/images/post/post-1.png)
-*Example Caption*
+### Key Implementation Details
+* **Multi-Agent Design:** Created four specialized agents (Conversation Manager, Schema Analyst, SQL Engineer, and Visualization Expert) working together to process requests.
+* **Contextual Grounding:** Implemented schema-aware retrieval to feed the model only the relevant database structures, improving accuracy and preventing hallucinated columns.
+* **Dynamic Visualization:** Used Pandas and Plotly to automatically select and render the optimal visual chart based on the query result payload.
+* **Multilingual Support:** Implemented robust handling for both Arabic and English queries.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
+### Tech Stack
+* **Core:** FastAPI, Pandas, Plotly/Dash
+* **Orchestration:** LangChain / Agentic workflows
+* **Database integrations:** MySQL, OracleDB
 
 
 ================================================
@@ -2505,54 +2087,61 @@ const About = ({ data }) => {
   const { title, image, education, experience } = frontmatter;
 
   return (
-    <section className="section mt-16">
-      <div className="container text-center">
+    <section className="section mt-12 animate-intro delay-1">
+      <div className="container">
         {image && (
-          <div className="mb-8">
+          <div className="mb-12 overflow-hidden rounded-2xl">
             <ImageFallback
               src={image}
               width={1298}
               height={616}
               alt={title}
-              className="rounded-lg"
+              className="w-full object-cover rounded-2xl"
             />
           </div>
         )}
-        {markdownify(title, "h1", "h1 text-left lg:text-[55px] mt-12")}
-
-        <div className="content text-left">
-          <MDXRemote {...mdxContent} components={shortcodes} />
+        
+        <div className="max-w-3xl mx-auto text-left">
+          {markdownify(title, "h1", "h1 text-left lg:text-[48px] font-bold tracking-tight mb-8 text-dark dark:text-white")}
+          
+          <div className="content text-left text-base leading-relaxed text-text dark:text-darkmode-text/90">
+            <MDXRemote {...mdxContent} components={shortcodes} />
+          </div>
         </div>
 
-        <div className="row mt-24 text-left lg:flex-nowrap">
-          <div className="lg:col-6 ">
-            <div className="rounded border border-border p-6 dark:border-darkmode-border ">
-              {markdownify(education.title, "h2", "section-title mb-12")}
-              <div className="row">
+        {/* Dynamic Skills and Education Grid */}
+        <div className="row mt-16 lg:flex-nowrap gap-6 justify-center">
+          <div className="lg:col-6 w-full animate-intro delay-2">
+            <div className="h-full rounded-2xl border border-border/40 bg-theme-light/10 p-8 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/10 shadow-sm">
+              {markdownify(education.title, "h2", "section-title font-bold text-dark dark:text-white mb-8")}
+              <div className="space-y-6">
                 {education.degrees.map((degree, index) => (
-                  <div className="mb-7 md:col-6" key={"degree-" + index}>
-                    <h4 className="text-base lg:text-[25px]">
+                  <div className="border-l-2 border-primary/50 pl-4 py-1" key={"degree-" + index}>
+                    <h4 className="text-lg font-bold text-dark dark:text-white">
                       {degree.university}
                     </h4>
-                    <p className="mt-2">{degree.content}</p>
+                    <p className="mt-1 text-sm text-text/90 dark:text-darkmode-text/80 whitespace-pre-line">
+                      {degree.content}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          <div className="experience mt-10 lg:mt-0 lg:col-6">
-            <div className="rounded border border-border p-6 dark:border-darkmode-border ">
-              {markdownify(experience.title, "h2", "section-title mb-12")}
-              <ul className="row">
+          
+          <div className="lg:col-6 w-full animate-intro delay-3">
+            <div className="h-full rounded-2xl border border-border/40 bg-theme-light/10 p-8 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/10 shadow-sm">
+              {markdownify(experience.title, "h2", "section-title font-bold text-dark dark:text-white mb-8")}
+              <div className="flex flex-wrap gap-2">
                 {experience?.list?.map((item, index) => (
-                  <li
-                    className="mb-5 text-lg font-bold text-dark dark:text-darkmode-light lg:col-6"
+                  <span
+                    className="inline-block rounded-lg bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-semibold text-primary transition-all duration-200 hover:bg-primary/20 dark:bg-primary/5 dark:hover:bg-primary/10"
                     key={"experience-" + index}
                   >
                     {item}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -2562,7 +2151,6 @@ const About = ({ data }) => {
 };
 
 export default About;
-
 
 
 ================================================
@@ -2677,7 +2265,7 @@ FILE: layouts/Contact.js
 import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 import { BsArrowRightShort } from "react-icons/bs";
-import { FaEnvelope, FaMapMarkerAlt, FaUserAlt } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import ImageFallback from "./components/ImageFallback";
 
 const Contact = ({ data }) => {
@@ -2685,142 +2273,134 @@ const Contact = ({ data }) => {
   const { title, form_action, phone, mail, location } = frontmatter;
 
   return (
-    <section className="section lg:mt-16">
-      <div className="container">
-        <div className="row relative pb-16">
-          <ImageFallback
-            className="-z-[1] object-cover object-top"
-            src={"/images/map.svg"}
-            fill="true"
-            alt="map bg"
-            priority={true}
-          />
-          <div className="lg:col-6">
+    <section className="relative py-4 lg:py-8 overflow-hidden animate-intro delay-1">
+      {/* Background Map secured absolutely so it never pushes content down */}
+      <div className="absolute inset-0 -z-10 pointer-events-none opacity-10">
+        <ImageFallback
+          className="w-full h-full object-cover"
+          src={"/images/map.svg"}
+          width={1920}
+          height={1080}
+          alt="map bg"
+          priority={true}
+        />
+      </div>
+      
+      <div className="container relative z-10">
+        <div className="row pb-6 items-center">
+          <div className="lg:col-5 text-center lg:text-left">
             {markdownify(
               title,
               "h1",
-              "h1 my-10 lg:my-11 lg:pt-11 text-center lg:text-left lg:text-[64px]"
+              "h2 my-2 lg:my-4 font-bold tracking-tight lg:text-[48px] leading-tight text-dark dark:text-white"
             )}
+            <p className="text-base text-text dark:text-darkmode-text/80 max-w-sm mx-auto lg:mx-0 mt-4">
+              Feel free to reach out for enterprise collaborations, on-premise AI deployments, or general inquiries.
+            </p>
           </div>
-          <div className="contact-form-wrapper rounded border border-border p-6 dark:border-darkmode-border lg:col-6">
-            <h2>
-              Send Us A
-              <span className="ml-1.5 inline-flex items-center text-primary">
-                Message
+          
+          <div className="contact-form-wrapper rounded-2xl border border-border/40 bg-body p-8 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/10 shadow-lg lg:col-7 mt-6 lg:mt-0 animate-intro delay-2">
+            <h2 className="h4 font-bold flex items-center justify-center lg:justify-start gap-1 mb-6 text-dark dark:text-white">
+              Send A Message
+              <span className="inline-flex items-center text-primary">
+                Directly
                 <BsArrowRightShort />
               </span>
             </h2>
-            <form
-              className="contact-form mt-12"
-              method="POST"
-              action={form_action}
-            >
-              <div className="mb-6">
-                <label className="mb-2 block font-secondary" htmlFor="name">
-                  Full name
-                  <small className="font-secondary text-sm text-primary">
-                    *
-                  </small>
-                </label>
-                <input
-                  className="form-input w-full"
-                  name="name"
-                  type="text"
-                  placeholder="Thomas Milano"
-                  required
-                />
+            
+            <form className="contact-form space-y-6" method="POST" action={form_action}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-dark dark:text-white/80" htmlFor="name">
+                    Full Name
+                  </label>
+                  <input
+                    className="form-input w-full rounded-lg border border-border/40 px-4 py-3 focus:border-primary/60 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/20"
+                    name="name"
+                    type="text"
+                    placeholder="Thomas Milano"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-dark dark:text-white/80" htmlFor="email">
+                    Email Address
+                  </label>
+                  <input
+                    className="form-input w-full rounded-lg border border-border/40 px-4 py-3 focus:border-primary/60 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/20"
+                    name="email"
+                    type="email"
+                    placeholder="example@gmail.com"
+                    required
+                  />
+                </div>
               </div>
-              <div className="mb-6">
-                <label className="mb-2 block font-secondary" htmlFor="email">
-                  Email Address
-                  <small className="font-secondary text-sm text-primary">
-                    *
-                  </small>
-                </label>
-                <input
-                  className="form-input w-full"
-                  name="email"
-                  type="email"
-                  placeholder="example@gmail.com"
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label className="mb-2 block font-secondary" htmlFor="subject">
+              
+              <div>
+                <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-dark dark:text-white/80" htmlFor="subject">
                   Subject
-                  <small className="font-secondary text-sm text-primary">
-                    *
-                  </small>
                 </label>
                 <input
-                  className="form-input w-full"
+                  className="form-input w-full rounded-lg border border-border/40 px-4 py-3 focus:border-primary/60 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/20"
                   name="subject"
                   type="text"
-                  placeholder="Blog advertisement"
+                  placeholder="AI Project Collaboration"
                   required
                 />
               </div>
-              <div className="mb-6">
-                <label className="mb-2 block font-secondary" htmlFor="message">
-                  Your Message Here
-                  <small className="font-secondary text-sm text-primary">
-                    *
-                  </small>
+              
+              <div>
+                <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-dark dark:text-white/80" htmlFor="message">
+                  Your Message
                 </label>
                 <textarea
-                  className="form-textarea w-full"
-                  placeholder="Hello Iâ€™m Mr â€˜xâ€™ fromâ€¦â€¦â€¦â€¦.."
-                  rows="7"
+                  className="form-textarea w-full rounded-lg border border-border/40 px-4 py-3 focus:border-primary/60 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/20"
+                  placeholder="Tell me about your system requirements..."
+                  rows="4"
+                  required
                 />
               </div>
-              <input
-                className="btn btn-primary"
-                type="submit"
-                value="Send Now"
-              />
+              
+              <button className="btn btn-primary w-full md:w-auto" type="submit">
+                Send Message
+              </button>
             </form>
           </div>
         </div>
-        <div className="row">
+        
+        {/* Contact Details Grid */}
+        <div className="row mt-8 gap-4 justify-center animate-intro delay-3">
           {phone && (
-            <div className="md:col-6 lg:col-4">
+            <div className="md:col-4">
               <Link
                 href={`tel:${phone}`}
-                className="my-4 flex h-[100px] items-center justify-center
-             rounded border border-border p-4 text-primary dark:border-darkmode-border"
+                className="flex flex-col items-center justify-center p-6 rounded-xl border border-border/40 bg-theme-light/5 text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 dark:border-darkmode-border/40"
               >
-                <FaUserAlt />
-                <p className="ml-1.5 text-lg font-bold text-dark dark:text-darkmode-light">
-                  {phone}
-                </p>
+                <FaPhoneAlt className="text-xl mb-2" />
+                <span className="text-xs text-text dark:text-darkmode-text/70 mb-1">Call Me</span>
+                <p className="text-sm font-bold text-dark dark:text-white">{phone}</p>
               </Link>
             </div>
           )}
           {mail && (
-            <div className="md:col-6 lg:col-4">
+            <div className="md:col-4">
               <Link
                 href={`mailto:${mail}`}
-                className="my-4 flex h-[100px] items-center justify-center
-             rounded border border-border p-4 text-primary dark:border-darkmode-border"
+                className="flex flex-col items-center justify-center p-6 rounded-xl border border-border/40 bg-theme-light/5 text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 dark:border-darkmode-border/40"
               >
-                <FaEnvelope />
-                <p className="ml-1.5 text-lg font-bold text-dark dark:text-darkmode-light">
-                  {mail}
-                </p>
+                <FaEnvelope className="text-xl mb-2" />
+                <span className="text-xs text-text dark:text-darkmode-text/70 mb-1">Email Me</span>
+                <p className="text-sm font-bold text-dark dark:text-white">{mail}</p>
               </Link>
             </div>
           )}
           {location && (
-            <div className="md:col-6 lg:col-4">
-              <span
-                className="my-4 flex h-[100px] items-center justify-center
-             rounded border border-border p-4 text-primary dark:border-darkmode-border"
-              >
-                <FaMapMarkerAlt />
-                <p className="ml-1.5 text-lg font-bold text-dark dark:text-darkmode-light">
-                  {location}
-                </p>
-              </span>
+            <div className="md:col-4">
+              <div className="flex flex-col items-center justify-center p-6 rounded-xl border border-border/40 bg-theme-light/5 text-primary dark:border-darkmode-border/40">
+                <FaMapMarkerAlt className="text-xl mb-2" />
+                <span className="text-xs text-text dark:text-darkmode-text/70 mb-1">Location</span>
+                <p className="text-sm font-bold text-dark dark:text-white">{location}</p>
+              </div>
             </div>
           )}
         </div>
@@ -2830,7 +2410,6 @@ const Contact = ({ data }) => {
 };
 
 export default Contact;
-
 
 
 ================================================
@@ -3080,50 +2659,27 @@ export default InnerPagination;
 ================================================
 FILE: layouts/components/Logo.js
 ================================================
-import ImageFallback from "@components/ImageFallback";
 import config from "@config/config.json";
-import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Logo = ({ src }) => {
-  // destructuring items from config object
-  const { logo, logo_white, logo_width, logo_height, logo_text, title } =
-    config.site;
-  const { theme, resolvedTheme } = useTheme();
+const Logo = () => {
+  const { logo_text, title } = config.site;
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
   return (
-    <Link href="/" className="navbar-brand">
-      {src || logo ? (
-        <ImageFallback
-          width={logo_width.replace("px", "") * 2}
-          height={logo_height.replace("px", "") * 2}
-          src={
-            mounted && (theme === "dark" || resolvedTheme === "dark")
-              ? logo_white
-              : logo
-          }
-          alt={title}
-          priority
-          style={{
-            height: logo_height.replace("px", "") + "px",
-            width: logo_width.replace("px", "") + "px",
-          }}
-          className={"m-auto"}
-        />
-      ) : logo_text ? (
-        logo_text
-      ) : (
-        title
-      )}
+    <Link 
+      href="/" 
+      className="navbar-brand block font-secondary font-bold text-xl md:text-2xl tracking-tight text-dark dark:text-white hover:text-primary transition-colors duration-200"
+    >
+      {/* Dynamic textual logo based on config.json logo_text */}
+      {mounted ? logo_text || title : "Ali Hamdan"}
     </Link>
   );
 };
 
 export default Logo;
-
 
 
 ================================================
@@ -3358,7 +2914,6 @@ FILE: layouts/components/Social.js
 ================================================
 import {
   IoCall,
-  IoGlobeOutline,
   IoLocation,
   IoLogoBehance,
   IoLogoBitbucket,
@@ -3390,7 +2945,20 @@ import {
   IoMail,
 } from "react-icons/io5";
 
-const Social = ({ source, className }) => {
+// Custom safe Hugging Face SVG to prevent any import crashes
+const HuggingFaceIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    width="1.35em"
+    height="1.35em"
+    style={{ display: "inline-block", verticalAlign: "middle" }}
+  >
+    <path d="M12 .25A11.75 11.75 0 1 0 23.75 12 11.77 11.77 0 0 0 12 .25zm6.5 12a6.5 6.5 0 1 1-6.5-6.5 6.5 6.5 0 0 1 6.5 6.5zm-10.5-1a1.25 1.25 0 1 1 1.25-1.25A1.25 1.25 0 0 1 8 11.25zm8 0a1.25 1.25 0 1 1 1.25-1.25 1.25 1.25 0 0 1-1.25 1.25zm-4 4.75a3.5 3.5 0 0 1-3-1.75.5.5 0 0 1 .86-.5 2.5 2.5 0 0 0 4.28 0 .5.5 0 0 1 .86.5 3.5 3.5 0 0 1-3 1.75z" />
+  </svg>
+);
+
+const Social = ({ source = {}, className }) => {
   const {
     facebook,
     stackoverflow,
@@ -3424,361 +2992,313 @@ const Social = ({ source, className }) => {
     skype,
     website,
   } = source;
+
   return (
     <ul className={className}>
       {facebook && (
         <li className="inline-block">
           <a
-            aria-label="facebook"
-            href={`${facebook}/#!`}
+            aria-label="Facebook"
+            href={facebook}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoFacebook />
           </a>
         </li>
       )}
+
       {stackoverflow && (
         <li className="inline-block">
           <a
-            aria-label="stackoverflow"
-            href={`${stackoverflow}/#!`}
+            aria-label="Stack Overflow"
+            href={stackoverflow}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoStackoverflow />
           </a>
         </li>
       )}
+
       {twitter && (
         <li className="inline-block">
           <a
-            aria-label="twitter"
-            href={`${twitter}/#!`}
+            aria-label="Twitter"
+            href={twitter}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoTwitter />
           </a>
         </li>
       )}
+
       {instagram && (
         <li className="inline-block">
           <a
-            aria-label="instagram"
-            href={`${instagram}/#!`}
+            aria-label="Instagram"
+            href={instagram}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoInstagram />
           </a>
         </li>
       )}
+
       {youtube && (
         <li className="inline-block">
           <a
-            aria-label="youtube"
-            href={`${youtube}/#!`}
+            aria-label="YouTube"
+            href={youtube}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoYoutube />
           </a>
         </li>
       )}
+
       {linkedin && (
         <li className="inline-block">
           <a
-            aria-label="linkedin"
-            href={`${linkedin}/#!`}
+            aria-label="LinkedIn"
+            href={linkedin}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoLinkedin />
           </a>
         </li>
       )}
+
       {github && (
         <li className="inline-block">
           <a
-            aria-label="github"
-            href={`${github}/#!`}
+            aria-label="GitHub"
+            href={github}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoGithub />
           </a>
         </li>
       )}
+
       {gitlab && (
         <li className="inline-block">
           <a
-            aria-label="gitlab"
-            href={`${gitlab}/#!`}
+            aria-label="GitLab"
+            href={gitlab}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoGitlab />
           </a>
         </li>
       )}
+
       {discord && (
         <li className="inline-block">
           <a
-            aria-label="discord"
-            href={`${discord}/#!`}
+            aria-label="Discord"
+            href={discord}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoDiscord />
           </a>
         </li>
       )}
+
       {slack && (
         <li className="inline-block">
           <a
-            aria-label="slack"
-            href={`${slack}/#!`}
+            aria-label="Slack"
+            href={slack}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoSlack />
           </a>
         </li>
       )}
+
       {medium && (
         <li className="inline-block">
           <a
-            aria-label="medium"
-            href={`${medium}/#!`}
+            aria-label="Medium"
+            href={medium}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoMedium />
           </a>
         </li>
       )}
+
       {codepen && (
         <li className="inline-block">
           <a
-            aria-label="codepen"
-            href={`${codepen}/#!`}
+            aria-label="CodePen"
+            href={codepen}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoCodepen />
           </a>
         </li>
       )}
+
       {bitbucket && (
         <li className="inline-block">
           <a
-            aria-label="bitbucket"
-            href={`${bitbucket}/#!`}
+            aria-label="Bitbucket"
+            href={bitbucket}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoBitbucket />
           </a>
         </li>
       )}
+
       {dribbble && (
         <li className="inline-block">
           <a
-            aria-label="dribbble"
-            href={`${dribbble}/#!`} 
+            aria-label="Dribbble"
+            href={dribbble}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoDribbble />
           </a>
         </li>
       )}
+
       {behance && (
         <li className="inline-block">
           <a
-            aria-label="behance"
-            href={`${behance}/#!`}
+            aria-label="Behance"
+            href={behance}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoBehance />
           </a>
         </li>
       )}
+
       {pinterest && (
         <li className="inline-block">
           <a
-            aria-label="pinterest"
-            href={`${pinterest}/#!`}
+            aria-label="Pinterest"
+            href={pinterest}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoPinterest />
           </a>
         </li>
       )}
+
       {soundcloud && (
         <li className="inline-block">
           <a
-            aria-label="soundcloud"
-            href={`${soundcloud}/#!`}
+            aria-label="SoundCloud"
+            href={soundcloud}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoSoundcloud />
           </a>
         </li>
       )}
+
       {tumblr && (
         <li className="inline-block">
           <a
-            aria-label="tumblr"
-            href={`${tumblr}/#!`}
+            aria-label="Tumblr"
+            href={tumblr}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoTumblr />
           </a>
         </li>
       )}
+
       {reddit && (
         <li className="inline-block">
           <a
-            aria-label="reddit"
-            href={`${reddit}/#!`}
+            aria-label="Reddit"
+            href={reddit}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoReddit />
           </a>
         </li>
       )}
+
       {vk && (
         <li className="inline-block">
           <a
-            aria-label="vk"
-            href={`${vk}/#!`}
+            aria-label="VK"
+            href={vk}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoVk />
           </a>
         </li>
       )}
+
       {whatsapp && (
         <li className="inline-block">
           <a
-            aria-label="whatsapp"
-            href={`${whatsapp}/#!`}
+            aria-label="WhatsApp"
+            href={whatsapp}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoWhatsapp />
           </a>
         </li>
       )}
+
       {snapchat && (
         <li className="inline-block">
           <a
-            aria-label="snapchat"
-            href={`${snapchat}/#!`}
+            aria-label="Snapchat"
+            href={snapchat}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoSnapchat />
           </a>
         </li>
       )}
+
       {vimeo && (
         <li className="inline-block">
           <a
-            aria-label="vimeo"
-            href={`${vimeo}/#!`}  
+            aria-label="Vimeo"
+            href={vimeo}
             target="_blank"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             rel="noopener noreferrer nofollow"
           >
             <IoLogoVimeo />
           </a>
         </li>
       )}
+
       {tiktok && (
         <li className="inline-block">
           <a
-            aria-label="tiktok"
-            href={`${tiktok}/#!`}
-            onClick={(e) => {
-              e.preventDefault();
-            }}
+            aria-label="TikTok"
+            href={tiktok}
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
@@ -3786,14 +3306,12 @@ const Social = ({ source, className }) => {
           </a>
         </li>
       )}
+
       {foursquare && (
         <li className="inline-block">
           <a
-            aria-label="foursquare"
-            href={`${foursquare}/#!`}
-            onClick={(e) => {
-              e.preventDefault();
-            }}
+            aria-label="Foursquare"
+            href={foursquare}
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
@@ -3801,14 +3319,12 @@ const Social = ({ source, className }) => {
           </a>
         </li>
       )}
+
       {skype && (
         <li className="inline-block">
           <a
-            aria-label="skype"
-            href={`${skype}/#!`}
-            onClick={(e) => {
-              e.preventDefault();
-            }}
+            aria-label="Skype"
+            href={skype}
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
@@ -3816,29 +3332,25 @@ const Social = ({ source, className }) => {
           </a>
         </li>
       )}
+
       {website && (
         <li className="inline-block">
           <a
-            aria-label="website"
-            href={`${website}/#!`}
-            onClick={(e) => {
-              e.preventDefault();
-            }}
+            aria-label="Hugging Face"
+            href={website}
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
-            <IoGlobeOutline />
+            <HuggingFaceIcon />
           </a>
         </li>
       )}
+
       {rss && (
         <li className="inline-block">
           <a
-            aria-label="rss feed"
-            href={`${rss}/#!`}
-            onClick={(e) => {
-              e.preventDefault();
-            }}
+            aria-label="RSS Feed"
+            href={rss}
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
@@ -3846,32 +3358,28 @@ const Social = ({ source, className }) => {
           </a>
         </li>
       )}
+
       {email && (
         <li className="inline-block">
-          <a aria-label="email" href={`mailto:${email}`} onClick={(e) => {
-            e.preventDefault();
-          }}>
+          <a aria-label="Email" href={`mailto:${email}`}>
             <IoMail />
           </a>
         </li>
       )}
+
       {phone && (
         <li className="inline-block">
-          <a aria-label="telephone" href={`tel:${phone}`} onClick={(e) => {
-            e.preventDefault();
-          }}>
+          <a aria-label="Telephone" href={`tel:${phone}`}>
             <IoCall />
           </a>
         </li>
       )}
+
       {address && (
         <li className="inline-block">
           <a
-            aria-label="location"
-            href={`${address}/#!`}
-            onClick={(e) => {
-              e.preventDefault();
-            }}
+            aria-label="Location"
+            href={address}
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
@@ -3884,7 +3392,6 @@ const Social = ({ source, className }) => {
 };
 
 export default Social;
-
 
 
 ================================================
@@ -3943,23 +3450,11 @@ export default ThemeSwitcher;
 FILE: layouts/components/TwSizeIndicator.js
 ================================================
 const TwSizeIndicator = () => {
-  if (process.env.NODE_ENV === "development") {
-    return (
-      <div className="fixed top-0 left-0 z-50 flex w-[30px] items-center justify-center bg-gray-200 py-[2.5px] text-[12px] uppercase text-black sm:bg-red-200 md:bg-yellow-200 lg:bg-green-200 xl:bg-blue-200 2xl:bg-pink-200">
-        <span className="block sm:hidden">all</span>
-        <span className="hidden sm:block md:hidden">sm</span>
-        <span className="hidden md:block lg:hidden">md</span>
-        <span className="hidden lg:block xl:hidden">lg</span>
-        <span className="hidden xl:block 2xl:hidden">xl</span>
-        <span className="hidden 2xl:block">2xl</span>
-      </div>
-    );
-  } else {
-    return null;
-  }
+  // Disabled the screen size indicator to keep the header perfectly clean
+  return null;
 };
-export default TwSizeIndicator;
 
+export default TwSizeIndicator;
 
 
 ================================================
@@ -3974,15 +3469,12 @@ import Logo from "@layouts/components/Logo";
 import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 
-
-
-
 const Footer = () => {
   const { copyright, footer_content } = config.params;
   return (
     <footer className="section relative mt-12 pt-[70px] pb-[50px]">
       <ImageFallback
-        className="-z-[1] absolute min-h-full inset-0 block object-cover object-left  md:object-top"
+        className="-z-[1] absolute min-h-full inset-0 block object-cover object-left md:object-top"
         src="/images/footer-bg-shape.svg"
         alt="footer background"
         fill={true}
@@ -3993,18 +3485,15 @@ const Footer = () => {
         </div>
         {markdownify(footer_content, "p", "max-w-[638px] mx-auto")}
 
-        {/* footer menu */}
+        {/* Cleaned & activated Footer menu */}
         <ul className="mb-12 mt-6 flex-wrap space-x-2 lg:space-x-4">
-          {menu.footer.map((menu) => (
-            <li className="inline-block" key={menu.name}>
+          {menu.footer.map((item) => (
+            <li className="inline-block" key={item.name}>
               <Link
-                href={`${menu.url}/#!`}
-                onClick={(e) => {
-                  e.preventDefault();
-                }}
+                href={item.url}
                 className="p-2 font-bold text-dark hover:text-primary dark:text-darkmode-light lg:p-4"
               >
-                {menu.name}
+                {item.name}
               </Link>
             </li>
           ))}
@@ -4021,7 +3510,6 @@ const Footer = () => {
 };
 
 export default Footer;
-
 
 
 ================================================
@@ -4195,76 +3683,70 @@ import config from "@config/config.json";
 import ImageFallback from "@layouts/components/ImageFallback";
 import dateFormat from "@lib/utils/dateFormat";
 import Link from "next/link";
-import { FaRegCalendar, FaUserAlt } from "react-icons/fa";
+import { FaRegCalendar, FaArrowRight } from "react-icons/fa";
 
 const Post = ({ post }) => {
   const { summary_length, blog_folder } = config.settings;
   const { meta_author } = config.metadata;
   const author = post.frontmatter.author ? post.frontmatter.author : meta_author;
+
   return (
-    <div className="post">
-      <div className="relative">
+    <div className="group relative overflow-hidden rounded-2xl border border-border/50 bg-body p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl dark:border-darkmode-border/50 dark:bg-darkmode-theme-dark/30">
+      <div className="relative overflow-hidden rounded-xl">
         {post.frontmatter.image && (
           <ImageFallback
-            className="rounded"
+            className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             src={post.frontmatter.image}
             alt={post.frontmatter.title}
             width={405}
             height={208}
           />
         )}
-        <ul className="absolute top-3 left-2 flex flex-wrap items-center">
+        <ul className="absolute top-3 left-3 flex flex-wrap gap-1">
           {post.frontmatter.categories.map((tag, index) => (
             <li
-              className="mx-2 inline-flex h-7 rounded-[35px] bg-primary px-3 text-white"
+              className="rounded-full bg-primary/95 px-3 py-0.5 font-secondary text-[10px] font-bold uppercase tracking-wider text-white"
               key={"tag-" + index}
             >
-              <Link
-                className="capitalize"
-                href={`/categories/${tag.replace(" ", "-")}`}
-              >
+              <Link href={`/categories/${tag.replace(" ", "-")}`}>
                 {tag}
               </Link>
             </li>
           ))}
         </ul>
       </div>
-      <h3 className="h5 mb-2 mt-4">
-        <Link
-          href={`/${blog_folder}/${post.slug}`}
-          className="block hover:text-primary"
-        >
-          {post.frontmatter.title}
-        </Link>
-      </h3>
-      <ul className="flex items-center space-x-4">
-        <li>
-          <Link
-            className="inline-flex items-center font-secondary text-xs leading-3"
-            href="/about"
-          >
-            <FaUserAlt className="mr-1.5" />
-            {author}
+      
+      <div className="mt-5">
+        <div className="flex items-center gap-3 text-xs text-light dark:text-darkmode-text/70 mb-2">
+          <span className="flex items-center gap-1">
+            <FaRegCalendar />
+            {dateFormat(post.frontmatter.date)}
+          </span>
+        </div>
+        
+        <h3 className="h5 font-bold mb-3 text-dark dark:text-white transition-colors duration-200 group-hover:text-primary">
+          <Link href={`/${blog_folder}/${post.slug}`} className="block">
+            {post.frontmatter.title}
           </Link>
-        </li>
-        <li className="inline-flex items-center font-secondary text-xs leading-3">
-          <FaRegCalendar className="mr-1.5" />
-          {dateFormat(post.frontmatter.date)}
-        </li>
-      </ul>
-      <p>{post.content.slice(0, Number(summary_length))}</p>
-      <Link
-        className="btn btn-outline-primary mt-4"
-        href={`/${blog_folder}/${post.slug}`}
-      >
-        Read More
-      </Link>
+        </h3>
+        
+        <p className="text-sm leading-relaxed text-text dark:text-darkmode-text/80 mb-5">
+          {post.content.slice(0, Number(summary_length))}...
+        </p>
+        
+        <Link
+          className="inline-flex items-center gap-2 text-sm font-bold text-primary transition-all duration-200 hover:gap-3"
+          href={`/${blog_folder}/${post.slug}`}
+        >
+          Explore Architecture
+          <FaArrowRight className="text-xs" />
+        </Link>
+      </div>
     </div>
   );
 };
 
 export default Post;
-
 
 
 ================================================
@@ -5405,11 +4887,9 @@ import Post from "@layouts/partials/Post";
 import Sidebar from "@layouts/partials/Sidebar";
 import { getListPage, getSinglePage } from "@lib/contentParser";
 import { getTaxonomy } from "@lib/taxonomyParser";
-import dateFormat from "@lib/utils/dateFormat";
 import { sortByDate } from "@lib/utils/sortFunctions";
 import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
-import { FaRegCalendar } from "react-icons/fa";
 const { blog_folder, pagination } = config.settings;
 
 const Home = ({
@@ -5418,21 +4898,16 @@ const Home = ({
   featured_posts,
   recent_posts,
   categories,
-  promotion,
 }) => {
-  // define state
   const sortPostByDate = sortByDate(posts);
-  const featuredPosts = sortPostByDate.filter(
-    (post) => post.frontmatter.featured
-  );
   const showPosts = pagination;
 
   return (
     <Base>
-      {/* Banner */}
-      <section className="section banner relative pb-0">
+      {/* Banner Section */}
+      <section className="section banner relative pb-0 overflow-hidden">
         <ImageFallback
-          className="absolute bottom-0 left-0 z-[-1] w-full"
+          className="absolute bottom-0 left-0 z-[-1] w-full opacity-60"
           src={"/images/banner-bg-shape.svg"}
           width={1905}
           height={295}
@@ -5442,134 +4917,62 @@ const Home = ({
 
         <div className="container">
           <div className="row flex-wrap-reverse items-center justify-center lg:flex-row">
-            <div className={banner.image_enable ? "mt-12 text-center lg:mt-0 lg:text-left lg:col-6" : "mt-12 text-center lg:mt-0 lg:text-left lg:col-12"}>
-              <div className="banner-title">
-                {markdownify(banner.title, "h1")}
-                {markdownify(banner.title_small, "span")}
+            <div className="mt-12 text-center lg:mt-0 lg:text-left lg:col-6 animate-intro delay-1">
+              <div className="banner-title mb-4">
+                {markdownify(banner.title, "h1", "font-bold tracking-tight text-dark dark:text-white")}
+                {markdownify(banner.title_small, "span", "block text-lg font-medium text-primary mt-2")}
               </div>
-              {markdownify(banner.content, "p", "mt-4")}
+              {markdownify(banner.content, "p", "mt-4 text-base text-text dark:text-darkmode-text/90 max-w-lg")}
               {banner.button.enable && (
+                <div className="mt-6">
                   <Link
-                    className="btn btn-primary mt-6"
+                    className="btn btn-primary"
                     href={banner.button.link}
                     rel={banner.button.rel}
                   >
                     {banner.button.label}
                   </Link>
+                </div>
               )}
             </div>
+            
+            {/* Elegant Squircle Frame for JPEG non-transparent backgrounds */}
             {banner.image_enable && (
-                <div className="col-9 lg:col-6">
+              <div className="col-9 lg:col-6 animate-intro delay-2 flex justify-center">
+                <div className="relative overflow-hidden rounded-[2.5rem] border-[6px] border-border/40 bg-[#707271] p-1 shadow-2xl transition-transform duration-700 hover:scale-[1.02] max-w-[360px] w-full aspect-square">
                   <ImageFallback
-                    className="mx-auto object-contain"
+                    className="w-full h-full object-cover rounded-[2.2rem]"
                     src={banner.image}
-                    width={548}
-                    height={443}
+                    width={500}
+                    height={500}
                     priority={true}
-                    alt="Banner Image"
+                    alt="Ali Hamdan"
                   />
                 </div>
+              </div>
             )}
           </div>
         </div>
       </section>
 
-      {/* Home main */}
-      <section className="section">
+      {/* Full Width Technical Projects Section */}
+      <section className="section py-12">
         <div className="container">
-          <div className="row items-start">
-            <div className="mb-12 lg:mb-0 lg:col-8">
-              {/* Featured posts */}
-              {featured_posts.enable && (
-                <div className="section">
-                  {markdownify(featured_posts.title, "h2", "section-title")}
-                  <div className="rounded border border-border p-6 dark:border-darkmode-border">
-                    <div className="row">
-                      <div className="md:col-6">
-                        <Post post={featuredPosts[0]} />
+          <div className="animate-intro delay-3">
+            {recent_posts.enable && (
+              <div>
+                {markdownify(recent_posts.title, "h2", "section-title font-bold text-dark dark:text-white mb-10")}
+                <div className="rounded-2xl border border-border/40 bg-theme-light/10 p-6 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/10">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {sortPostByDate.slice(0, 3).map((post) => (
+                      <div key={post.slug} className="w-full">
+                        <Post post={post} />
                       </div>
-                      <div className="scrollbar-w-[10px] mt-8 max-h-[480px] scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-border dark:scrollbar-track-gray-800 dark:scrollbar-thumb-darkmode-theme-dark md:mt-0 md:col-6">
-                        {featuredPosts
-                          .slice(1, featuredPosts.length)
-                          .map((post, i, arr) => (
-                            <div
-                              className={`mb-6 flex items-center pb-6 ${
-                                i !== arr.length - 1 &&
-                                "border-b border-border dark:border-darkmode-border"
-                              }`}
-                              key={`key-${i}`}
-                            >
-                              {post.frontmatter.image && (
-                                <ImageFallback
-                                  className="mr-3 h-[85px] rounded object-cover"
-                                  src={post.frontmatter.image}
-                                  alt={post.frontmatter.title}
-                                  width={105}
-                                  height={85}
-                                />
-                              )}
-                              <div>
-                                <h3 className="h5 mb-2">
-                                  <Link
-                                    href={`/${blog_folder}/${post.slug}`}
-                                    className="block hover:text-primary"
-                                  >
-                                    {post.frontmatter.title}
-                                  </Link>
-                                </h3>
-                                <p className="inline-flex items-center font-bold">
-                                  <FaRegCalendar className="mr-1.5" />
-                                  {dateFormat(post.frontmatter.date)}
-                                </p>
-                              </div>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
-              )}
-
-              {/* Promotion */}
-              {promotion.enable && (
-                <Link href={promotion.link} className="section block pt-0">
-                  <ImageFallback
-                    className="h-full w-full"
-                    height="115"
-                    width="800"
-                    src={promotion.image}
-                    alt="promotion"
-                  />
-                </Link>
-              )}
-
-              {/* Recent Posts */}
-              {recent_posts.enable && (
-                <div className="section pt-0">
-                  {markdownify(recent_posts.title, "h2", "section-title")}
-                  <div className="rounded border border-border px-6 pt-6 dark:border-darkmode-border">
-                    <div className="row">
-                      {sortPostByDate.slice(0, showPosts).map((post) => (
-                        <div className="mb-8 md:col-6" key={post.slug}>
-                          <Post post={post} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <Pagination
-                totalPages={Math.ceil(posts.length / showPosts)}
-                currentPage={1}
-              />
-            </div>
-            {/* sidebar */}
-            <Sidebar
-              className={"lg:mt-[9.5rem]"}
-              posts={posts}
-              categories={categories}
-            />
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -5579,7 +4982,6 @@ const Home = ({
 
 export default Home;
 
-// for homepage data
 export const getStaticProps = async () => {
   const homepage = await getListPage("content/_index.md");
   const { frontmatter } = homepage;
@@ -5608,7 +5010,6 @@ export const getStaticProps = async () => {
     },
   };
 };
-
 
 
 ================================================
@@ -6558,11 +5959,34 @@ FILE: styles/style.scss
 ================================================
 FILE: styles/utilities.scss
 ================================================
-b,
-strong {
-  @apply font-semibold;
+/* Custom Smooth Portfolio Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+.animate-intro {
+  opacity: 0;
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.15s;
+}
+
+.delay-2 {
+  animation-delay: 0.3s;
+}
+
+.delay-3 {
+  animation-delay: 0.45s;
+}
 
 
 ================================================
