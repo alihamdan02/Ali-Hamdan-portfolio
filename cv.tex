@@ -1,0 +1,652 @@
+%-------------------------
+% Resume in Latex
+% AI Engineer Resume
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome}
+\usepackage{array}
+\usepackage{xcolor}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\definecolor{primary}{RGB}{70, 130, 180}
+\definecolor{secondary}{RGB}{0, 0, 0}
+\definecolor{techbg}{RGB}{240, 245, 250}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\color{primary}
+}{}{0em}{}[\color{primary}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\techtag}[1]{
+  {\small\colorbox{techbg}{\textcolor{primary}{#1}}}
+}
+
+\newcommand{\resumeSubItem}[1]{
+  \resumeItem{#1}\vspace{-4pt}
+}
+
+\renewcommand\labelitemii{
+  $\vcenter{\hbox{\tiny$\bullet$}}$
+}
+
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}]
+}
+
+\newcommand{\resumeSubHeadingListEnd}{
+  \end{itemize}
+}
+
+\newcommand{\resumeItemListStart}{
+  \begin{itemize}
+}
+
+\newcommand{\resumeItemListEnd}{
+  \end{itemize}\vspace{-5pt}
+}
+
+
+\begin{document}
+
+%-----------HEADER-----------
+
+\begin{center}
+
+    \textbf{\Huge \scshape \color{primary}Ali Hamdan}
+    
+    \vspace{2pt}
+    
+    \small
+    \textit{AI Engineer | Generative AI | LLMs | RAG | Agentic AI}
+    
+    \vspace{3pt}
+    
+    \faPhone\ JOR: +962799661576 $|$
+    \faPhone\ KSA: +966501968175 $|$
+    \faEnvelope\ 
+    \href{mailto:aliihamdan02@gmail.com}
+    {\underline{aliihamdan02@gmail.com}}
+    
+    $|$
+    
+    \faMapMarker\ Riyadh, Saudi Arabia
+    
+    \vspace{2pt}
+    
+    \faLinkedin\
+    \href{https://www.linkedin.com/in/ali-hamdan-a6678a25a/}
+    {\underline{LinkedIn}}
+    
+    $|$
+    
+    \faGithub\
+    \href{https://github.com/alihamdan02}
+    {\underline{GitHub}}
+    
+    $|$
+    
+    \faCode\
+    \href{https://huggingface.co/alihamdan02}
+    {\underline{Hugging Face}}
+
+\end{center}
+
+
+%-----------PROFESSIONAL SUMMARY-----------
+
+\section{Professional Summary}
+
+\small{
+
+AI Engineer with \textbf{6+ years of hands-on experience in Artificial Intelligence, Machine Learning, Generative AI, NLP, and LLM-based systems}, specializing in enterprise-grade AI solutions, Retrieval-Augmented Generation (RAG), Agentic AI, multi-agent architectures, vector search, and on-premise LLM deployment.
+
+Experienced in designing and deploying secure AI platforms for government and enterprise organizations, with a strong focus on \textbf{on-premise AI architectures, data privacy, domain-specific intelligence, and production-grade AI systems}. Developed AI solutions for the \textbf{Ministry of Foreign Affairs (MOFA)} and the \textbf{National Center for Wildlife (NCW)}.
+
+Hands-on experience designing \textbf{RAG pipelines, vector databases, semantic search, hybrid retrieval, graph-based retrieval, Knowledge Graphs, and Graph RAG architectures}. Experienced in connecting LLMs with enterprise databases, metadata repositories, structured and unstructured data, enabling AI systems to reason over organization-specific knowledge.
+
+Experienced across the complete AI lifecycle including data preparation, synthetic data generation, prompt engineering, embeddings, retrieval optimization, LLM evaluation, fine-tuning workflows, LoRA/PEFT, model optimization, API development, containerization, and secure deployment.
+
+Strong Python background with practical experience across PyTorch, Transformers, Hugging Face, LangChain, LangGraph, vector databases, FastAPI, Docker, and enterprise data platforms.
+}
+
+
+%-----------CORE AI EXPERTISE-----------
+
+\section{Core AI Expertise}
+
+\begin{center}
+
+\techtag{Generative AI}
+\techtag{LLMs}
+\techtag{RAG}
+\techtag{Agentic AI}
+\techtag{Multi-Agent Systems}
+\techtag{NLP}
+\techtag{Fine-Tuning}
+\techtag{LoRA / PEFT}
+\techtag{Vector Search}
+\techtag{Hybrid Search}
+\techtag{Knowledge Graphs}
+\techtag{Graph RAG}
+\techtag{Semantic Search}
+\techtag{Prompt Engineering}
+\techtag{LLM Evaluation}
+\techtag{On-Premise AI}
+
+\end{center}
+
+
+%-----------EDUCATION-----------
+
+\section{Education}
+
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Tafila Technical University}
+    {Tafila, Jordan}
+    {B.Sc. in Artificial Intelligence and Data Science, GPA: 3.5/4.0}
+    {Oct. 2016 -- Sep. 2020}
+
+  \resumeSubSubheading
+    {Excellent; Ranked 1st in the Graduating Class}
+    {}
+
+\resumeSubHeadingListEnd
+
+
+%-----------PROFESSIONAL EXPERIENCE-----------
+
+\section{Professional Experience}
+
+\resumeSubHeadingListStart
+
+
+%-----------TOOLS & SOLUTIONS-----------
+
+\resumeSubheading
+  {AI Engineer}
+  {Jan. 2025 -- Present}
+  {Tools \& Solutions}
+  {Amman, Jordan}
+
+\resumeItemListStart
+
+  \resumeItem{
+  Designed and deployed enterprise AI solutions for government organizations, including the \textbf{Ministry of Foreign Affairs (MOFA)} and the \textbf{National Center for Wildlife (NCW)}.
+  }
+
+  \resumeItem{
+  Architected secure \textbf{on-premise Generative AI solutions} using locally deployed Large Language Models, enabling sensitive enterprise data to remain within controlled infrastructure.
+  }
+
+  \resumeItem{
+  Developed AI-powered data intelligence systems for automated data classification, metadata extraction, sensitive-data detection, data quality analysis, and compliance with \textbf{NDMO and NDI} standards.
+  }
+
+  \resumeItem{
+  Designed enterprise RAG architectures combining vector retrieval, metadata filtering, structured relationships, and domain-specific knowledge to ground LLM responses.
+  }
+
+  \resumeItem{
+  Designed vector-based retrieval pipelines using embeddings and vector databases for semantic search across enterprise knowledge, metadata, and governance information.
+  }
+
+  \resumeItem{
+  Designed knowledge-aware retrieval architectures combining \textbf{vector search and graph-based relationships} to improve retrieval of interconnected enterprise entities.
+  }
+
+  \resumeItem{
+  Developed domain-specific LLM workflows covering dataset preparation, prompt engineering, evaluation, retrieval optimization, and fine-tuning-oriented experimentation.
+  }
+
+  \resumeItem{
+  Built multi-agent AI systems capable of reasoning, tool utilization, memory, structured output generation, and multi-step task execution.
+  }
+
+  \resumeItem{
+  Achieved approximately \textbf{92\% classification accuracy} and reduced manual data governance effort by approximately \textbf{70\%}.
+  }
+
+  \resumeItem{
+  Designed end-to-end AI pipelines covering data ingestion, preprocessing, embedding generation, retrieval, inference, evaluation, API integration, containerization, and deployment.
+  }
+
+\resumeItemListEnd
+
+
+%-----------OPTIMIZA-----------
+
+\resumeSubheading
+  {RLHF Engineer}
+  {Jun. 2023 -- Jan. 2025}
+  {Optimiza}
+  {Amman, Jordan}
+
+\resumeItemListStart
+
+  \resumeItem{
+  Developed and curated large-scale synthetic and real-world datasets for training, evaluation, and optimization of Large Language Models across coding, analytics, and enterprise tasks.
+  }
+
+  \resumeItem{
+  Designed systematic LLM evaluation pipelines to measure accuracy, consistency, reasoning quality, safety, alignment, and task-specific performance.
+  }
+
+  \resumeItem{
+  Worked with supervised fine-tuning workflows, instruction dataset construction, prompt engineering, model evaluation, and LLM optimization.
+  }
+
+  \resumeItem{
+  Prepared high-quality training datasets for domain-specific model adaptation and experimented with parameter-efficient fine-tuning approaches including LoRA and PEFT.
+  }
+
+  \resumeItem{
+  Analyzed LLM failure cases and model behavior to identify weaknesses and improve model performance across diverse tasks and domains.
+  }
+
+  \resumeItem{
+  Developed optimization approaches to improve inference efficiency, response quality, and latency for real-world AI applications.
+  }
+
+  \resumeItem{
+  Containerized AI applications and evaluation environments using Docker and Docker Compose to support reproducible AI development and deployment.
+  }
+
+\resumeItemListEnd
+
+
+%-----------AI EXPERIENCE / PROJECTS-----------
+
+\resumeSubheading
+  {AI / Machine Learning Engineer}
+  {2020 -- 2023}
+  {Artificial Intelligence Projects \& Research}
+  {Jordan}
+
+\resumeItemListStart
+
+  \resumeItem{
+  Built and experimented with Machine Learning, Deep Learning, NLP, and computer vision solutions throughout undergraduate studies and independent AI projects.
+  }
+
+  \resumeItem{
+  Developed end-to-end AI workflows including data collection, preprocessing, feature engineering, model training, evaluation, and deployment.
+  }
+
+  \resumeItem{
+  Worked with Python, TensorFlow, PyTorch, Scikit-Learn, NLP, and transformer-based architectures across multiple AI use cases.
+  }
+
+  \resumeItem{
+  Conducted experimentation with supervised and unsupervised learning, deep neural networks, natural language processing, and intelligent information processing.
+  }
+
+  \resumeItem{
+  Developed academic and independent AI projects combining machine learning algorithms with real-world datasets and practical business problems.
+  }
+
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------KEY PROJECTS-----------
+
+\section{Key AI Projects}
+
+\resumeSubHeadingListStart
+
+
+%-----------MOFA PROJECT-----------
+
+\resumeProjectHeading
+  {\textbf{Government On-Premise AI \& Data Intelligence Platform -- MOFA}}
+  {}
+
+\resumeItemListStart
+
+  \resumeItem{
+  Designed an enterprise-grade \textbf{on-premise AI platform} for government data intelligence, enabling AI capabilities to operate within controlled infrastructure while maintaining strict data privacy and governance requirements.
+  }
+
+  \resumeItem{
+  Developed a multi-agent architecture consisting of specialized AI agents for data classification, metadata extraction, data quality analysis, and compliance validation.
+  }
+
+  \resumeItem{
+  Deployed \textbf{gpt-oss-20b locally using Ollama}, enabling LLM inference without sending sensitive enterprise data to external AI APIs.
+  }
+
+  \resumeItem{
+  Designed a \textbf{Retrieval-Augmented Generation (RAG)} architecture to ground LLM responses using enterprise-specific knowledge, metadata, classification rules, governance policies, and domain context.
+  }
+
+  \resumeItem{
+  Implemented semantic retrieval using \textbf{text embeddings and vector databases}, enabling similarity-based retrieval of relevant enterprise knowledge before LLM inference.
+  }
+
+  \resumeItem{
+  Designed retrieval workflows combining \textbf{vector similarity, metadata filtering, and structured relationships} to improve context selection and reduce irrelevant information provided to the LLM.
+  }
+
+  \resumeItem{
+  Designed a knowledge-aware retrieval approach using \textbf{graph-based relationships and vector search}, enabling the AI system to reason over relationships between datasets, tables, columns, business entities, classifications, and governance metadata.
+  }
+
+  \resumeItem{
+  Implemented automated table-level intelligence across \textbf{10 enterprise systems containing more than 6 million records}, generating structured metadata and identifying master and reference entities.
+  }
+
+  \resumeItem{
+  Developed column-level intelligence capable of analyzing column semantics, inferring metadata, identifying sensitive attributes, and recommending Data Quality rules.
+  }
+
+  \resumeItem{
+  Developed an NDMO/NDI compliance agent for identifying sensitive and regulated attributes, achieving approximately \textbf{92\% classification accuracy} through validation and expert review.
+  }
+
+  \resumeItem{
+  Designed LLM improvement workflows involving dataset curation, instruction data preparation, prompt optimization, evaluation, and fine-tuning experimentation for domain-specific AI behavior.
+  }
+
+  \resumeItem{
+  Implemented evaluation workflows comparing LLM responses against expected classifications and expert-reviewed results to continuously improve model and retrieval quality.
+  }
+
+  \resumeItem{
+  Reduced manual data classification and governance effort by approximately \textbf{70\%}, improving scalability and consistency across heterogeneous enterprise data sources.
+  }
+
+\resumeItemListEnd
+
+\vspace{2pt}
+
+\hspace{0.15in}\textbf{Technologies:}
+
+\techtag{LLMs}
+\techtag{RAG}
+\techtag{Vector Search}
+\techtag{Knowledge Graphs}
+\techtag{Graph RAG}
+\techtag{Embeddings}
+\techtag{Fine-Tuning}
+\techtag{LoRA}
+\techtag{Ollama}
+\techtag{gpt-oss-20b}
+\techtag{Python}
+\techtag{FastAPI}
+\techtag{Docker}
+\techtag{OracleDB}
+
+
+\vspace{10pt}
+
+
+%-----------TEXT TO SQL-----------
+
+\resumeProjectHeading
+  {\textbf{Enterprise AI Text-to-SQL \& Analytics Platform}}
+  {}
+
+\resumeItemListStart
+
+  \resumeItem{
+  Designed a multi-agent AI system capable of converting natural language questions into SQL queries, executing analytical workloads, and generating data visualizations.
+  }
+
+  \resumeItem{
+  Developed four specialized agents: Conversation Manager, Schema Analyst, SQL Engineer, and Visualization Expert.
+  }
+
+  \resumeItem{
+  Implemented schema-aware retrieval to provide the LLM with relevant tables, columns, relationships, and business context before generating SQL.
+  }
+
+  \resumeItem{
+  Designed relationship-aware SQL generation to improve query accuracy across complex relational databases.
+  }
+
+  \resumeItem{
+  Implemented Arabic/English multilingual support, grammar correction, query validation, and AI-driven visualization selection.
+  }
+
+  \resumeItem{
+  Developed the end-to-end application using FastAPI, Pandas, Plotly/Dash, and LLM APIs.
+  }
+
+\resumeItemListEnd
+
+\vspace{2pt}
+
+\hspace{0.15in}\textbf{Technologies:}
+
+\techtag{Multi-Agent AI}
+\techtag{LLMs}
+\techtag{RAG}
+\techtag{NLP}
+\techtag{Text-to-SQL}
+\techtag{FastAPI}
+\techtag{Pandas}
+\techtag{Plotly}
+\techtag{MySQL}
+
+
+%-----------RESEARCH-----------
+
+\section{Research Interests}
+
+\begin{center}
+
+\techtag{Large Language Models}
+\techtag{Retrieval-Augmented Generation}
+\techtag{Knowledge Graphs}
+\techtag{Graph RAG}
+\techtag{Vector Databases}
+\techtag{Agentic AI}
+\techtag{Fine-Tuning}
+\techtag{Explainable AI}
+\techtag{NLP}
+\techtag{Machine Learning}
+\techtag{Intelligent Systems}
+
+\end{center}
+
+
+%-----------TECHNICAL SKILLS-----------
+
+\section{Technical Skills}
+
+\begin{center}
+
+\begin{tabular}{p{0.24\textwidth} p{0.7\textwidth}}
+
+\textbf{AI / ML} &
+\techtag{PyTorch}
+\techtag{TensorFlow}
+\techtag{Scikit-Learn}
+\techtag{Transformers}
+\techtag{NLP}
+\techtag{OCR}
+\techtag{VLM}
+\\[4pt]
+
+\textbf{Generative AI} &
+\techtag{LLMs}
+\techtag{RAG}
+\techtag{Graph RAG}
+\techtag{Agentic AI}
+\techtag{Multi-Agent Systems}
+\techtag{LangChain}
+\techtag{LangGraph}
+\techtag{MCP}
+\techtag{Hugging Face}
+\techtag{OpenAI API}
+\techtag{Gemini API}
+\techtag{CrewAI}
+\\[4pt]
+
+\textbf{LLM Engineering} &
+\techtag{Prompt Engineering}
+\techtag{Fine-Tuning}
+\techtag{LoRA}
+\techtag{PEFT}
+\techtag{Embeddings}
+\techtag{LLM Evaluation}
+\techtag{Synthetic Data}
+\techtag{Model Optimization}
+\\[4pt]
+
+\textbf{Vector / Retrieval} &
+\techtag{Vector Databases}
+\techtag{Qdrant}
+\techtag{Chroma}
+\techtag{Pinecone}
+\techtag{FAISS}
+\techtag{Semantic Search}
+\techtag{Hybrid Search}
+\techtag{Graph Retrieval}
+\\[4pt]
+
+\textbf{Databases} &
+\techtag{Oracle}
+\techtag{PostgreSQL}
+\techtag{MySQL}
+\techtag{MongoDB}
+\techtag{SQL}
+\\[4pt]
+
+\textbf{Data Engineering} &
+\techtag{Airflow}
+\techtag{Databricks}
+\techtag{Informatica}
+\techtag{Alteryx}
+\techtag{Cloudera}
+\techtag{ETL}
+\techtag{Data Pipelines}
+\\[4pt]
+
+\textbf{MLOps / Deployment} &
+\techtag{MLflow}
+\techtag{Docker}
+\techtag{Docker Compose}
+\techtag{Jenkins}
+\techtag{Git}
+\techtag{GitHub}
+\techtag{Ollama}
+\\[4pt]
+
+\textbf{Development} &
+\techtag{Python}
+\techtag{FastAPI}
+\techtag{REST APIs}
+\techtag{Bash}
+\\
+
+\end{tabular}
+
+\end{center}
+
+
+%-----------CERTIFICATIONS-----------
+
+\section{Certifications}
+
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Cloudera AI Technical Professional}
+    {Sep. 2025}
+    {\techtag{Cloudera}}
+    {\href{https://www.credly.com/badges/672c14d2-71a7-45e2-8a1e-9ac16de6c252}
+    {\underline{View Certificate}}}
+
+  \medskip
+
+  \resumeSubheading
+    {Generative AI Fundamentals}
+    {Jun. 2025}
+    {\techtag{Databricks}}
+    {\href{https://credentials.databricks.com/812f267d-76c2-4995-9fa7-c563b2588259\#acc.da815NjL}
+    {\underline{View Certificate}}}
+
+  \medskip
+
+  \resumeSubheading
+    {AWS Certified Cloud Practitioner}
+    {Jun. 2025}
+    {\techtag{Amazon Web Services}}
+    {\href{https://www.credly.com/badges/22bc8dbc-ff6b-461c-a01f-893707897200}
+    {\underline{View Certificate}}}
+
+  \medskip
+
+  \resumeSubheading
+    {Alteryx Designer Core Certification}
+    {Jul. 2025}
+    {\techtag{Alteryx}}
+    {\href{https://www.credly.com/badges/98599ad4-e33c-4f43-bfe5-d1e23ff2b6b5}
+    {\underline{View Certificate}}}
+
+\resumeSubHeadingListEnd
+
+\end{document}

@@ -1,0 +1,184 @@
+Ali Hamdan
+AI Engineer — Generative AI — LLMs — RAG — Agentic AI
+JOR: +962799661576 | KSA: +966501968175 | aliihamdan02@gmail.com
+|
+Riyadh, Saudi Arabia
+LinkedIn
+|
+GitHub
+|
+Hugging Face
+Professional Summary
+AI Engineer with 6+ years of hands-on experience in Artificial Intelligence, Machine Learning, Generative
+AI, NLP, and LLM-based systems, specializing in enterprise-grade AI solutions, Retrieval-Augmented Generation
+(RAG), Agentic AI, multi-agent architectures, vector search, and on-premise LLM deployment.
+Experienced in designing and deploying secure AI platforms for government and enterprise organizations, with a strong
+focus on on-premise AI architectures, data privacy, domain-specific intelligence, and production-grade AI
+systems. Developed AI solutions for the Ministry of Foreign Affairs (MOFA) and the National Center for
+Wildlife (NCW).
+Hands-on experience designing RAG pipelines, vector databases, semantic search, hybrid retrieval, graph-based
+retrieval, Knowledge Graphs, and Graph RAG architectures. Experienced in connecting LLMs with enterprise
+databases, metadata repositories, structured and unstructured data, enabling AI systems to reason over
+organization-specific knowledge.
+Experienced across the complete AI lifecycle including data preparation, synthetic data generation, prompt engineering,
+embeddings, retrieval optimization, LLM evaluation, fine-tuning workflows, LoRA/PEFT, model optimization, API
+development, containerization, and secure deployment.
+Strong Python background with practical experience across PyTorch, Transformers, Hugging Face, LangChain, LangGraph,
+vector databases, FastAPI, Docker, and enterprise data platforms.
+Core AI Expertise
+Generative AI
+LLMs
+RAG
+Agentic AI
+Multi-Agent Systems
+Vector Search
+Hybrid Search
+Knowledge Graphs
+NLP
+Fine-Tuning
+Graph RAG
+LoRA / PEFT
+Semantic Search
+Prompt Engineering
+LLM Evaluation
+On-Premise AI
+Education
+Tafila Technical University
+B.Sc. in Artificial Intelligence and Data Science, GPA: 3.5/4.0
+Excellent; Ranked 1st in the Graduating Class
+Professional Experience
+Tafila, Jordan
+Oct. 2016– Sep. 2020
+AI Engineer
+Tools & Solutions
+Jan. 2025– Present
+Amman, Jordan
+• Designed and deployed enterprise AI solutions for government organizations, including the Ministry of Foreign
+Affairs (MOFA) and the National Center for Wildlife (NCW).
+• Architected secure on-premise Generative AI solutions using locally deployed Large Language Models,
+enabling sensitive enterprise data to remain within controlled infrastructure.
+• Developed AI-powered data intelligence systems for automated data classification, metadata extraction,
+sensitive-data detection, data quality analysis, and compliance with NDMO and NDI standards.
+• Designed enterprise RAG architectures combining vector retrieval, metadata filtering, structured relationships, and
+domain-specific knowledge to ground LLM responses.
+• Designed vector-based retrieval pipelines using embeddings and vector databases for semantic search across
+enterprise knowledge, metadata, and governance information.
+• Designed knowledge-aware retrieval architectures combining vector search and graph-based relationships to
+improve retrieval of interconnected enterprise entities.
+• Developed domain-specific LLM workflows covering dataset preparation, prompt engineering, evaluation, retrieval
+optimization, and fine-tuning-oriented experimentation.
+• Built multi-agent AI systems capable of reasoning, tool utilization, memory, structured output generation, and
+multi-step task execution.
+• Achieved approximately 92% classification accuracy and reduced manual data governance effort by
+approximately 70%.
+• Designed end-to-end AI pipelines covering data ingestion, preprocessing, embedding generation, retrieval, inference,
+evaluation, API integration, containerization, and deployment.
+RLHF Engineer
+Optimiza
+Jun. 2023– Jan. 2025
+Amman, Jordan
+• Developed and curated large-scale synthetic and real-world datasets for training, evaluation, and optimization of
+Large Language Models across coding, analytics, and enterprise tasks.
+• Designed systematic LLM evaluation pipelines to measure accuracy, consistency, reasoning quality, safety,
+alignment, and task-specific performance.
+• Worked with supervised fine-tuning workflows, instruction dataset construction, prompt engineering, model
+evaluation, and LLM optimization.
+• Prepared high-quality training datasets for domain-specific model adaptation and experimented with
+parameter-efficient fine-tuning approaches including LoRA and PEFT.
+• Analyzed LLM failure cases and model behavior to identify weaknesses and improve model performance across
+diverse tasks and domains.
+• Developed optimization approaches to improve inference efficiency, response quality, and latency for real-world AI
+applications.
+• Containerized AI applications and evaluation environments using Docker and Docker Compose to support
+reproducible AI development and deployment.
+AI / Machine Learning Engineer
+Artificial Intelligence Projects & Research
+2020– 2023
+Jordan
+• Built and experimented with Machine Learning, Deep Learning, NLP, and computer vision solutions throughout
+undergraduate studies and independent AI projects.
+• Developed end-to-end AI workflows including data collection, preprocessing, feature engineering, model training,
+evaluation, and deployment.
+• Worked with Python, TensorFlow, PyTorch, Scikit-Learn, NLP, and transformer-based architectures across multiple
+AI use cases.
+• Conducted experimentation with supervised and unsupervised learning, deep neural networks, natural language
+processing, and intelligent information processing.
+• Developed academic and independent AI projects combining machine learning algorithms with real-world datasets
+and practical business problems.
+Key AI Projects
+Government On-Premise AI & Data Intelligence Platform– MOFA
+• Designed an enterprise-grade on-premise AI platform for government data intelligence, enabling AI capabilities
+to operate within controlled infrastructure while maintaining strict data privacy and governance requirements.
+• Developed a multi-agent architecture consisting of specialized AI agents for data classification, metadata extraction,
+data quality analysis, and compliance validation.
+• Deployed gpt-oss-20b locally using Ollama, enabling LLM inference without sending sensitive enterprise data
+to external AI APIs.
+• Designed a Retrieval-Augmented Generation (RAG) architecture to ground LLM responses using
+enterprise-specific knowledge, metadata, classification rules, governance policies, and domain context.
+• Implemented semantic retrieval using text embeddings and vector databases, enabling similarity-based
+retrieval of relevant enterprise knowledge before LLM inference.
+• Designed retrieval workflows combining vector similarity, metadata filtering, and structured relationships
+to improve context selection and reduce irrelevant information provided to the LLM.
+• Designed a knowledge-aware retrieval approach using graph-based relationships and vector search, enabling
+the AI system to reason over relationships between datasets, tables, columns, business entities, classifications, and
+governance metadata.
+• Implementedautomatedtable-level intelligenceacross10enterprisesystemscontainingmorethan6million
+records,generatingstructuredmetadataandidentifyingmasterandreferenceentities.
+• Developedcolumn-level intelligencecapableofanalyzingcolumnsemantics, inferringmetadata, identifyingsensitive
+attributes,andrecommendingDataQualityrules.
+• DevelopedanNDMO/NDIcomplianceagentforidentifyingsensitiveandregulatedattributes,achieving
+approximately92%classificationaccuracythroughvalidationandexpertreview.
+• DesignedLLMimprovementworkflowsinvolvingdatasetcuration, instructiondatapreparation,prompt
+optimization,evaluation,andfine-tuningexperimentationfordomain-specificAIbehavior.
+• ImplementedevaluationworkflowscomparingLLMresponsesagainstexpectedclassificationsandexpert-reviewed
+resultstocontinuouslyimprovemodelandretrievalquality.
+• Reducedmanualdataclassificationandgovernanceeffortbyapproximately70%, improvingscalabilityand
+consistencyacrossheterogeneousenterprisedatasources.
+Technologies:
+LLMs RAG VectorSearch KnowledgeGraphs GraphRAG Embeddings Fine-Tuning LoRA
+Ollama gpt-oss-20b Python FastAPI Docker OracleDB
+EnterpriseAIText-to-SQL&AnalyticsPlatform
+• Designedamulti-agentAIsystemcapableofconvertingnatural languagequestionsintoSQLqueries,executing
+analyticalworkloads,andgeneratingdatavisualizations.
+• Developedfourspecializedagents:ConversationManager,SchemaAnalyst,SQLEngineer,andVisualization
+Expert.
+• Implementedschema-awareretrieval toprovidetheLLMwithrelevanttables,columns,relationships,andbusiness
+contextbeforegeneratingSQL.
+• Designedrelationship-awareSQLgenerationtoimprovequeryaccuracyacrosscomplexrelationaldatabases.
+• ImplementedArabic/Englishmultilingualsupport,grammarcorrection,queryvalidation,andAI-driven
+visualizationselection.
+• Developedtheend-to-endapplicationusingFastAPI,Pandas,Plotly/Dash,andLLMAPIs.
+Technologies:
+Multi-AgentAI LLMs RAG NLP Text-to-SQL FastAPI Pandas Plotly MySQL
+ResearchInterests
+LargeLanguageModels Retrieval-AugmentedGeneration KnowledgeGraphs GraphRAG VectorDatabases
+AgenticAI Fine-Tuning ExplainableAI NLP MachineLearning IntelligentSystems
+TechnicalSkills
+AI/ML PyTorch TensorFlow Scikit-Learn Transformers NLP OCR VLM
+GenerativeAI LLMs RAG GraphRAG AgenticAI Multi-AgentSystems LangChain
+LangGraph MCP HuggingFace OpenAIAPI GeminiAPI CrewAI
+LLMEngineering PromptEngineering Fine-Tuning LoRA PEFT Embeddings
+LLMEvaluation SyntheticData ModelOptimization
+Vector/Retrieval VectorDatabases Qdrant Chroma Pinecone FAISS SemanticSearch
+HybridSearch GraphRetrieval
+Databases Oracle PostgreSQL MySQL MongoDB SQL
+DataEngineering Airflow Databricks Informatica Alteryx Cloudera ETL DataPipelines
+MLOps/Deployment MLflow Docker DockerCompose Jenkins Git GitHub Ollama
+Development Python FastAPI RESTAPIs Bash
+Certifications
+Cloudera AI Technical Professional
+Cloudera
+Generative AI Fundamentals
+Databricks
+AWS Certified Cloud Practitioner
+Amazon Web Services
+Alteryx Designer Core Certification
+Alteryx
+Sep. 2025
+View Certificate
+Jun. 2025
+View Certificate
+Jun. 2025
+View Certificate
+Jul. 2025
+View Certificate
