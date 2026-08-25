@@ -7,15 +7,12 @@ import Logo from "@layouts/components/Logo";
 import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 
-
-
-
 const Footer = () => {
   const { copyright, footer_content } = config.params;
   return (
     <footer className="section relative mt-12 pt-[70px] pb-[50px]">
       <ImageFallback
-        className="-z-[1] absolute min-h-full inset-0 block object-cover object-left  md:object-top"
+        className="-z-[1] absolute min-h-full inset-0 block object-cover object-left md:object-top"
         src="/images/footer-bg-shape.svg"
         alt="footer background"
         fill={true}
@@ -26,18 +23,15 @@ const Footer = () => {
         </div>
         {markdownify(footer_content, "p", "max-w-[638px] mx-auto")}
 
-        {/* footer menu */}
+        {/* Cleaned & activated Footer menu */}
         <ul className="mb-12 mt-6 flex-wrap space-x-2 lg:space-x-4">
-          {menu.footer.map((menu) => (
-            <li className="inline-block" key={menu.name}>
+          {menu.footer.map((item) => (
+            <li className="inline-block" key={item.name}>
               <Link
-                href={`${menu.url}/#!`}
-                onClick={(e) => {
-                  e.preventDefault();
-                }}
+                href={item.url}
                 className="p-2 font-bold text-dark hover:text-primary dark:text-darkmode-light lg:p-4"
               >
-                {menu.name}
+                {item.name}
               </Link>
             </li>
           ))}
