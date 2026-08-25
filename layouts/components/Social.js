@@ -31,7 +31,18 @@ import {
   IoMail,
 } from "react-icons/io5";
 
-import { SiHuggingface } from "react-icons/si";
+// Custom safe Hugging Face SVG to prevent any import crashes
+const HuggingFaceIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    width="1.35em"
+    height="1.35em"
+    style={{ display: "inline-block", verticalAlign: "middle" }}
+  >
+    <path d="M12 .25A11.75 11.75 0 1 0 23.75 12 11.77 11.77 0 0 0 12 .25zm6.5 12a6.5 6.5 0 1 1-6.5-6.5 6.5 6.5 0 0 1 6.5 6.5zm-10.5-1a1.25 1.25 0 1 1 1.25-1.25A1.25 1.25 0 0 1 8 11.25zm8 0a1.25 1.25 0 1 1 1.25-1.25 1.25 1.25 0 0 1-1.25 1.25zm-4 4.75a3.5 3.5 0 0 1-3-1.75.5.5 0 0 1 .86-.5 2.5 2.5 0 0 0 4.28 0 .5.5 0 0 1 .86.5 3.5 3.5 0 0 1-3 1.75z" />
+  </svg>
+);
 
 const Social = ({ source = {}, className }) => {
   const {
@@ -416,7 +427,7 @@ const Social = ({ source = {}, className }) => {
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
-            <SiHuggingface className="text-xl" />
+            <HuggingFaceIcon />
           </a>
         </li>
       )}
