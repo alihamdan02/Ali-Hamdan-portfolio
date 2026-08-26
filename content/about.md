@@ -7,7 +7,7 @@ education:
   title: Education
   degrees:
     - university: "B.Sc. in AI & Data Science"
-      content: "Tafila Technical University • GPA: 3.5/4.0 (Ranked 1st in the Graduating Class) • Oct. 2016 - Sep. 2020"
+      content: "Hashemite University • GPA: 3.5/4.0 (Ranked 1st in the Graduating Class) • Oct. 2016 - Sep. 2020"
     - university: "Industry Certifications"
       content: "• Cloudera AI Technical Professional (Sep. 2025)\n• Databricks Generative AI Fundamentals (Jun. 2025)\n• AWS Certified Cloud Practitioner (Jun. 2025)\n• Alteryx Designer Core Certified (Jul. 2025)"
 
