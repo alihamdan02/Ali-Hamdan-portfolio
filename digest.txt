@@ -28,6 +28,8 @@ Directory structure:
     │   └── posts/
     │       ├── _index.md
     │       ├── autonomous-graph-rag.md
+    │       ├── data-governance-project.md
+    │       ├── kidana-project.md
     │       ├── on-premise-ai-mofa.md
     │       └── text-to-sql-analytics.md
     ├── context/
@@ -1086,7 +1088,7 @@ FILE: package.json
     "gray-matter": "^4.0.3",
     "marked": "^4.2.12",
     "next": "13.1.5",
-    "next-mdx-remote": "^4.4.1",
+    "next-mdx-remote": "^6.0.0",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -1095,8 +1097,8 @@ FILE: package.json
     "react-lite-youtube-embed": "^2.3.52",
     "react-mailchimp-subscribe": "^2.1.3",
     "react-syntax-highlighter": "^15.5.0",
-    "rehype-slug": "^5.1.0",
-    "remark-gfm": "^3.0.1"
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
@@ -1481,10 +1483,10 @@ FILE: content/_index.md
 ---
 banner:
   title: Ali Hamdan **!**
-  title_small: "AI Engineer"
-  content: "I design and build enterprise-grade AI systems, specializing in secure on-premise Large Language Models (LLMs), RAG, and Agentic Multi-Agent pipelines."
+  title_small: "Data & AI Engineer"
+  content: "I design and build enterprise-grade data pipelines, intelligent data integration platforms, and scalable data warehousing solutions."
   image_enable: true
-  image: /images/ali.jpeg # ØªÙ… ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ù…Ø³Ø§Ø± Ù„ÙŠØ±ØªØ¨Ø· Ø¨ØµÙˆØ±ØªÙƒ Ø§Ù„Ø´Ø®ØµÙŠØ© Ù…Ø¨Ø§Ø´Ø±Ø©
+  image: /images/default-avatar-2.png 
   button:
     enable: true
     label: Learn More About Me
@@ -1506,61 +1508,64 @@ recent_posts:
 ---
 
 
+
 ================================================
 FILE: content/about.md
 ================================================
 ---
 title: About My Professional Journey
-image: "" # ØªÙ… Ù…Ø³Ø­ Ø§Ù„Ø±Ø§Ø¨Ø· Ù„Ø¥Ù„ØºØ§Ø¡ Ø§Ù„ØµÙˆØ±Ø© Ø§Ù„Ù…ÙƒØ±Ø±Ø© Ù‡Ù†Ø§
-description: "AI Engineer specializing in Generative AI, LLMs, RAG, and Agentic Systems."
+image: ""
+description: "Data & AI Engineer specializing in Enterprise Data Integration, ETL/ELT, Data Warehousing, and AI-Driven Data Solutions."
 layout: about
 education:
-  title: Education
+  title: Education & Certifications
   degrees:
-    - university: "B.Sc. in AI & Data Science"
-      content: "Tafila Technical University â€¢ GPA: 3.5/4.0 (Ranked 1st in the Graduating Class) â€¢ Oct. 2016 - Sep. 2020"
+    - university: "B.Sc. in Artificial Intelligence and Data Science"
+      content: "Tafila Technical University â€¢ GPA: 3.5/4.0 â€¢ Oct. 2020 -- Sep. 2024"
     - university: "Industry Certifications"
       content: "â€¢ Cloudera AI Technical Professional (Sep. 2025)\nâ€¢ Databricks Generative AI Fundamentals (Jun. 2025)\nâ€¢ AWS Certified Cloud Practitioner (Jun. 2025)\nâ€¢ Alteryx Designer Core Certified (Jul. 2025)"
 
 experience:
   title: Technical Expertise
   list:
-    - PyTorch & Transformers
-    - LangChain & LangGraph
-    - Vector Databases (Qdrant, Chroma)
-    - Graph RAG & Knowledge Graphs
-    - FastAPI & Docker
-    - On-Premise LLM Deployments
-    - SFT / LoRA / PEFT
-    - Python Development
+    - Informatica IDMC & CDI
+    - ETL / ELT Pipeline Development
+    - Data Warehousing & Dimensional Modeling
+    - Data Governance & AI Classification
+    - Data Profiling & Data Quality (DQ)
+    - Python, Docker, & REST APIs
+    - SQL Server, Oracle, & PostgreSQL
+    - Power BI & Business Intelligence
 ---
 
 ### Professional Summary
 
-I am an **AI Engineer with 6+ years of hands-on experience** in Artificial Intelligence, Machine Learning, Generative AI, NLP, and LLM-based systems. My work focuses on designing and deploying secure, production-grade AI platforms for enterprise and government organizations. 
+I am a **Data Engineer with 3+ years of experience** bridging the gap between robust data integration and AI-driven solutions. My expertise lies in designing scalable data pipelines, enterprise data warehousing, and intelligent data governance systems using **Informatica IDMC, Python, and modern cloud technologies**. 
 
-I specialize in **on-premise AI architectures, data privacy, and domain-specific intelligence**, allowing organizations to reason over their private databases safely.
+Holding a B.Sc. in Artificial Intelligence and Data Science along with industry certifications in AI and Cloud (AWS, Cloudera AI, Databricks), I combine strong ETL/ELT development, data profiling, and data quality implementation with practical experience in supporting AI workloads and advanced analytics.
 
 ---
 
 ### Professional Experience
 
-#### **AI Engineer** | Tools & Solutions 
-*Jan. 2025 â€“ Present â€¢ Amman, Jordan*
-* Designed and deployed secure, on-premise Generative AI solutions for the **Ministry of Foreign Affairs (MOFA)** and the **National Center for Wildlife (NCW)**.
-* Developed AI-powered data intelligence systems for automated data classification, metadata extraction, and sensitive-data detection, achieving **92% classification accuracy** and reducing manual effort by **70%**.
-* Designed RAG architectures combining vector retrieval, metadata filtering, and graph-based relationships to ground LLM responses in interconnected enterprise entities.
+#### **Data Engineer** | Elm Company
+*Jul. 2026 â€“ Present â€¢ Riyadh, Saudi Arabia*
+* Working on the Kidana digital transformation project, delivering large-scale data integration, warehousing, analytics, and BI for Hajj and Umrah operations across enterprise systems including SAP.
+* Designed and implemented end-to-end ETL processes using Informatica IDMC and Cloud Data Integration (CDI), covering ingestion, staging, transformation, validation, and loading.
+* Developed scalable batch and incremental data pipelines, implementing incremental loading strategies to optimize performance and avoid unnecessary full loads.
+* Implemented Slowly Changing Dimensions (SCD), Data Profiling, and Data Quality (DQ) rules to ensure data consistency, accuracy, and readiness for Power BI Self-Service Analytics.
 
-#### **RLHF Engineer** | Optimiza
+#### **Data Engineer (Informatica & Data Platforms)** | Tools & Solutions
+*Jan. 2025 â€“ Jun. 2026 â€¢ Riyadh, Saudi Arabia*
+* Designed and developed end-to-end ETL/ELT pipelines using Informatica IDMC and CDI for enterprise data integration, supporting batch and incremental processing.
+* Developed data pipelines across staging and data warehouse layers following Bronze, Silver, and Gold architecture principles, integrating data from REST APIs, flat files, and relational databases.
+* Implemented data profiling and automated data quality rules, optimizing pipeline performance and reliability in production environments.
+
+#### **Data & AI Engineer** | Optimiza
 *Jun. 2023 â€“ Jan. 2025 â€¢ Amman, Jordan*
-* Developed and curated synthetic and real-world datasets for training and optimizing LLMs across enterprise tasks.
-* Designed evaluation pipelines to measure model accuracy, consistency, reasoning, and alignment.
-* Experimented with supervised fine-tuning (SFT) and parameter-efficient fine-tuning (LoRA/PEFT).
-* Containerized AI applications and evaluation environments using Docker and Docker Compose.
-
-#### **AI / ML Engineer** | Independent Projects & Research
-*2020 â€“ 2023 â€¢ Jordan*
-* Built machine learning, NLP, and deep learning architectures during academic studies and research.
+* Designed and prepared structured and unstructured datasets for analytics, data processing, and AI use cases.
+* Performed advanced data profiling, validation, cleansing, and transformation to improve data quality and usability.
+* Supported AI-based data classification, enrichment, and automated metadata analysis using SQL and Python.
 
 
 ================================================
@@ -1857,8 +1862,8 @@ FILE: content/posts/autonomous-graph-rag.md
 ================================================
 ---
 title: "Enterprise Autonomous Graph-RAG & Knowledge Graph Orchestrator"
-date: 2024-12-20T08:00:00Z
-image: /images/post/post-3.png
+date: 2025-5-13T08:00:00Z
+image: /images/post/GraphRag.jpg
 categories: ["Graph-RAG", "Knowledge-Graphs", "Neo4j"]
 featured: true
 draft: false
@@ -1881,11 +1886,67 @@ Standard vector search algorithms retrieve information based purely on text simi
 
 
 ================================================
+FILE: content/posts/data-governance-project.md
+================================================
+---
+title: "Enterprise AI-Driven Data Classification & Governance Platform"
+date: 2024-12-20T08:00:00Z
+image: /images/post/post-3.png
+categories: ["Data Governance", "AI & ML", "Informatica"]
+featured: true
+draft: false
+---
+
+Designed and implemented a scalable enterprise data classification and governance platform aligned with NDMO/NDI standards, integrating AI-assisted automation for data discovery, profiling, classification, and metadata management.
+
+### The Technical Challenges
+Managing, classifying, and governing sensitive data manually across more than 10 heterogeneous enterprise systems containing over 6 million records is highly error-prone. Standard rule-based systems struggle with unstructured attributes, requiring intelligent, automated data profiling and machine-learning-assisted classification workflows.
+
+### Solution & Engineering Highlights
+* **Automated Discovery & Profiling:** Processed and analyzed data across 10+ enterprise systems containing more than 6 million records, developing automated data profiling and column-level analysis workflows.
+* **AI-Assisted Classification:** Implemented automated and AI-enhanced data classification mechanisms to identify sensitive and regulated attributes, achieving approximately **92% classification accuracy** through automated workflows and expert reviews.
+* **Operational Efficiency:** Automated data classification and governance activities, reducing manual effort by approximately **70%** while establishing a reusable metadata management framework and data quality rules.
+
+### Tech Stack
+* **Governance & Compliance:** Data Governance, Data Classification, Metadata Management, NDMO, NDI
+* **Tools & Platforms:** Informatica IDMC, Data Profiling, Data Quality, Data Validation
+* **AI & Databases:** Oracle, Python, AI Data Classification, Metadata Analysis
+
+
+================================================
+FILE: content/posts/kidana-project.md
+================================================
+---
+title: "Kidana Hajj & Umrah Data Integration & AI-Ready Warehouse Platform"
+date: 2026-7-6T08:00:00Z
+image: /images/post/haj.jpg
+categories: ["Data Engineering", "ETL", "Informatica"]
+featured: true
+draft: false
+---
+
+Designed and implemented scalable enterprise data integration and data warehousing solutions for the Kidana digital transformation project, supporting high-volume operational and AI-ready data requirements across Hajj and Umrah services.
+
+### The Technical Challenges
+Integrating heterogeneous enterprise systems like SAP with high-volume transactional data required robust pipelines that could handle massive loads without degrading performance, while ensuring data quality, historical tracking (SCD), and preparing clean structured datasets suitable for advanced analytics and AI consumption.
+
+### Solution & Engineering Highlights
+* **Enterprise Integration:** Integrated data from SAP and multiple enterprise source systems using Informatica IDMC and Cloud Data Integration (CDI), covering ingestion, staging, transformation, validation, and warehouse loading.
+* **Optimized Pipelines:** Developed batch and incremental data pipelines to efficiently process large datasets and newly created or modified records while minimizing unnecessary full data loads.
+* **Data Governance & Modeling:** Implemented Slowly Changing Dimensions (SCD), Data Profiling (DF), and Data Quality (DQ) processes alongside fact and dimension data models to deliver trusted, clean datasets for Power BI Analytics and downstream AI workflows.
+
+### Tech Stack
+* **ETL & Integration:** Informatica IDMC, CDI, ETL / ELT, Incremental Loading
+* **Data Management:** SCD, Data Profiling, Data Quality, Data Warehouse, Dimensional Modeling
+* **Databases & BI:** SQL Server, SQL, Power BI, SAP
+
+
+================================================
 FILE: content/posts/on-premise-ai-mofa.md
 ================================================
 ---
 title: "Government On-Premise AI & Data Intelligence Platform â€” MOFA"
-date: 2025-01-15T08:00:00Z
+date: 2025-6-15T08:00:00Z
 image: /images/post/post-1.png
 categories: ["On-Premise", "RAG", "Agentic-AI"]
 featured: true
@@ -4964,7 +5025,7 @@ const Home = ({
                 {markdownify(recent_posts.title, "h2", "section-title font-bold text-dark dark:text-white mb-10")}
                 <div className="rounded-2xl border border-border/40 bg-theme-light/10 p-6 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/10">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {sortPostByDate.slice(0, 3).map((post) => (
+                    {sortPostByDate.slice(0, recent_posts.count).map((post) => (
                       <div key={post.slug} className="w-full">
                         <Post post={post} />
                       </div>

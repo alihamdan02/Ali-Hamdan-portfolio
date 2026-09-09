@@ -1,7 +1,7 @@
 ---
 title: "Enterprise Autonomous Graph-RAG & Knowledge Graph Orchestrator"
-date: 2024-12-20T08:00:00Z
-image: /images/post/post-3.png
+date: 2025-5-13T08:00:00Z
+image: /images/post/GraphRag.jpg
 categories: ["Graph-RAG", "Knowledge-Graphs", "Neo4j"]
 featured: true
 draft: false

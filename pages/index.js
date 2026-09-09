@@ -83,7 +83,7 @@ const Home = ({
                 {markdownify(recent_posts.title, "h2", "section-title font-bold text-dark dark:text-white mb-10")}
                 <div className="rounded-2xl border border-border/40 bg-theme-light/10 p-6 dark:border-darkmode-border/40 dark:bg-darkmode-theme-dark/10">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {sortPostByDate.slice(0, 3).map((post) => (
+                  {sortPostByDate.slice(0, recent_posts.count).map((post) => (
                       <div key={post.slug} className="w-full">
                         <Post post={post} />
                       </div>

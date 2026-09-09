@@ -1,6 +1,6 @@
 ---
 title: "Government On-Premise AI & Data Intelligence Platform — MOFA"
-date: 2025-01-15T08:00:00Z
+date: 2025-6-15T08:00:00Z
 image: /images/post/post-1.png
 categories: ["On-Premise", "RAG", "Agentic-AI"]
 featured: true
