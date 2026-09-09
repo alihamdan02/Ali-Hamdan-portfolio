@@ -20,15 +20,15 @@
     "summary_length": 180,
     "blog_folder": "posts"
   },
-  "params": {
+"params": {
     "tag_manager_id": "",
-    "footer_content": "AI Engineer specializing in on-premise generative AI, enterprise RAG, and multi-agent systems.",
+    "footer_content": "Data & AI Engineer specializing in enterprise data pipelines, Informatica IDMC, ETL architectures, and AI-driven data systems.",
     "copyright": "© 2026 Ali Hamdan. All Rights Reserved."
   },
   "metadata": {
     "meta_author": "Ali Hamdan",
     "meta_image": "/images/og-image.png",
-    "meta_description": "AI Engineer portfolio of Ali Hamdan. Focused on Generative AI, LLMs, and RAG architectures."
+    "meta_description": "Data & AI Engineer portfolio of Ali Hamdan. Focused on Data Integration, ETL, Informatica IDMC, and Enterprise AI Systems."
   },
   "widgets": {
     "about": {
