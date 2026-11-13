@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { scramble } from "@/components/motion/scramble";
+
 gsap.registerPlugin(ScrollTrigger);
 
 /**
@@ -22,6 +24,11 @@ export default function PipelineProgress({ children }: { children: React.ReactNo
       return;
     }
     root.dataset.animated = "true";
+    // Each stage name decodes the first time its stage switches on.
+    const observer = new MutationObserver(() =>
+      stages.forEach((s) => s.dataset.on === "true" && scramble(s.querySelector("h3")))
+    );
+    stages.forEach((s) => observer.observe(s, { attributes: true, attributeFilter: ["data-on"] }));
 
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
@@ -58,7 +65,10 @@ export default function PipelineProgress({ children }: { children: React.ReactNo
         );
       });
     }, root);
-    return () => ctx.revert();
+    return () => {
+      observer.disconnect();
+      ctx.revert();
+    };
   }, []);
 
   return (

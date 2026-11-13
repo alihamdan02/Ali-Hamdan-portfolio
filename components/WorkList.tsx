@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, ViewTransition } from "react";
 import type { Discipline, Project } from "@/content/projects";
 
 const filters: { key: "All" | Discipline; label: string }[] = [
@@ -41,7 +41,9 @@ export default function WorkList({ projects }: { projects: Project[] }) {
             <Link href={`/work/${p.slug}`} className="work-link">
               <span className="work-year">{p.year}</span>
               <div className="work-main">
-                <h3 className="work-title">{p.title}</h3>
+                <ViewTransition name={`title-${p.slug}`} share="morph" default="none">
+                  <h3 className="work-title">{p.title}</h3>
+                </ViewTransition>
                 <p className="work-summary">{p.summary}</p>
               </div>
               <div className="work-meta">
@@ -58,6 +60,19 @@ export default function WorkList({ projects }: { projects: Project[] }) {
                 {p.architecture.map((s) => (
                   <span key={s.label}>{s.label}</span>
                 ))}
+              </div>
+              <div className="work-preview" aria-hidden="true">
+                <div className="work-preview-inner">
+                  {p.architecture.map((s) => (
+                    <div className="mini-lane" key={s.label}>
+                      {s.nodes.map((n) => (
+                        <span className="mini-node" key={n}>
+                          {n}
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
             </Link>
           </li>

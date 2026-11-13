@@ -1,4 +1,5 @@
 import Classifier from "@/components/Classifier";
+import ClassifyPlayground from "@/components/ClassifyPlayground";
 import HeroTitle from "@/components/motion/HeroTitle";
 import PipelineProgress from "@/components/motion/PipelineProgress";
 import WorkList from "@/components/WorkList";
@@ -34,6 +35,7 @@ export default function Home() {
         </section>
 
         <Clients />
+        <ClassifyPlayground />
       </div>
 
       <section className="section" id="work">
