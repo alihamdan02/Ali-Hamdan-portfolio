@@ -12,7 +12,7 @@ export default function Home() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="whereabouts">
-              {profile.role}, {profile.location}
+              {profile.current}, {profile.location}
             </p>
             <h1 className="display" id="hero-title">
               {profile.headline}

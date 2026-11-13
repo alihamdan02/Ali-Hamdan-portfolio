@@ -1,8 +1,15 @@
 export const experience = [
   {
+    company: "Petra Ride",
+    title: "Senior Data Engineer, Pricing & Dispatch Intelligence",
+    period: "Nov 2026 – now",
+    detail:
+      "Building the AWS lakehouse that brings trip, dispatch, pricing and location data into one place, and the data foundation for pricing and dispatch that adapt to demand instead of being configured by hand.",
+  },
+  {
     company: "Elm",
     title: "Data Engineer, AI Data Enablement",
-    period: "Jul 2026 – now",
+    period: "Jul – Nov 2026",
     detail:
       "On Kidana’s Hajj & Umrah transformation. I own Informatica IDMC pipelines from SAP and other sources into the warehouse, and prepare the governed data Kidana’s AI team grounds its agents on.",
   },

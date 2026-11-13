@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { profile, type Client } from "@/content/profile";
 import ThemeSwitch from "@/components/ThemeSwitch";
+import ContactForm from "@/components/ContactForm";
 
 export function Mark() {
   return (
@@ -40,33 +41,35 @@ export function Contact() {
   return (
     <section className="contact" id="contact" aria-labelledby="contact-title">
       <div className="wrap contact-grid">
-        <h2 className="h2" id="contact-title">
-          Have data to govern or an AI system to build?
-        </h2>
-        <p className="lede">
-          I’m open to full-time roles and project work across Jordan and the Gulf. Email is the fastest way to reach
-          me.
-        </p>
-        <a className="email" href={`mailto:${profile.email}`}>
-          {profile.email}
-        </a>
-        <div className="actions">
-          <a className="btn btn-primary" href={profile.cv.ai} download>
-            AI Engineer CV <small>PDF</small>
+        <div className="contact-info">
+          <h2 className="h2" id="contact-title">
+            Have data to govern or an AI system to build?
+          </h2>
+          <p className="lede">
+            Ask me a question, tell me about a project, or just say hello. I read everything and reply within a day.
+          </p>
+          <a className="email" href={`mailto:${profile.email}`}>
+            {profile.email}
           </a>
-          <a className="btn" href={profile.cv.data} download>
-            Data Engineer CV <small>PDF</small>
-          </a>
+          <div className="actions">
+            <a className="btn" href={profile.cv.ai} download>
+              AI Engineer CV <small>PDF</small>
+            </a>
+            <a className="btn" href={profile.cv.data} download>
+              Data Engineer CV <small>PDF</small>
+            </a>
+          </div>
+          <ul className="contact-links">
+            {profile.links.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="contact-links">
-          {profile.links.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} target="_blank" rel="noopener noreferrer">
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <ContactForm />
       </div>
     </section>
   );
@@ -98,12 +101,12 @@ export function ClientLogo({ client }: { client: Client }) {
   );
 }
 
-export function Clients() {
+function OrgGroup({ title, orgs }: { title: string; orgs: Client[] }) {
   return (
-    <div className="clients">
-      <p>Organisations I have built for</p>
+    <div className="org-group">
+      <p>{title}</p>
       <ul className="client-grid">
-        {profile.clients.map((c) => (
+        {orgs.map((c) => (
           <li key={c.name} className="client">
             <ClientLogo client={c} />
             <div className="client-text">
@@ -113,6 +116,15 @@ export function Clients() {
           </li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+export function Clients() {
+  return (
+    <div className="clients">
+      <OrgGroup title="Where I’ve worked" orgs={profile.employers} />
+      <OrgGroup title="Who I’ve built for" orgs={profile.clients} />
     </div>
   );
 }
