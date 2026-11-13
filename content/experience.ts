@@ -1,5 +1,7 @@
 export const experience = [
   {
+    id: "exp-petra-ride",
+    projects: [] as string[],
     company: "Petra Ride",
     title: "Senior Data Engineer, Pricing & Dispatch Intelligence",
     period: "Nov 2026 – now",
@@ -7,6 +9,8 @@ export const experience = [
       "Building the AWS lakehouse that brings trip, dispatch, pricing and location data into one place, and the data foundation for pricing and dispatch that adapt to demand instead of being configured by hand.",
   },
   {
+    id: "exp-elm",
+    projects: ["kidana-hajj-umrah-warehouse"],
     company: "Elm",
     title: "Data Engineer, AI Data Enablement",
     period: "Jul – Nov 2026",
@@ -14,6 +18,8 @@ export const experience = [
       "On Kidana’s Hajj & Umrah transformation. I own Informatica IDMC pipelines from SAP and other sources into the warehouse, and prepare the governed data Kidana’s AI team grounds its agents on.",
   },
   {
+    id: "exp-tools-solutions",
+    projects: ["mofa-data-classification", "ncw-data-governance", "awqaf-hr-assistant", "document-intelligence", "ai-applicant-tracking", "sitechat"],
     company: "Tools & Solutions",
     title: "AI & Data Engineer",
     period: "Jan 2025 – Jun 2026",
@@ -21,6 +27,8 @@ export const experience = [
       "Built on-premise LLM agents and Informatica pipelines for Saudi government clients, including MOFA and NCW. Classification, metadata extraction, data quality and medallion warehouses.",
   },
   {
+    id: "exp-optimiza",
+    projects: ["text-to-sql-analytics"],
     company: "Optimiza",
     title: "RLHF & Data Engineer",
     period: "Jun 2023 – Jan 2025",
@@ -36,11 +44,36 @@ export const education = {
   note: "Ranked first in my graduating class. GPA 3.5 / 4.0.",
 };
 
+/** Badges are the issuers' own badge images; each links to its public verification page. */
 export const certifications = [
-  { name: "Cloudera AI Technical Professional", issuer: "Cloudera", year: "2025" },
-  { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", year: "2025" },
-  { name: "Generative AI Fundamentals", issuer: "Databricks", year: "2025" },
-  { name: "Alteryx Designer Core", issuer: "Alteryx", year: "2025" },
+  {
+    name: "Cloudera AI Technical Professional",
+    issuer: "Cloudera",
+    year: "2025",
+    badge: "/badges/cloudera.png",
+    url: "https://www.credly.com/badges/672c14d2-71a7-45e2-8a1e-9ac16de6c252",
+  },
+  {
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    year: "2025",
+    badge: "/badges/aws.png",
+    url: "https://www.credly.com/badges/22bc8dbc-ff6b-461c-a01f-893707897200",
+  },
+  {
+    name: "Generative AI Fundamentals",
+    issuer: "Databricks",
+    year: "2025",
+    badge: "/badges/databricks.png",
+    url: "https://credentials.databricks.com/812f267d-76c2-4995-9fa7-c563b2588259",
+  },
+  {
+    name: "Alteryx Designer Core",
+    issuer: "Alteryx",
+    year: "2025",
+    badge: "/badges/alteryx.png",
+    url: "https://www.credly.com/badges/98599ab0-e33c-4f43-bfe5-d1e23ff2b6b5",
+  },
 ];
 
 /** The path data takes, and what I do at each step. A real sequence, so it is numbered. */

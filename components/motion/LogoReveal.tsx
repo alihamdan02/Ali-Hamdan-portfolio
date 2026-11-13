@@ -28,6 +28,25 @@ export default function LogoReveal({ children }: { children: React.ReactNode }) 
     return () => ctx.revert();
   }, []);
 
+  // Clicking a tile scrolls to its Experience entry (Lenis handles the scroll); then the entry glows briefly.
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return;
+    const onClick = (e: MouseEvent) => {
+      const card = (e.target as HTMLElement).closest<HTMLElement>("[data-flash]");
+      const target = card && document.getElementById(card.dataset.flash!);
+      if (!target) return;
+      target.classList.remove("flash");
+      window.setTimeout(() => {
+        void target.offsetWidth;
+        target.classList.add("flash");
+        target.querySelector<HTMLElement>("h3")?.focus({ preventScroll: true });
+      }, 650);
+    };
+    root.addEventListener("click", onClick);
+    return () => root.removeEventListener("click", onClick);
+  }, []);
+
   return (
     <div className="clients" ref={ref}>
       {children}

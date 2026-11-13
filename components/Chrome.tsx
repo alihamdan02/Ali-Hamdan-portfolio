@@ -93,7 +93,7 @@ export function Footer() {
 
 export function ClientLogo({ client }: { client: Client }) {
   return client.logo ? (
-    <span className="client-logo" data-dark={client.dark ? "true" : undefined}>
+    <span className="client-logo">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={client.logo} alt={`${client.name} logo`} />
     </span>
@@ -109,31 +109,18 @@ function OrgGroup({ title, orgs }: { title: string; orgs: Client[] }) {
     <div className="org-group">
       <p>{title}</p>
       <ul className="client-grid">
-        {orgs.map((c) => {
-          const body = (
-            <>
+        {orgs.map((c) => (
+          <li key={c.name} className="client">
+            <a href={`#${c.exp}`} className="client-card" data-flash={c.exp}>
               <ClientLogo client={c} />
               <div className="client-text">
                 <b>{c.name}</b>
                 <span>{c.work}</span>
-                {(c.slug || c.period) && <em className="client-more">{c.slug ? "View case study" : c.period}</em>}
+                <em className="client-more">{c.more}</em>
               </div>
-            </>
-          );
-          return (
-            <li key={c.name} className="client">
-              {c.slug ? (
-                <Link href={`/work/${c.slug}`} className="client-card">
-                  {body}
-                </Link>
-              ) : (
-                <div className="client-card" tabIndex={c.period ? 0 : undefined}>
-                  {body}
-                </div>
-              )}
-            </li>
-          );
-        })}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );
