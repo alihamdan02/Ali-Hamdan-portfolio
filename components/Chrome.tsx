@@ -3,6 +3,7 @@ import { profile, type Client } from "@/content/profile";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import ContactForm from "@/components/ContactForm";
 import WhatsApp from "@/components/WhatsApp";
+import LogoReveal from "@/components/motion/LogoReveal";
 
 export function Mark() {
   return (
@@ -108,15 +109,31 @@ function OrgGroup({ title, orgs }: { title: string; orgs: Client[] }) {
     <div className="org-group">
       <p>{title}</p>
       <ul className="client-grid">
-        {orgs.map((c) => (
-          <li key={c.name} className="client">
-            <ClientLogo client={c} />
-            <div className="client-text">
-              <b>{c.name}</b>
-              <span>{c.work}</span>
-            </div>
-          </li>
-        ))}
+        {orgs.map((c) => {
+          const body = (
+            <>
+              <ClientLogo client={c} />
+              <div className="client-text">
+                <b>{c.name}</b>
+                <span>{c.work}</span>
+                {(c.slug || c.period) && <em className="client-more">{c.slug ? "View case study" : c.period}</em>}
+              </div>
+            </>
+          );
+          return (
+            <li key={c.name} className="client">
+              {c.slug ? (
+                <Link href={`/work/${c.slug}`} className="client-card">
+                  {body}
+                </Link>
+              ) : (
+                <div className="client-card" tabIndex={c.period ? 0 : undefined}>
+                  {body}
+                </div>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
@@ -124,9 +141,9 @@ function OrgGroup({ title, orgs }: { title: string; orgs: Client[] }) {
 
 export function Clients() {
   return (
-    <div className="clients">
+    <LogoReveal>
       <OrgGroup title="Where I’ve worked" orgs={profile.employers} />
       <OrgGroup title="Who I’ve built for" orgs={profile.clients} />
-    </div>
+    </LogoReveal>
   );
 }

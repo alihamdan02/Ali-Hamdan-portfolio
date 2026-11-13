@@ -1,4 +1,14 @@
-export type Client = { name: string; short: string; work: string; logo: string; dark?: boolean };
+export type Client = {
+  name: string;
+  short: string;
+  work: string;
+  logo: string;
+  dark?: boolean;
+  /** Case study this client opens. */
+  slug?: string;
+  /** Shown on hover for employers. */
+  period?: string;
+};
 
 export const profile = {
   name: "Ali Hamdan",
@@ -26,16 +36,16 @@ export const profile = {
    * Without one, a typographic tile is shown.
    */
   employers: [
-    { name: "Petra Ride", short: "Petra", work: "Senior Data Engineer, now", logo: "/logos/petra-ride.png", dark: true },
-    { name: "Elm", short: "Elm", work: "Data Engineer, Kidana", logo: "/logos/elm.png" },
-    { name: "Tools & Solutions", short: "T&S", work: "AI & Data Engineer", logo: "/logos/tools-solutions.png" },
-    { name: "Optimiza", short: "Optimiza", work: "RLHF & Data Engineer", logo: "/logos/optimiza.png" },
+    { name: "Petra Ride", short: "Petra", work: "Senior Data Engineer", logo: "/logos/petra-ride.png", dark: true, period: "Nov 2026 – now" },
+    { name: "Elm", short: "Elm", work: "Data Engineer, Kidana", logo: "/logos/elm.png", period: "Jul – Nov 2026" },
+    { name: "Tools & Solutions", short: "T&S", work: "AI & Data Engineer", logo: "/logos/tools-solutions.png", period: "Jan 2025 – Jun 2026" },
+    { name: "Optimiza", short: "Optimiza", work: "RLHF & Data Engineer", logo: "/logos/optimiza.png", period: "Jun 2023 – Jan 2025" },
   ] as Client[],
   clients: [
-    { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "/logos/mofa.png" },
-    { name: "National Center for Wildlife", short: "NCW", work: "Governance and warehouse", logo: "/logos/ncw.png" },
-    { name: "Kidana", short: "Kidana", work: "Hajj & Umrah data warehouse", logo: "/logos/kidana.png" },
-    { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "/logos/awqaf.png" },
+    { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "/logos/mofa.png", slug: "mofa-data-classification" },
+    { name: "National Center for Wildlife", short: "NCW", work: "Governance and warehouse", logo: "/logos/ncw.png", slug: "ncw-data-governance" },
+    { name: "Kidana", short: "Kidana", work: "Hajj & Umrah data warehouse", logo: "/logos/kidana.png", slug: "kidana-hajj-umrah-warehouse" },
+    { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "/logos/awqaf.png", slug: "awqaf-hr-assistant" },
   ] as Client[],
 };
 
