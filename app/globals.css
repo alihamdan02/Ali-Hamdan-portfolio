@@ -1163,6 +1163,97 @@ svg {
   color: var(--accent);
 }
 
+/* ---------------- Motion ---------------- */
+/* Hidden only when JS runs; revealed by GSAP, or by this fallback if the script never arrives. */
+.js .hero-title {
+  visibility: hidden;
+  animation: reveal-fallback 0s 2.5s forwards;
+}
+@keyframes reveal-fallback {
+  to {
+    visibility: visible;
+  }
+}
+
+/* Pipeline: a track above the stages; the fill scales with scroll. */
+.pipeline-wrap {
+  position: relative;
+}
+.pipeline-track {
+  display: none;
+}
+.pipeline-wrap[data-animated="true"] .pipeline-track {
+  display: block;
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--rule);
+  z-index: 1;
+}
+.pipeline-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--petrol), var(--petrol) 78%, var(--accent));
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+.pipeline-wrap[data-animated="true"] .stage {
+  border-top-color: transparent;
+}
+.pipeline-wrap[data-animated="true"] .stage > * {
+  opacity: 0.35;
+  transition: opacity 0.5s ease;
+}
+.pipeline-wrap[data-animated="true"] .stage[data-on="true"] > * {
+  opacity: 1;
+}
+
+/* Diagram packets travel along each connector. */
+.packet {
+  position: absolute;
+  left: -2.25rem;
+  top: calc(3.05rem - 3px);
+  width: 7px;
+  height: 7px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Work list: a project's data path lights up in order when you point at it. */
+.trail span {
+  transition: color 0.25s ease;
+}
+.trail span + span::before {
+  transition: opacity 0.25s ease, background-color 0.25s ease;
+}
+.work-link:hover .trail span,
+.work-link:focus-visible .trail span {
+  color: var(--ink);
+}
+.work-link:hover .trail span + span::before,
+.work-link:focus-visible .trail span + span::before {
+  opacity: 1;
+  background: var(--accent);
+}
+.trail span:nth-child(2), .trail span:nth-child(2)::before { transition-delay: 0.06s; }
+.trail span:nth-child(3), .trail span:nth-child(3)::before { transition-delay: 0.12s; }
+.trail span:nth-child(4), .trail span:nth-child(4)::before { transition-delay: 0.18s; }
+.trail span:nth-child(5), .trail span:nth-child(5)::before { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero-title {
+    visibility: visible;
+    animation: none;
+  }
+  .packet {
+    display: none;
+  }
+}
+
 /* ---------------- Responsive ---------------- */
 @media (max-width: 960px) {
   .hero {
@@ -1171,6 +1262,19 @@ svg {
   .pipeline {
     grid-template-columns: 1fr;
     gap: 1.75rem;
+  }
+  .pipeline-wrap[data-animated="true"] .pipeline-track {
+    display: none;
+  }
+  .pipeline-wrap[data-animated="true"] .stage {
+    border-top-color: var(--rule);
+    transition: border-color 0.5s ease;
+  }
+  .pipeline-wrap[data-animated="true"] .stage[data-on="true"] {
+    border-top-color: var(--petrol);
+  }
+  .pipeline-wrap[data-animated="true"] .stage[data-on="true"]:last-child {
+    border-top-color: var(--accent);
   }
   .stage {
     padding-right: 0;

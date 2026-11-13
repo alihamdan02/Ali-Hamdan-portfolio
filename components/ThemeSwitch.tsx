@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 
 type Theme = "system" | "light" | "dark";
 
-/** Runs before paint (inlined in <head>) so the page never flashes the wrong theme. */
-export const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
 const icons: Record<Theme, React.ReactNode> = {
   system: (

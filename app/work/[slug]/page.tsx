@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Contact } from "@/components/Chrome";
 import { getProject, projects } from "@/content/projects";
+import Diagram from "@/components/motion/Diagram";
+import CountUp from "@/components/motion/CountUp";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -51,21 +53,7 @@ export default async function CaseStudy({ params }: Props) {
           </dl>
         </header>
 
-        <figure className="diagram">
-          <div className="lanes">
-            {p.architecture.map((s) => (
-              <div className="lane" key={s.label}>
-                <h3>{s.label}</h3>
-                {s.nodes.map((n) => (
-                  <div className="node" key={n}>
-                    {n}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-          <figcaption>Architecture, simplified. Data flows left to right.</figcaption>
-        </figure>
+        <Diagram stages={p.architecture} />
 
         <div className="case-body">
           <section className="prose">
@@ -89,7 +77,7 @@ export default async function CaseStudy({ params }: Props) {
           <div className="results">
             {p.results.map((r) => (
               <div className="result" key={r.label}>
-                <b>{r.value}</b>
+                <CountUp value={r.value} />
                 <span>{r.label}</span>
               </div>
             ))}

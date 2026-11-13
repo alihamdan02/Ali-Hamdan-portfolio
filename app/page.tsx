@@ -1,4 +1,6 @@
 import Classifier from "@/components/Classifier";
+import HeroTitle from "@/components/motion/HeroTitle";
+import PipelineProgress from "@/components/motion/PipelineProgress";
 import WorkList from "@/components/WorkList";
 import { Clients, Contact } from "@/components/Chrome";
 import { profile } from "@/content/profile";
@@ -14,9 +16,7 @@ export default function Home() {
             <p className="whereabouts">
               {profile.current}, {profile.location}
             </p>
-            <h1 className="display" id="hero-title">
-              {profile.headline}
-            </h1>
+            <HeroTitle id="hero-title" text={profile.headline} />
             <p className="lede">{profile.intro}</p>
             <div className="actions">
               <a className="btn btn-primary" href={profile.cv.ai} download>
@@ -55,6 +55,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+          <PipelineProgress>
           <ol className="pipeline">
             {pipeline.map((s, i) => (
               <li key={s.stage} className="stage">
@@ -71,6 +72,7 @@ export default function Home() {
               </li>
             ))}
           </ol>
+          </PipelineProgress>
         </div>
       </section>
 
