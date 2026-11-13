@@ -1,33 +1,26 @@
-<h1 align=center>Geeky Nextjs</h1>
+# Ali Hamdan, AI & Data Engineer
 
+Personal portfolio. Next.js 16, TypeScript, plain CSS. Deployed on Vercel.
 
-#### Preview
+## Run it
 
- - [Demo](https://themewagon.github.io/geeky-nextjs/)
-
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/geeky-nextjs/)
- 
- 
-## Getting Started
-
-Clone from GitHub 
-```
-https://github.com/themewagon/geeky-nextjs.git
+```bash
+npm install
+npm run dev
 ```
 
-## Author
+## Edit content
 
-Design and code are completely written by Statichunt's design and development team.  
+Everything you see on the site lives in `content/`:
 
+- `content/profile.ts`: name, headline, intro, links, client list
+- `content/projects.ts`: case studies (problem, what I built, results, architecture diagram, stack)
+- `content/experience.ts`: jobs, education, certifications, the source-to-answer pipeline
 
-## License
+CVs are in `public/cv/`. Replace the PDFs to update the download buttons.
 
- - Design and Code is Copyright &copy; [Statichunt](https://statichunt.com/)
- - Licensed under [MIT]
- - Distributed by [ThemeWagon](https://themewagon.com)
+## Design notes
 
-
-
-
-
+The colour system is one ultramarine "stamp" ink with four tints. The tints are the four NDMO
+classification levels (Public, Restricted, Secret, Top Secret), and wherever they appear they mean
+sensitivity. Type is Schibsted Grotesk, with JetBrains Mono only for data (table columns, diagram nodes).
