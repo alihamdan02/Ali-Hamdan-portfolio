@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Footer, Header } from "@/components/Chrome";
 import { profile } from "@/content/profile";
+import { themeScript } from "@/components/ThemeSwitch";
 
 const description =
   "AI & Data Engineer in Amman. Informatica pipelines, enterprise data warehouses and on-premise LLM agents for government teams in Saudi Arabia.";
@@ -21,11 +22,19 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-export const viewport: Viewport = { themeColor: "#f1f2ee" };
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f0f1ee" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1719" },
+  ],
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <a href="#main" className="skip">
           Skip to content

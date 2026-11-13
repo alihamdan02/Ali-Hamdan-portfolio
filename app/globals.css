@@ -3,24 +3,33 @@
 
 /* ------------------------------------------------------------------
    Tokens
-   The palette is built around one ink, ultramarine, the colour of a
-   document stamp. Its four tints are the four NDMO classification
-   levels, lightest = Public, darkest = Top Secret. Wherever they
-   appear they mean sensitivity, nothing else.
+   Brand colour is #9E3D24, a brick red close to the ink of an official
+   seal. Its four tints are the four NDMO classification levels, lightest
+   = Public, #9E3D24 itself = Top Secret, and wherever they appear they
+   mean sensitivity. A deep petrol blue breaks the red: it carries
+   structure (diagram arrows, the contact band) so the red stays rare.
 ------------------------------------------------------------------- */
 :root {
-  --paper: #f1f2ee;
-  --panel: #fafaf7;
-  --ink: #18202b;
-  --graphite: #555d69;
-  --rule: #d2d5cf;
-  --stamp: #3337a8;
-  --stamp-ink: #262a8c;
+  color-scheme: light;
+  --paper: #f0f1ee;
+  --panel: #fafaf8;
+  --node: #ffffff;
+  --ink: #1b2326;
+  --graphite: #586064;
+  --rule: #d6d8d3;
 
-  --l1: #c9cbef; /* Public */
-  --l2: #8d91db; /* Restricted */
-  --l3: #575cc4; /* Secret */
-  --l4: #22257a; /* Top Secret */
+  --accent: #9e3d24;        /* links, text accents */
+  --accent-strong: #7e2f1b; /* hover, big numbers */
+  --accent-bg: #9e3d24;     /* filled buttons, white text 7:1 */
+  --accent-bg-hover: #7e2f1b;
+  --petrol: #1f4a52;
+  --band: #1f4a52;          /* contact section */
+  --band-deep: #183c43;
+
+  --l1: #efd6cc; /* Public */
+  --l2: #d9a08b; /* Restricted */
+  --l3: #bc6448; /* Secret */
+  --l4: #9e3d24; /* Top Secret */
 
   --sans: "Schibsted Grotesk Variable", "Helvetica Neue", Arial, sans-serif;
   --mono: "JetBrains Mono Variable", ui-monospace, Menlo, monospace;
@@ -29,6 +38,50 @@
   --wrap: 1200px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --section: clamp(4.5rem, 10vw, 8.5rem);
+}
+
+/* Dark: petrol night, the red lifts so it still reads. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+    --paper: #0f1719;
+    --panel: #152023;
+    --node: #1a272a;
+    --ink: #e6e9e5;
+    --graphite: #9aa5a7;
+    --rule: #263438;
+    --accent: #e48a6a;
+    --accent-strong: #f0a48a;
+    --accent-bg: #9e3d24;
+    --accent-bg-hover: #b54a2e;
+    --petrol: #7fb0b8;
+    --band: #0b2328;
+    --band-deep: #081b1f;
+    --l1: #3d2721;
+    --l2: #6f3727;
+    --l3: #a8492d;
+    --l4: #e48a6a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0f1719;
+    --panel: #152023;
+    --node: #1a272a;
+    --ink: #e6e9e5;
+    --graphite: #9aa5a7;
+    --rule: #263438;
+    --accent: #e48a6a;
+    --accent-strong: #f0a48a;
+    --accent-bg: #9e3d24;
+    --accent-bg-hover: #b54a2e;
+    --petrol: #7fb0b8;
+    --band: #0b2328;
+    --band-deep: #081b1f;
+    --l1: #3d2721;
+    --l2: #6f3727;
+    --l3: #a8492d;
+    --l4: #e48a6a;
+  }
 }
 
 *,
@@ -87,7 +140,7 @@ svg {
 }
 
 :focus-visible {
-  outline: 2px solid var(--stamp);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -249,13 +302,13 @@ svg {
   color: var(--paper);
 }
 .btn-primary {
-  background: var(--stamp);
-  border-color: var(--stamp);
+  background: var(--accent-bg);
+  border-color: var(--accent-bg);
   color: #fff;
 }
 .btn-primary:hover {
-  background: var(--stamp-ink);
-  border-color: var(--stamp-ink);
+  background: var(--accent-bg-hover);
+  border-color: var(--accent-bg-hover);
   color: #fff;
 }
 .btn small {
@@ -265,7 +318,7 @@ svg {
 }
 
 .link {
-  color: var(--stamp);
+  color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
@@ -306,23 +359,94 @@ svg {
 
 .clients {
   border-top: 1px solid var(--rule);
-  padding-block: 1.6rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 2.5rem;
-  align-items: baseline;
+  padding-block: 2rem 2.5rem;
+  display: grid;
+  gap: 1.25rem;
 }
-.clients p {
+.clients > p {
   color: var(--graphite);
   font-size: 0.95rem;
 }
-.clients ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2.25rem;
-  font-weight: 650;
-  font-size: 1.05rem;
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+.client {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: center;
+}
+.client-logo {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--rule);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 0.35rem;
+}
+.client-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Typographic stand-in until a real logo file is supplied. */
+.client-logo[data-empty="true"] {
+  background: var(--panel);
+  color: var(--petrol);
+  font-weight: 800;
+  font-size: 0.72rem;
   letter-spacing: -0.01em;
+  text-align: center;
+  line-height: 1.05;
+}
+.client-text b {
+  display: block;
+  font-weight: 680;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+.client-text span {
+  display: block;
+  color: var(--graphite);
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+/* ---------------- Theme switch ---------------- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+.theme {
+  display: inline-flex;
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  padding: 2px;
+}
+.theme button {
+  width: 1.9rem;
+  height: 1.7rem;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 5px;
+  background: none;
+  color: var(--graphite);
+  cursor: pointer;
+}
+.theme button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.theme svg {
+  width: 15px;
+  height: 15px;
 }
 
 /* ---------------- Classifier ---------------- */
@@ -454,7 +578,7 @@ svg {
 .rerun {
   font: inherit;
   font-weight: 650;
-  color: var(--stamp);
+  color: var(--accent);
   background: none;
   border: 0;
   padding: 0.25rem 0;
@@ -547,7 +671,7 @@ svg {
   max-width: 30ch;
 }
 .work-link:hover .work-title {
-  color: var(--stamp);
+  color: var(--accent);
 }
 
 .work-summary {
@@ -600,7 +724,8 @@ svg {
   content: "";
   width: 1.25rem;
   height: 1px;
-  background: var(--l2);
+  background: var(--petrol);
+  opacity: 0.5;
   margin-inline: 0.45rem;
 }
 
@@ -619,11 +744,8 @@ svg {
   gap: 0.6rem;
   align-content: start;
 }
-.stage:nth-child(1) { border-top-color: var(--l1); }
-.stage:nth-child(2) { border-top-color: var(--l2); }
-.stage:nth-child(3) { border-top-color: var(--l3); }
-.stage:nth-child(4) { border-top-color: var(--l4); }
-.stage:nth-child(5) { border-top-color: var(--ink); }
+.stage { border-top-color: var(--petrol); }
+.stage:last-child { border-top-color: var(--accent); }
 .stage-num {
   font-variant-numeric: tabular-nums;
   color: var(--graphite);
@@ -682,7 +804,7 @@ svg {
 .degree {
   background: var(--panel);
   border: 1px solid var(--rule);
-  border-left: 4px solid var(--stamp);
+  border-left: 4px solid var(--accent);
   border-radius: 6px;
   padding: 1.5rem 1.6rem;
   display: grid;
@@ -690,7 +812,7 @@ svg {
 }
 .degree-note {
   font-weight: 700;
-  color: var(--stamp-ink);
+  color: var(--accent-strong);
   margin-top: 0.4rem;
 }
 .certs li {
@@ -711,12 +833,12 @@ svg {
 
 /* ---------------- Contact ---------------- */
 .contact {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--band);
+  color: #eef2f1;
   padding-block: var(--section);
 }
 .contact .lede {
-  color: #b9bfc8;
+  color: #b7c9cc;
 }
 .contact-grid {
   display: grid;
@@ -727,7 +849,7 @@ svg {
   font-weight: 760;
   letter-spacing: -0.035em;
   line-height: 1.05;
-  color: var(--l1);
+  color: #f2c6b5;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.12em;
@@ -737,17 +859,17 @@ svg {
   color: #fff;
 }
 .contact .btn {
-  border-color: #6b7380;
-  color: var(--paper);
+  border-color: #6f8f95;
+  color: #eef2f1;
 }
 .contact .btn:hover {
-  background: var(--paper);
-  color: var(--ink);
+  background: #eef2f1;
+  color: #10282c;
 }
 .contact .btn-primary {
-  background: var(--l1);
-  border-color: var(--l1);
-  color: var(--ink);
+  background: #f2c6b5;
+  border-color: #f2c6b5;
+  color: #3a160c;
 }
 .contact .btn-primary:hover {
   background: #fff;
@@ -759,14 +881,13 @@ svg {
   gap: 0.5rem 2rem;
 }
 .contact-links a {
-  color: var(--paper);
+  color: #eef2f1;
 }
 
 .footer {
-  background: var(--ink);
-  color: #8e96a2;
+  background: var(--band-deep);
+  color: #9db3b7;
   font-size: 0.85rem;
-  border-top: 1px solid #2c3542;
 }
 .footer .wrap {
   display: flex;
@@ -852,7 +973,7 @@ svg {
   top: 3.05rem;
   width: 2.25rem;
   height: 1px;
-  background: var(--l3);
+  background: var(--petrol);
 }
 .lane + .lane::after {
   content: "";
@@ -860,7 +981,7 @@ svg {
   left: -7px;
   top: calc(3.05rem - 4px);
   border: 4px solid transparent;
-  border-left: 6px solid var(--l3);
+  border-left: 6px solid var(--petrol);
 }
 .node {
   font-family: var(--mono);
@@ -869,13 +990,10 @@ svg {
   padding: 0.6rem 0.75rem;
   border: 1px solid var(--rule);
   border-radius: 6px;
-  background: #fff;
+  background: var(--node);
 }
-.lane:nth-child(1) .node { border-left: 3px solid var(--l1); }
-.lane:nth-child(2) .node { border-left: 3px solid var(--l2); }
-.lane:nth-child(3) .node { border-left: 3px solid var(--l3); }
-.lane:nth-child(4) .node { border-left: 3px solid var(--l4); }
-.lane:nth-child(n + 5) .node { border-left: 3px solid var(--ink); }
+.node { border-left: 3px solid var(--petrol); }
+.lane:last-child .node { border-left-color: var(--accent); }
 
 .case-body {
   display: grid;
@@ -908,7 +1026,7 @@ svg {
   top: 1.55rem;
   width: 0.7rem;
   height: 2px;
-  background: var(--stamp);
+  background: var(--accent);
 }
 
 .results {
@@ -931,7 +1049,7 @@ svg {
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1;
-  color: var(--stamp-ink);
+  color: var(--accent-strong);
 }
 .result span {
   color: var(--graphite);
@@ -949,7 +1067,7 @@ svg {
   gap: 0.3rem;
 }
 .next a:hover .h3 {
-  color: var(--stamp);
+  color: var(--accent);
 }
 
 /* ---------------- Responsive ---------------- */
@@ -981,6 +1099,10 @@ svg {
   }
   .facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .client-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem 1rem;
   }
 }
 
