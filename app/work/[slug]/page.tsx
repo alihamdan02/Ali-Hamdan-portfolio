@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import { Contact } from "@/components/Chrome";
 import { getProject, projects } from "@/content/projects";
@@ -31,7 +32,9 @@ export default async function CaseStudy({ params }: Props) {
           <Link href="/#work" className="back">
             ← All work
           </Link>
-          <h1 className="case-title">{p.title}</h1>
+          <ViewTransition name={`title-${p.slug}`} share="morph" default="none">
+            <h1 className="case-title">{p.title}</h1>
+          </ViewTransition>
           <p className="lede">{p.summary}</p>
           <dl className="facts">
             <div>

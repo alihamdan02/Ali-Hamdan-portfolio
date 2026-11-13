@@ -5,6 +5,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Stage } from "@/content/projects";
 
+import { scramble } from "@/components/motion/scramble";
+
 gsap.registerPlugin(ScrollTrigger);
 
 /**
@@ -25,7 +27,10 @@ export default function Diagram({ stages }: { stages: Stage[] }) {
       gsap.set(packets, { autoAlpha: 0 });
 
       const tl = gsap.timeline({ scrollTrigger: { trigger: root, start: "top 75%", once: true } });
-      tl.to(lanes, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power2.out", stagger: 0.14 });
+      lanes.forEach((lane, i) => {
+        tl.to(lane, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power2.out" }, i * 0.14);
+        tl.call(() => scramble(lane.querySelector("h3"), 0.6), undefined, i * 0.14);
+      });
       tl.add(() => {
         packets.forEach((p, i) => {
           gsap.fromTo(
