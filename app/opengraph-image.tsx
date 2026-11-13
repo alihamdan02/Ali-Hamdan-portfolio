@@ -7,7 +7,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const dynamic = "force-static";
 
-const bars = ["#c9cbef", "#8d91db", "#575cc4", "#22257a"];
+const bars = ["#efd6cc", "#d9a08b", "#bc6448", "#9e3d24"];
 
 const font = (w: number) =>
   readFile(join(process.cwd(), `node_modules/@fontsource/schibsted-grotesk/files/schibsted-grotesk-latin-${w}-normal.woff`));
@@ -20,8 +20,8 @@ export default async function OG() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#f1f2ee",
-          color: "#18202b",
+          background: "#f0f1ee",
+          color: "#1b2326",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -38,7 +38,7 @@ export default async function OG() {
           <div style={{ fontSize: 92, fontWeight: 800, letterSpacing: -4, lineHeight: 1 }}>
             Governed data first. Private AI on top.
           </div>
-          <div style={{ fontSize: 34, color: "#555d69" }}>Ali Hamdan, AI & Data Engineer, Amman</div>
+          <div style={{ fontSize: 34, color: "#586064" }}>Ali Hamdan, AI & Data Engineer, Amman</div>
         </div>
       </div>
     ),

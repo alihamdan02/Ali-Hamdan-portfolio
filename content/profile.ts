@@ -1,3 +1,5 @@
+export type Client = { name: string; short: string; work: string; logo: string };
+
 export const profile = {
   name: "Ali Hamdan",
   role: "AI & Data Engineer",
@@ -16,12 +18,17 @@ export const profile = {
     { label: "GitHub", href: "https://github.com/alihamdan02" },
     { label: "Hugging Face", href: "https://huggingface.co/alihamdan02" },
   ],
+  /**
+   * Organisations I have built for. Put a logo file in public/logos/ and set `logo`
+   * to show it; without one, a typographic tile is shown instead.
+   */
   clients: [
-    "Ministry of Foreign Affairs",
-    "National Center for Wildlife",
-    "Kidana (Hajj & Umrah)",
-    "Elm",
-  ],
+    { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "" },
+    { name: "National Center for Wildlife", short: "NCW", work: "Governance and warehouse", logo: "" },
+    { name: "Kidana", short: "Kidana", work: "Hajj & Umrah data warehouse", logo: "" },
+    { name: "Elm", short: "Elm", work: "Current employer", logo: "" },
+    { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "" },
+  ] as Client[],
 };
 
 /** The four NDMO / NDI classification levels, least to most sensitive. */

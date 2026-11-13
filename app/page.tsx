@@ -1,6 +1,6 @@
 import Classifier from "@/components/Classifier";
 import WorkList from "@/components/WorkList";
-import { Contact } from "@/components/Chrome";
+import { Clients, Contact } from "@/components/Chrome";
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { certifications, education, experience, pipeline } from "@/content/experience";
@@ -33,14 +33,7 @@ export default function Home() {
           <Classifier />
         </section>
 
-        <div className="clients">
-          <p>Built for</p>
-          <ul>
-            {profile.clients.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-        </div>
+        <Clients />
       </div>
 
       <section className="section" id="work">

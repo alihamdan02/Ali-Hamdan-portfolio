@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { profile } from "@/content/profile";
+import { profile, type Client } from "@/content/profile";
+import ThemeSwitch from "@/components/ThemeSwitch";
 
 export function Mark() {
   return (
@@ -20,13 +21,16 @@ export function Header() {
           <Mark />
           {profile.name}
         </Link>
-        <nav className="nav" aria-label="Main">
-          <Link href="/#work">Work</Link>
-          <Link href="/#experience">Experience</Link>
-          <Link href="/#contact" className="nav-keep">
-            Contact
-          </Link>
-        </nav>
+        <div className="header-right">
+          <nav className="nav" aria-label="Main">
+            <Link href="/#work">Work</Link>
+            <Link href="/#experience">Experience</Link>
+            <Link href="/#contact" className="nav-keep">
+              Contact
+            </Link>
+          </nav>
+          <ThemeSwitch />
+        </div>
       </div>
     </header>
   );
@@ -78,5 +82,37 @@ export function Footer() {
         <span>Colours on this site follow the four NDMO data classification levels.</span>
       </div>
     </footer>
+  );
+}
+
+export function ClientLogo({ client }: { client: Client }) {
+  return client.logo ? (
+    <span className="client-logo">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={client.logo} alt={`${client.name} logo`} />
+    </span>
+  ) : (
+    <span className="client-logo" data-empty="true" aria-hidden="true">
+      {client.short}
+    </span>
+  );
+}
+
+export function Clients() {
+  return (
+    <div className="clients">
+      <p>Organisations I have built for</p>
+      <ul className="client-grid">
+        {profile.clients.map((c) => (
+          <li key={c.name} className="client">
+            <ClientLogo client={c} />
+            <div className="client-text">
+              <b>{c.name}</b>
+              <span>{c.work}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
