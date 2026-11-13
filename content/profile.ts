@@ -1,4 +1,4 @@
-export type Client = { name: string; short: string; work: string; logo: string };
+export type Client = { name: string; short: string; work: string; logo: string; dark?: boolean };
 
 export const profile = {
   name: "Ali Hamdan",
@@ -6,6 +6,8 @@ export const profile = {
   current: "Senior Data Engineer at Petra Ride",
   location: "Amman, Jordan",
   email: "aliihamdan02@gmail.com",
+  /** Split so the number is not sitting in the page source for scrapers; joined in the browser. */
+  whatsapp: ["962", "7996", "61576"],
   siteUrl: "https://ali-hamdan-portfolio-seven.vercel.app",
   headline: "Governed data first. Private AI on top.",
   intro:
@@ -24,16 +26,16 @@ export const profile = {
    * Without one, a typographic tile is shown.
    */
   employers: [
-    { name: "Petra Ride", short: "Petra", work: "Senior Data Engineer, now", logo: "" },
-    { name: "Elm", short: "Elm", work: "Data Engineer, Kidana", logo: "" },
-    { name: "Tools & Solutions", short: "T&S", work: "AI & Data Engineer", logo: "" },
-    { name: "Optimiza", short: "Optimiza", work: "RLHF & Data Engineer", logo: "" },
+    { name: "Petra Ride", short: "Petra", work: "Senior Data Engineer, now", logo: "/logos/petra-ride.png", dark: true },
+    { name: "Elm", short: "Elm", work: "Data Engineer, Kidana", logo: "/logos/elm.png" },
+    { name: "Tools & Solutions", short: "T&S", work: "AI & Data Engineer", logo: "/logos/tools-solutions.png" },
+    { name: "Optimiza", short: "Optimiza", work: "RLHF & Data Engineer", logo: "/logos/optimiza.png" },
   ] as Client[],
   clients: [
-    { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "" },
+    { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "/logos/mofa.png" },
     { name: "National Center for Wildlife", short: "NCW", work: "Governance and warehouse", logo: "" },
     { name: "Kidana", short: "Kidana", work: "Hajj & Umrah data warehouse", logo: "" },
-    { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "" },
+    { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "/logos/awqaf.png" },
   ] as Client[],
 };
 
