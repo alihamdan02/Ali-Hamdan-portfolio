@@ -469,7 +469,7 @@ svg {
 }
 .client-card:hover .client-more,
 .client-card:focus-visible .client-more {
-  max-height: 1.4rem;
+  max-height: 3rem;
   opacity: 1;
   transform: none;
 }
@@ -1266,29 +1266,117 @@ a.client-card:hover b {
 .results {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--ink);
+  gap: 1rem;
 }
 .result {
-  padding: 1.5rem 1.5rem 1.5rem 0;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.35rem 1.35rem 1.4rem;
   display: grid;
-  gap: 0.35rem;
+  grid-template-rows: 4.75rem auto 1fr;
+  gap: 0.55rem;
   align-content: start;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.7, 0.1, 1);
 }
-.result + .result {
-  padding-left: 1.5rem;
-  border-left: 1px solid var(--rule);
+.result:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--rule));
+  transform: translateY(-2px);
 }
-.result b {
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
+.result-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 4.75rem;
+}
+.result-value {
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
   font-weight: 800;
   letter-spacing: -0.035em;
-  line-height: 1;
+  line-height: 1.05;
   color: var(--accent-strong);
+  font-variant-numeric: tabular-nums;
 }
-.result span {
+.result-unit {
+  font-size: 0.7em;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+.result-label {
   color: var(--graphite);
   font-size: 0.95rem;
-  max-width: 26ch;
+  line-height: 1.45;
+  max-width: 30ch;
+}
+
+/* Ring: a share of a whole, with the number inside. */
+.ring {
+  width: 4.75rem;
+  height: 4.75rem;
+  transform: rotate(-90deg);
+}
+.ring-track {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 6;
+}
+.ring-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+.ring-value {
+  position: absolute;
+  left: 0;
+  width: 4.75rem;
+  text-align: center;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+.result[data-kind="percent"] .result-visual {
+  gap: 1rem;
+}
+
+/* Pips: one block per thing counted. */
+.pips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 11rem;
+}
+.pips span {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: var(--accent);
+}
+.pips span:nth-child(odd) {
+  background: var(--l3);
+}
+
+/* Bar: a large count fills a track. */
+.bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--rule);
+  overflow: hidden;
+}
+.bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--petrol), var(--accent));
+  transform-origin: left center;
+}
+
+/* Words: a short underline stroke that draws in while the word decodes. */
+.word-mark {
+  width: 2.75rem;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform-origin: left center;
 }
 
 .next {
@@ -1676,9 +1764,7 @@ a.client-card:hover b {
   .results {
     grid-template-columns: 1fr;
   }
-  .result + .result {
-    padding-left: 0;
-    border-left: 0;
-    border-top: 1px solid var(--rule);
+  .result {
+    grid-template-rows: auto auto auto;
   }
 }
