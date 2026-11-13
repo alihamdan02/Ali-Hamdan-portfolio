@@ -95,7 +95,7 @@ export function ClientLogo({ client }: { client: Client }) {
   return client.logo ? (
     <span className="client-logo">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={client.logo} alt={`${client.name} logo`} />
+      <img src={client.logo} alt={`${client.name} logo`} width={client.w} height={client.h} loading="lazy" decoding="async" />
     </span>
   ) : (
     <span className="client-logo" data-empty="true" aria-hidden="true">

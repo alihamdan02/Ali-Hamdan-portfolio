@@ -3,6 +3,9 @@ export type Client = {
   short: string;
   work: string;
   logo: string;
+  /** Intrinsic size of the logo file, so the browser reserves its space. */
+  w: number;
+  h: number;
   dark?: boolean;
   /** Id of the related Experience entry the tile scrolls to. */
   exp: string;
@@ -36,16 +39,16 @@ export const profile = {
    * Without one, a typographic tile is shown.
    */
   employers: [
-    { name: "Petra Ride", short: "Petra", work: "Senior Data Engineer", logo: "/logos/petra-ride.png", exp: "exp-petra-ride", more: "Nov 2026 – now" },
-    { name: "Elm", short: "Elm", work: "Data Engineer, Kidana", logo: "/logos/elm.png", exp: "exp-elm", more: "Jul – Nov 2026" },
-    { name: "Tools & Solutions", short: "T&S", work: "AI & Data Engineer", logo: "/logos/tools-solutions.png", exp: "exp-tools-solutions", more: "Jan 2025 – Jun 2026" },
-    { name: "Optimiza", short: "Optimiza", work: "RLHF & Data Engineer", logo: "/logos/optimiza.png", exp: "exp-optimiza", more: "Jun 2023 – Jan 2025" },
+    { name: "Petra Ride", short: "Petra", work: "Senior Data Engineer", logo: "/logos/petra-ride.webp", w: 360, h: 160, exp: "exp-petra-ride", more: "Nov 2026 – now" },
+    { name: "Elm", short: "Elm", work: "Data Engineer, Kidana", logo: "/logos/elm.webp", w: 404, h: 160, exp: "exp-elm", more: "Jul – Nov 2026" },
+    { name: "Tools & Solutions", short: "T&S", work: "AI & Data Engineer", logo: "/logos/tools-solutions.webp", w: 313, h: 160, exp: "exp-tools-solutions", more: "Jan 2025 – Jun 2026" },
+    { name: "Optimiza", short: "Optimiza", work: "RLHF & Data Engineer", logo: "/logos/optimiza.webp", w: 719, h: 160, exp: "exp-optimiza", more: "Jun 2023 – Jan 2025" },
   ] as Client[],
   clients: [
-    { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "/logos/mofa.png", exp: "exp-tools-solutions", more: "Built at T&S" },
-    { name: "National Center for Wildlife", short: "NCW", work: "Governance and warehouse", logo: "/logos/ncw.png", exp: "exp-tools-solutions", more: "Built at T&S" },
-    { name: "Kidana", short: "Kidana", work: "Hajj & Umrah data warehouse", logo: "/logos/kidana.png", exp: "exp-elm", more: "Built at Elm" },
-    { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "/logos/awqaf.png", exp: "exp-tools-solutions", more: "Built at T&S" },
+    { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "/logos/mofa.webp", w: 159, h: 160, exp: "exp-tools-solutions", more: "Built at T&S" },
+    { name: "National Center for Wildlife", short: "NCW", work: "Governance and warehouse", logo: "/logos/ncw.webp", w: 160, h: 160, exp: "exp-tools-solutions", more: "Built at T&S" },
+    { name: "Kidana", short: "Kidana", work: "Hajj & Umrah data warehouse", logo: "/logos/kidana.webp", w: 579, h: 160, exp: "exp-elm", more: "Built at Elm" },
+    { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "/logos/awqaf.webp", w: 342, h: 160, exp: "exp-tools-solutions", more: "Built at T&S" },
   ] as Client[],
 };
 

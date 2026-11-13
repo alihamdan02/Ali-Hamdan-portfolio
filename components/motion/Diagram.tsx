@@ -29,7 +29,7 @@ export default function Diagram({ stages }: { stages: Stage[] }) {
       const tl = gsap.timeline({ scrollTrigger: { trigger: root, start: "top 75%", once: true } });
       lanes.forEach((lane, i) => {
         tl.to(lane, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power2.out" }, i * 0.14);
-        tl.call(() => scramble(lane.querySelector("h3"), 0.6), undefined, i * 0.14);
+        tl.call(() => scramble(lane.querySelector(".lane-label"), 0.6), undefined, i * 0.14);
       });
       tl.add(() => {
         packets.forEach((p, i) => {
@@ -59,7 +59,7 @@ export default function Diagram({ stages }: { stages: Stage[] }) {
         {stages.map((s, i) => (
           <div className="lane" key={s.label}>
             {i > 0 && <span className="packet" aria-hidden="true" />}
-            <h3>{s.label}</h3>
+            <p className="lane-label">{s.label}</p>
             {s.nodes.map((n) => (
               <div className="node" key={n}>
                 {n}
