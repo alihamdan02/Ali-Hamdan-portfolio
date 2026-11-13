@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { Contact } from "@/components/Chrome";
 import { getProject, projects } from "@/content/projects";
 import Diagram from "@/components/motion/Diagram";
-import CountUp from "@/components/motion/CountUp";
+import Results from "@/components/motion/Results";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -77,14 +77,7 @@ export default async function CaseStudy({ params }: Props) {
           <h2 className="h3" style={{ marginBottom: "1rem" }}>
             Results
           </h2>
-          <div className="results">
-            {p.results.map((r) => (
-              <div className="result" key={r.label}>
-                <CountUp value={r.value} />
-                <span>{r.label}</span>
-              </div>
-            ))}
-          </div>
+          <Results results={p.results} />
         </section>
 
         <section style={{ paddingBlock: "3rem" }} aria-label="Stack">
