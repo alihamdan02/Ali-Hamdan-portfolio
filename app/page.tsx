@@ -133,7 +133,7 @@ export default function Home() {
                   <li key={c.name}>
                     <a href={c.url} target="_blank" rel="noopener noreferrer" className="cert">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={c.badge} alt="" width={44} height={44} className="cert-badge" />
+                      <img src={c.badge} alt="" width={44} height={44} className="cert-badge" loading="lazy" decoding="async" />
                       <span className="cert-text">
                         <b>{c.name}</b>
                         <span>

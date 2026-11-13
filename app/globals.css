@@ -312,9 +312,13 @@ svg {
   color: #fff;
 }
 .btn small {
-  font-weight: 450;
+  font-weight: 500;
   font-size: 0.78rem;
-  opacity: 0.75;
+  opacity: 0.85;
+}
+.btn-primary small {
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .link {
@@ -1194,7 +1198,7 @@ a.client-card:hover b {
   gap: 0.55rem;
   position: relative;
 }
-.lane h3 {
+.lane-label {
   font-size: 0.8rem;
   font-weight: 650;
   color: var(--graphite);
@@ -1393,14 +1397,21 @@ a.client-card:hover b {
 }
 
 /* ---------------- Motion ---------------- */
-/* Hidden only when JS runs; revealed by GSAP, or by this fallback if the script never arrives. */
-.js .hero-title {
-  visibility: hidden;
-  animation: reveal-fallback 0s 2.5s forwards;
+/* Hero words: each sits in a mask and rises into place on first paint. */
+.hw {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
 }
-@keyframes reveal-fallback {
-  to {
-    visibility: visible;
+.hw-in {
+  display: inline-block;
+  animation: hw-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes hw-rise {
+  from {
+    transform: translateY(110%);
   }
 }
 
@@ -1429,12 +1440,22 @@ a.client-card:hover b {
 .pipeline-wrap[data-animated="true"] .stage {
   border-top-color: transparent;
 }
-.pipeline-wrap[data-animated="true"] .stage > * {
-  opacity: 0.35;
-  transition: opacity 0.5s ease;
+.pipeline-wrap[data-animated="true"] .stage h3 {
+  color: var(--graphite);
+  transition: color 0.5s ease;
 }
-.pipeline-wrap[data-animated="true"] .stage[data-on="true"] > * {
-  opacity: 1;
+.pipeline-wrap[data-animated="true"] .stage .stage-num {
+  transition: color 0.5s ease;
+}
+.pipeline-wrap[data-animated="true"] .stage[data-on="true"] h3 {
+  color: var(--ink);
+}
+.pipeline-wrap[data-animated="true"] .stage[data-on="true"] .stage-num {
+  color: var(--petrol);
+  font-weight: 700;
+}
+.pipeline-wrap[data-animated="true"] .stage[data-on="true"]:last-child .stage-num {
+  color: var(--accent);
 }
 
 /* Diagram packets travel along each connector. */
@@ -1474,8 +1495,7 @@ a.client-card:hover b {
 .trail span:nth-child(5), .trail span:nth-child(5)::before { transition-delay: 0.24s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .js .hero-title {
-    visibility: visible;
+  .hw-in {
     animation: none;
   }
   .packet {

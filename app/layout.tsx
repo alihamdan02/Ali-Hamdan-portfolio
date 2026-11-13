@@ -4,6 +4,9 @@ import { Footer, Header } from "@/components/Chrome";
 import { profile } from "@/content/profile";
 import { headScript } from "@/lib/theme";
 import SmoothScroll from "@/components/motion/SmoothScroll";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { certifications, education, experience } from "@/content/experience";
 
 const description =
   "AI & Data Engineer in Amman. Informatica pipelines, enterprise data warehouses and on-premise LLM agents for government teams in Saudi Arabia.";
@@ -30,11 +33,33 @@ export const viewport: Viewport = {
   ],
 };
 
+/** Structured data so search engines can show a proper card for "Ali Hamdan". */
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.role,
+  url: profile.siteUrl,
+  email: `mailto:${profile.email}`,
+  address: { "@type": "PostalAddress", addressLocality: "Amman", addressCountry: "JO" },
+  worksFor: { "@type": "Organization", name: experience[0].company },
+  alumniOf: { "@type": "CollegeOrUniversity", name: education.school },
+  hasCredential: certifications.map((c) => ({
+    "@type": "EducationalOccupationalCredential",
+    name: c.name,
+    recognizedBy: { "@type": "Organization", name: c.issuer },
+    url: c.url,
+  })),
+  knowsAbout: ["Data engineering", "Informatica IDMC", "Data warehousing", "Data governance", "LLM agents", "RAG"],
+  sameAs: profile.links.map((l) => l.href),
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: headScript }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
       </head>
       <body>
         <a href="#main" className="skip">
@@ -44,6 +69,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <SmoothScroll />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
