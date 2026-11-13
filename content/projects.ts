@@ -9,6 +9,8 @@ export type Stage = {
 export type Project = {
   slug: string;
   title: string;
+  /** Short name used in chips, e.g. under Experience. */
+  short: string;
   client: string;
   year: string;
   disciplines: Discipline[];
@@ -25,6 +27,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "mofa-data-classification",
+    short: "MOFA classification",
     title: "On-premise data classification for a foreign ministry",
     client: "Ministry of Foreign Affairs",
     year: "2025",
@@ -57,6 +60,7 @@ export const projects: Project[] = [
   },
   {
     slug: "kidana-hajj-umrah-warehouse",
+    short: "Kidana warehouse",
     title: "Hajj & Umrah data warehouse on Informatica IDMC",
     client: "Kidana, through Elm",
     year: "2026",
@@ -90,6 +94,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ncw-data-governance",
+    short: "NCW governance",
     title: "Data governance and warehouse for a national wildlife center",
     client: "National Center for Wildlife",
     year: "2025",
@@ -120,6 +125,7 @@ export const projects: Project[] = [
   },
   {
     slug: "awqaf-hr-assistant",
+    short: "Awqaf HR assistant",
     title: "An HR assistant that talks to SAP SuccessFactors",
     client: "Awqaf, proof of concept",
     year: "2026",
@@ -152,6 +158,7 @@ export const projects: Project[] = [
   },
   {
     slug: "document-intelligence",
+    short: "Document intelligence",
     title: "Read any document, classify every page, search it all",
     client: "ISB, proof of concept",
     year: "2026",
@@ -184,6 +191,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ai-applicant-tracking",
+    short: "AI applicant tracking",
     title: "An applicant tracking system that reads CVs for you",
     client: "Tools & Solutions",
     year: "2026",
@@ -216,6 +224,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sitechat",
+    short: "SiteChat",
     title: "Chat with any website, and keep it up to date",
     client: "Tools & Solutions",
     year: "2026",
@@ -248,6 +257,7 @@ export const projects: Project[] = [
   },
   {
     slug: "text-to-sql-analytics",
+    short: "Text-to-SQL analytics",
     title: "Arabic and English questions in, SQL and charts out",
     client: "Optimiza",
     year: "2024",

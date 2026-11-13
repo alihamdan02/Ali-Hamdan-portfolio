@@ -4,10 +4,10 @@ export type Client = {
   work: string;
   logo: string;
   dark?: boolean;
-  /** Case study this client opens. */
-  slug?: string;
-  /** Shown on hover for employers. */
-  period?: string;
+  /** Id of the related Experience entry the tile scrolls to. */
+  exp: string;
+  /** Shown on hover. */
+  more: string;
 };
 
 export const profile = {
@@ -36,16 +36,16 @@ export const profile = {
    * Without one, a typographic tile is shown.
    */
   employers: [
-    { name: "Petra Ride", short: "Petra", work: "Senior Data Engineer", logo: "/logos/petra-ride.png", dark: true, period: "Nov 2026 – now" },
-    { name: "Elm", short: "Elm", work: "Data Engineer, Kidana", logo: "/logos/elm.png", period: "Jul – Nov 2026" },
-    { name: "Tools & Solutions", short: "T&S", work: "AI & Data Engineer", logo: "/logos/tools-solutions.png", period: "Jan 2025 – Jun 2026" },
-    { name: "Optimiza", short: "Optimiza", work: "RLHF & Data Engineer", logo: "/logos/optimiza.png", period: "Jun 2023 – Jan 2025" },
+    { name: "Petra Ride", short: "Petra", work: "Senior Data Engineer", logo: "/logos/petra-ride.png", exp: "exp-petra-ride", more: "Nov 2026 – now" },
+    { name: "Elm", short: "Elm", work: "Data Engineer, Kidana", logo: "/logos/elm.png", exp: "exp-elm", more: "Jul – Nov 2026" },
+    { name: "Tools & Solutions", short: "T&S", work: "AI & Data Engineer", logo: "/logos/tools-solutions.png", exp: "exp-tools-solutions", more: "Jan 2025 – Jun 2026" },
+    { name: "Optimiza", short: "Optimiza", work: "RLHF & Data Engineer", logo: "/logos/optimiza.png", exp: "exp-optimiza", more: "Jun 2023 – Jan 2025" },
   ] as Client[],
   clients: [
-    { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "/logos/mofa.png", slug: "mofa-data-classification" },
-    { name: "National Center for Wildlife", short: "NCW", work: "Governance and warehouse", logo: "/logos/ncw.png", slug: "ncw-data-governance" },
-    { name: "Kidana", short: "Kidana", work: "Hajj & Umrah data warehouse", logo: "/logos/kidana.png", slug: "kidana-hajj-umrah-warehouse" },
-    { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "/logos/awqaf.png", slug: "awqaf-hr-assistant" },
+    { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "/logos/mofa.png", exp: "exp-tools-solutions", more: "Built at Tools & Solutions" },
+    { name: "National Center for Wildlife", short: "NCW", work: "Governance and warehouse", logo: "/logos/ncw.png", exp: "exp-tools-solutions", more: "Built at Tools & Solutions" },
+    { name: "Kidana", short: "Kidana", work: "Hajj & Umrah data warehouse", logo: "/logos/kidana.png", exp: "exp-elm", more: "Built at Elm" },
+    { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "/logos/awqaf.png", exp: "exp-tools-solutions", more: "Built at Tools & Solutions" },
   ] as Client[],
 };
 

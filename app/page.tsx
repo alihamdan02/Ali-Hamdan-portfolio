@@ -3,6 +3,7 @@ import ClassifyPlayground from "@/components/ClassifyPlayground";
 import HeroTitle from "@/components/motion/HeroTitle";
 import PipelineProgress from "@/components/motion/PipelineProgress";
 import WorkList from "@/components/WorkList";
+import Link from "next/link";
 import { Clients, Contact } from "@/components/Chrome";
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
@@ -89,12 +90,26 @@ export default function Home() {
             </div>
             <ol className="jobs">
               {experience.map((j) => (
-                <li key={j.company} className="job">
+                <li key={j.company} className="job" id={j.id}>
                   <span className="job-period">{j.period}</span>
                   <div>
-                    <h3 className="h3">{j.company}</h3>
+                    <h3 className="h3" tabIndex={-1}>
+                      {j.company}
+                    </h3>
                     <p className="muted">{j.title}</p>
                     <p>{j.detail}</p>
+                    {j.projects.length > 0 && (
+                      <ul className="job-projects" aria-label={`Projects at ${j.company}`}>
+                        {j.projects.map((slug) => {
+                          const pr = projects.find((x) => x.slug === slug)!;
+                          return (
+                            <li key={slug}>
+                              <Link href={`/work/${slug}`}>{pr.short}</Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
                   </div>
                 </li>
               ))}
@@ -116,10 +131,17 @@ export default function Home() {
               <ul className="certs">
                 {certifications.map((c) => (
                   <li key={c.name}>
-                    {c.name}
-                    <span>
-                      {c.issuer}, {c.year}
-                    </span>
+                    <a href={c.url} target="_blank" rel="noopener noreferrer" className="cert">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={c.badge} alt="" width={44} height={44} className="cert-badge" />
+                      <span className="cert-text">
+                        <b>{c.name}</b>
+                        <span>
+                          {c.issuer}, {c.year}
+                        </span>
+                      </span>
+                      <span className="cert-verify">Verify</span>
+                    </a>
                   </li>
                 ))}
               </ul>
