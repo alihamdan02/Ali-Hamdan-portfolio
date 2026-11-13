@@ -37,7 +37,7 @@ export default function WorkList({ projects }: { projects: Project[] }) {
 
       <ul className="work" aria-labelledby="work-title">
         {shown.map((p) => (
-          <li key={p.slug} className="work-item">
+          <li key={p.slug} className="work-item" data-disciplines={p.disciplines.join(" ")}>
             <Link href={`/work/${p.slug}`} className="work-link">
               <span className="work-year">{p.year}</span>
               <div className="work-main">

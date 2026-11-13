@@ -5,6 +5,7 @@ import { ImageResponse } from "next/og";
 export const alt = "Ali Hamdan, AI & Data Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const dynamic = "force-static";
 
 const bars = ["#c9cbef", "#8d91db", "#575cc4", "#22257a"];
 
