@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Footer, Header } from "@/components/Chrome";
 import { profile } from "@/content/profile";
-import { themeScript } from "@/components/ThemeSwitch";
+import { headScript } from "@/lib/theme";
+import SmoothScroll from "@/components/motion/SmoothScroll";
 
 const description =
   "AI & Data Engineer in Amman. Informatica pipelines, enterprise data warehouses and on-premise LLM agents for government teams in Saudi Arabia.";
@@ -33,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: headScript }} />
       </head>
       <body>
         <a href="#main" className="skip">
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <SmoothScroll />
       </body>
     </html>
   );
