@@ -2,6 +2,7 @@ import Link from "next/link";
 import { profile, type Client } from "@/content/profile";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import ContactForm from "@/components/ContactForm";
+import WhatsApp from "@/components/WhatsApp";
 
 export function Mark() {
   return (
@@ -52,6 +53,7 @@ export function Contact() {
             {profile.email}
           </a>
           <div className="actions">
+            <WhatsApp />
             <a className="btn" href={profile.cv.ai} download>
               AI Engineer CV <small>PDF</small>
             </a>
@@ -90,7 +92,7 @@ export function Footer() {
 
 export function ClientLogo({ client }: { client: Client }) {
   return client.logo ? (
-    <span className="client-logo">
+    <span className="client-logo" data-dark={client.dark ? "true" : undefined}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={client.logo} alt={`${client.name} logo`} />
     </span>
