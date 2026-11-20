@@ -286,6 +286,38 @@ export const projects: Project[] = [
     ],
     stack: ["OpenAI API", "Multi-agent", "FastAPI", "MySQL", "Pandas", "Plotly / Dash"],
   },
+  {
+    slug: "darah-data-quality-compliance",
+    short: "Darah data quality",
+    title: "Data quality, profiling and NDMO / NDI compliance for a national archive",
+    client: "King Abdulaziz Foundation for Research and Archives (Darah)",
+    year: "2025 – 2026",
+    disciplines: ["Data"],
+    role: "Data quality & governance consultant, Tools & Solutions",
+    summary:
+      "Informatica data quality and profiling across files and databases, the evidence for NDMO and NDI compliance, and the plans and strategies behind it.",
+    problem:
+      "The foundation’s data sits across many sources, from files to databases. It needed to know how reliable that data was, and to show NDMO and NDI compliance with evidence rather than statements, backed by a plan to close the gaps.",
+    built: [
+      "Profiled data from multiple sources, files and databases, with Informatica to see its real structure, completeness and patterns.",
+      "Built data quality rules in Informatica and ran them across those sources.",
+      "Built the evidence for NDMO and NDI compliance from the profiling and quality results.",
+      "Wrote the data governance plans and strategies the foundation follows to meet and keep compliance.",
+    ],
+    results: [
+      { value: "NDMO", label: "and NDI compliance backed by evidence" },
+      { value: "Multi-source", label: "profiling across files and databases" },
+      { value: "Plans", label: "and strategies for data governance" },
+    ],
+    architecture: [
+      { label: "Sources", nodes: ["Files", "Databases"] },
+      { label: "Profiling", nodes: ["Informatica profiling"] },
+      { label: "Quality", nodes: ["DQ rules", "Rule results"] },
+      { label: "Compliance", nodes: ["NDMO evidence", "NDI evidence"] },
+      { label: "Governance", nodes: ["Plans", "Strategies"] },
+    ],
+    stack: ["Informatica Data Quality", "Informatica profiling", "Data governance", "NDMO", "NDI"],
+  },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
