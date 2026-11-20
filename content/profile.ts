@@ -51,7 +51,7 @@ export const profile = {
   clients: [
     { name: "Ministry of Foreign Affairs", short: "MOFA", work: "On-premise AI classification", logo: "/logos/mofa.webp", w: 159, h: 160, exp: "exp-tools-solutions", more: "Built at T&S", target: "p-mofa-data-classification" },
     { name: "National Center for Wildlife", short: "NCW", work: "Governance and warehouse", logo: "/logos/ncw.webp", w: 160, h: 160, exp: "exp-tools-solutions", more: "Built at T&S", target: "p-ncw-data-governance" },
-    { name: "King Abdulaziz Foundation for Research and Archives", short: "Darah", work: "Data quality & NDMO / NDI consulting", logo: "/logos/darah.webp", w: 283, h: 379, exp: "exp-tools-solutions", more: "Built at T&S", target: "p-darah" },
+    { name: "King Abdulaziz Foundation for Research and Archives", short: "Darah", work: "Data quality & NDMO / NDI consulting", logo: "/logos/darah.webp", w: 283, h: 379, exp: "exp-tools-solutions", more: "Built at T&S", target: "p-darah-data-quality-compliance" },
     { name: "Kidana", short: "Kidana", work: "Hajj & Umrah data warehouse", logo: "/logos/kidana.webp", w: 579, h: 160, exp: "exp-elm", more: "Built at Elm", target: "p-kidana-hajj-umrah-warehouse" },
     { name: "Awqaf", short: "Awqaf", work: "SAP HR assistant", logo: "/logos/awqaf.webp", w: 342, h: 160, exp: "exp-tools-solutions", more: "Built at T&S", target: "p-awqaf-hr-assistant" },
   ] as Client[],
@@ -65,18 +65,15 @@ export type Level = (typeof levels)[number];
  * Engagements without a full case study yet. Shown as cards in Selected work.
  * Add a case study in content/projects.ts when the details are ready to publish.
  */
-export const engagements = [
-  {
-    id: "p-darah",
-    title: "Data quality, profiling and NDMO / NDI consulting for a national archive",
-    summary:
-      "Informatica Data Quality profiling and rules on the foundation’s data, and advice on meeting NDMO and NDI standards.",
-    client: "Darah, through Tools & Solutions",
-    logo: "/logos/darah.webp",
-    meta: "Data quality · Governance",
-    label: "Consulting",
-  },
-];
+export const engagements: {
+  id: string;
+  title: string;
+  summary: string;
+  client: string;
+  logo: string;
+  meta: string;
+  label: string;
+}[] = [];
 
 /** What people can hire me for outside my day job. `topic` pre-selects the contact form. */
 export const services = [
