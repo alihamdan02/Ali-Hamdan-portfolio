@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-type Theme = "system" | "light" | "dark";
+import { applyTheme, type Theme } from "@/lib/theme";
 
 
 const icons: Record<Theme, React.ReactNode> = {
@@ -38,17 +37,14 @@ export default function ThemeSwitch() {
       const t = localStorage.getItem("theme");
       if (t === "light" || t === "dark") setTheme(t);
     } catch {}
+    const on = (e: Event) => setTheme((e as CustomEvent<Theme>).detail);
+    window.addEventListener("themechange", on);
+    return () => window.removeEventListener("themechange", on);
   }, []);
 
   const choose = (t: Theme) => {
     setTheme(t);
-    const root = document.documentElement;
-    if (t === "system") delete root.dataset.theme;
-    else root.dataset.theme = t;
-    try {
-      if (t === "system") localStorage.removeItem("theme");
-      else localStorage.setItem("theme", t);
-    } catch {}
+    applyTheme(t);
   };
 
   return (

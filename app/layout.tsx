@@ -4,12 +4,14 @@ import { Footer, Header } from "@/components/Chrome";
 import { profile } from "@/content/profile";
 import { headScript } from "@/lib/theme";
 import SmoothScroll from "@/components/motion/SmoothScroll";
+import Ambient from "@/components/b/Ambient";
+import CommandPalette from "@/components/b/CommandPalette";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { certifications, education, experience } from "@/content/experience";
 
 const description =
-  "AI & Data Engineer in Amman. Informatica pipelines, enterprise data warehouses and on-premise LLM agents for government teams in Saudi Arabia.";
+  "AI & Data Engineer in Amman. AWS and Informatica pipelines, enterprise data warehouses, NDMO / NDI governance and on-premise LLM agents. Open to consulting, freelance and research.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
@@ -50,7 +52,7 @@ const personLd = {
     recognizedBy: { "@type": "Organization", name: c.issuer },
     url: c.url,
   })),
-  knowsAbout: ["Data engineering", "Informatica IDMC", "Data warehousing", "Data governance", "LLM agents", "RAG"],
+  knowsAbout: ["Data engineering", "AWS", "Amazon Redshift", "AWS Glue", "Informatica IDMC", "Informatica Data Quality", "Power BI", "NDMO", "Data warehousing", "Data governance", "LLM agents", "RAG"],
   sameAs: profile.links.map((l) => l.href),
 };
 
@@ -62,6 +64,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
       </head>
       <body>
+        <div className="b-bgfx" aria-hidden="true" />
+        <Ambient />
         <a href="#main" className="skip">
           Skip to content
         </a>
@@ -69,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <SmoothScroll />
+        <CommandPalette />
         <Analytics />
         <SpeedInsights />
       </body>
