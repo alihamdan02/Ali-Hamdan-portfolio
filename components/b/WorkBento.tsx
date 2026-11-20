@@ -3,13 +3,11 @@
 import Link from "next/link";
 import { useState, ViewTransition } from "react";
 import type { Discipline, Project } from "@/content/projects";
-import { engagements, profile } from "@/content/profile";
+import { engagements } from "@/content/profile";
+import { logoFor } from "@/lib/orgs";
+import { tilt, untilt } from "@/lib/tilt";
 import MiniClassifier from "./MiniClassifier";
 import Jump from "./Jump";
-
-const orgs = [...profile.employers, ...profile.clients];
-const logoFor = (p: Project) =>
-  orgs.find((o) => o.target === `p-${p.slug}`) ?? orgs.find((o) => p.client.startsWith(o.name) || p.client.startsWith(o.short));
 
 const Arrow = () => (
   <span className="b-arrow" aria-hidden="true">
@@ -18,17 +16,6 @@ const Arrow = () => (
     </svg>
   </span>
 );
-
-function tilt(e: React.PointerEvent<HTMLElement>) {
-  const c = e.currentTarget;
-  const r = c.getBoundingClientRect();
-  const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-  c.style.setProperty("--gx", `${x * 100}%`);
-  c.style.setProperty("--gy", `${y * 100}%`);
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-    c.style.transform = `perspective(900px) rotateX(${(0.5 - y) * 8}deg) rotateY(${(x - 0.5) * 10}deg) translateZ(6px)`;
-}
-const untilt = (e: React.PointerEvent<HTMLElement>) => (e.currentTarget.style.transform = "");
 
 const filters: { key: "All" | Discipline; label: string }[] = [
   { key: "All", label: "All" },

@@ -3,6 +3,14 @@ import { join } from "node:path";
 
 export const ogSize = { width: 1200, height: 630 };
 export const ogColors = { paper: "#f0f1ee", ink: "#1b2326", graphite: "#586064", accent: "#9e3d24", petrol: "#1f4a52" };
+/** Dark palette used by the share images, matching the site in dark mode. */
+export const ogDark = { bg: "#0b1416", panel: "#152023", rule: "#263438", ink: "#e6e9e5", muted: "#9aa5a7", coral: "#e48a6a", petrol: "#7fb0b8" };
+
+/** The cut-out portrait as a data URI (share images cannot read webp). */
+export async function ogPortrait() {
+  const buf = await readFile(join(process.cwd(), "lib/og-me.png"));
+  return `data:image/png;base64,${buf.toString("base64")}`;
+}
 export const ogBars = ["#efd6cc", "#d9a08b", "#bc6448", "#9e3d24"];
 
 const file = (w: number) =>
