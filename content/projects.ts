@@ -185,25 +185,26 @@ export const projects: Project[] = [
     role: "AI Engineer, sole engineer on the project, Tools & Solutions",
     duration: "2 months",
     summary:
-      "An AI agent on top of Awqaf’s SAP SuccessFactors. Employees ask in Arabic or English, the agent writes the OData query, calls SAP with their own credentials and answers.",
+      "An AI agent on top of Awqaf’s SAP SuccessFactors. Employees ask in Arabic or English, the agent reads, creates and updates SuccessFactors records over OData, with their own credentials.",
     problem:
       "Checking a leave balance or the status of a time-off request meant logging into SuccessFactors and digging through screens, and every task was done by hand. Awqaf wanted an AI agent integrated with its own SAP that answers employees’ questions and acts for them, without copying HR data anywhere else.",
     built: [
       "Built a FastAPI service that sits between the chat and SAP SuccessFactors and speaks OData V2.",
-      "Defined tools for leave history and time-account balances, with filters, sorting and paging the model can set itself.",
+      "Defined tools that read SAP data, such as leave history and time-account balances, with filters, sorting and paging the model sets itself.",
+      "Added write tools so the agent can insert and update records in SAP, acting for the employee instead of only answering.",
       "Let the LLM decide when to call SAP and how to filter, then answer in plain Arabic or English.",
       "Passed each user’s own SAP credentials through, so the assistant can only see what that employee is allowed to see.",
       "Kept conversation history in Redis and shipped the whole stack with Docker Compose.",
     ],
     results: [
-      { value: "OData", label: "queries written by the agent from plain language" },
+      { value: "Read + write", label: "the agent inserts and updates SAP records, not only looks them up" },
       { value: "Arabic", label: "and English questions, answered from live SAP data" },
       { value: "Per user", label: "permissions enforced by SAP itself" },
     ],
     architecture: [
       { label: "User", nodes: ["Chat question"] },
       { label: "Agent", nodes: ["gpt-oss-20b on Groq", "Tool registry", "Redis sessions"] },
-      { label: "Integration", nodes: ["OData V2 client", "Passthrough auth"] },
+      { label: "Integration", nodes: ["OData V2: get, insert, update", "Passthrough auth"] },
       { label: "SAP", nodes: ["EmployeeTime", "TimeAccountDetail"] },
       { label: "Answer", nodes: ["Plain-language summary"] },
     ],
@@ -219,14 +220,15 @@ export const projects: Project[] = [
     slug: "document-intelligence",
     short: "Document intelligence",
     title: "Read any document, classify every page, search it all",
-    client: "ISB, proof of concept",
+    client: "A Saudi government entity, freelance",
     year: "2026",
     disciplines: ["AI"],
-    role: "AI Engineer, Tools & Solutions",
+    role: "Freelance AI engineer",
+    duration: "1 month",
     summary:
       "PDFs, scans, images and Office files become clean Markdown, structured metadata per page, and a searchable vector index.",
     problem:
-      "The client held regulations, memos, contracts and letters as a mix of scanned PDFs, images and Office files, in Arabic and English. Nobody could search them, and nobody knew which document was which without opening it.",
+      "A Saudi government entity held regulations, memos, contracts and letters as a mix of scanned PDFs, images and Office files, in Arabic and English. It needed every document classified, and nobody could search them or tell which was which without opening each one.",
     built: [
       "Built one pipeline that routes each file by type: PDFs and scans, images, and Office documents through MarkItDown.",
       "Converted every page to Markdown so tables and headings survive extraction.",
