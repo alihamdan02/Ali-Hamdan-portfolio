@@ -46,6 +46,7 @@ export const profile = {
     { name: "Petra Ride", short: "Petra", work: "Senior Data Engineer", logo: "/logos/petra-ride.webp", w: 360, h: 160, exp: "exp-petra-ride", more: "Nov 2026 – now", target: "exp-petra-ride" },
     { name: "Elm", short: "Elm", work: "Data Engineer, Kidana", logo: "/logos/elm.webp", w: 404, h: 160, exp: "exp-elm", more: "Jul – Nov 2026", target: "exp-elm" },
     { name: "Tools & Solutions", short: "T&S", work: "AI & Data Engineer", logo: "/logos/tools-solutions.webp", w: 313, h: 160, exp: "exp-tools-solutions", more: "Jan 2025 – Jun 2026", target: "exp-tools-solutions" },
+    { name: "Unlimited Innovation", short: "Unlimited Innovation", work: "Freelance AI Engineer", logo: "/logos/unlimited-innovation.webp", w: 302, h: 146, exp: "exp-unlimited-innovation", more: "Freelance, 2026", target: "exp-unlimited-innovation" },
     { name: "Optimiza", short: "Optimiza", work: "RLHF & Data Engineer", logo: "/logos/optimiza.webp", w: 719, h: 160, exp: "exp-optimiza", more: "Jun 2023 – Jan 2025", target: "exp-optimiza" },
   ] as Client[],
   clients: [

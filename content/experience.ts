@@ -19,12 +19,21 @@ export const experience = [
   },
   {
     id: "exp-tools-solutions",
-    projects: ["mofa-data-classification", "ncw-data-governance", "awqaf-hr-assistant", "darah-data-quality-compliance", "sitechat"],
+    projects: ["mofa-data-classification", "ncw-data-governance", "awqaf-hr-assistant", "darah-data-quality-compliance"],
     company: "Tools & Solutions",
     title: "AI & Data Engineer",
     period: "Jan 2025 – Jun 2026",
     detail:
       "Built on-premise LLM agents and Informatica pipelines for Saudi government clients, including MOFA and NCW, and built Informatica data quality and profiling, NDMO / NDI compliance evidence and governance plans for Darah. Classification, metadata extraction, data quality and medallion warehouses.",
+  },
+  {
+    id: "exp-unlimited-innovation",
+    projects: ["document-intelligence", "ai-applicant-tracking", "sitechat"],
+    company: "Unlimited Innovation",
+    title: "Freelance AI Engineer",
+    period: "2026, freelance",
+    detail:
+      "Freelance AI projects delivered to clients: document classification for a Saudi government entity, an applicant tracking system that reads CVs, and a website chat that keeps itself up to date.",
   },
   {
     id: "exp-optimiza",

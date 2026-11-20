@@ -220,10 +220,10 @@ export const projects: Project[] = [
     slug: "document-intelligence",
     short: "Document intelligence",
     title: "Read any document, classify every page, search it all",
-    client: "A Saudi government entity, freelance",
+    client: "A Saudi government entity, through Unlimited Innovation",
     year: "2026",
     disciplines: ["AI"],
-    role: "Freelance AI engineer",
+    role: "Freelance AI engineer, Unlimited Innovation",
     duration: "1 month",
     summary:
       "PDFs, scans, images and Office files become clean Markdown, structured metadata per page, and a searchable vector index.",
@@ -254,10 +254,10 @@ export const projects: Project[] = [
     slug: "ai-applicant-tracking",
     short: "AI applicant tracking",
     title: "An applicant tracking system that reads CVs for you",
-    client: "A client, freelance",
+    client: "A client, through Unlimited Innovation",
     year: "2026",
     disciplines: ["AI"],
-    role: "Freelance AI engineer, part of a small team",
+    role: "Freelance AI engineer on a small team, Unlimited Innovation",
     duration: "2 months",
     summary:
       "Parses CVs in any format, ranks them against a job, and lets a recruiter describe the role in conversation instead of filters. Delivered to the client as a working product.",
@@ -288,10 +288,10 @@ export const projects: Project[] = [
     slug: "sitechat",
     short: "SiteChat",
     title: "Chat with any website, and keep it up to date",
-    client: "Tools & Solutions",
+    client: "A client, through Unlimited Innovation",
     year: "2026",
     disciplines: ["AI", "Data"],
-    role: "AI Engineer, Tools & Solutions",
+    role: "Freelance AI engineer, Unlimited Innovation",
     summary:
       "Give it a URL. It crawls the site, indexes it, answers questions with sources, and re-syncs only the pages that changed.",
     problem:
