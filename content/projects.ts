@@ -96,9 +96,10 @@ export const projects: Project[] = [
       "Kidana runs Hajj and Umrah operations on more than 8 systems, including SAP Ariba, SAP SuccessFactors, Maximo, supply chain, finance, IT Power, Tasleem and MOHU, with no data warehouse across them. Reporting depended on manual extracts, full reloads strained production, and the AI team needed clean, current data to ground its agents on.",
     built: [
       "Built ingestion from 8+ systems, SAP among them, through REST APIs and flat files into a staging layer with Informatica Cloud Data Integration.",
-      "Modelled the warehouse in SQL Server as facts and dimensions, with Slowly Changing Dimensions to keep history.",
+      "Modelled 100+ tables in SQL Server as facts and dimensions, with SCD Type 2 to keep the full history of every change.",
       "Replaced full reloads with incremental loads that only move new and changed records.",
-      "Ran data profiling and data quality rules, and reconciled counts across source, staging and warehouse before anything reached a report.",
+      "Ran data profiling and data quality rules, and reconciled counts across source, staging and warehouse.",
+      "Validated the numbers twice: first within the team, then with the business owners of each system, so every figure in Power BI was confirmed correct before release.",
       "Connected the warehouse to Power BI, and orchestrated everything as IDMC taskflows that notify the team on every pass and every failure.",
       "Documented every source system and every pipeline, and registered the datasets in the data catalog.",
     ],
@@ -118,17 +119,17 @@ export const projects: Project[] = [
     ],
     results: [
       { value: "8+", label: "systems in one warehouse, where there was none" },
-      { value: "Incremental", label: "loads instead of nightly full reloads" },
-      { value: "1 source", label: "of truth for Power BI and the AI team" },
+      { value: "100+", label: "tables modelled, with SCD Type 2 history" },
+      { value: "1 source", label: "of truth for Power BI and the AI team, validated with the business" },
     ],
     architecture: [
       { label: "Sources", nodes: ["SAP Ariba, SuccessFactors", "Maximo, Tasleem, MOHU", "REST APIs, files"] },
       { label: "Staging", nodes: ["IDMC / CDI mappings", "API parameters", "Profiling, DQ rules"] },
-      { label: "Warehouse", nodes: ["SQL Server", "Facts & dimensions", "SCD history"] },
+      { label: "Warehouse", nodes: ["SQL Server, 100+ tables", "Facts & dimensions", "SCD Type 2"] },
       { label: "Orchestration", nodes: ["Taskflows", "Pass / fail alerts"] },
       { label: "Consumers", nodes: ["Power BI", "AI agents", "Data catalog"] },
     ],
-    stack: ["Informatica IDMC", "CDI", "SAP Ariba", "SAP SuccessFactors", "Maximo", "REST APIs", "SQL Server", "SCD", "Incremental loading", "Data quality", "Power BI"],
+    stack: ["Informatica IDMC", "CDI", "SAP Ariba", "SAP SuccessFactors", "Maximo", "REST APIs", "SQL Server", "SCD Type 2", "Incremental loading", "Data quality", "Data validation", "Power BI"],
   },
   {
     slug: "ncw-data-governance",
@@ -137,20 +138,22 @@ export const projects: Project[] = [
     client: "National Center for Wildlife",
     year: "2025",
     disciplines: ["Data", "AI"],
-    role: "Data & AI consultant, Tools & Solutions",
+    role: "Data & AI consultant on the Tools & Solutions team",
+    duration: "About a year",
     summary:
       "Governance plans, data quality and classification, a metadata extraction agent, and the center’s first data warehouse.",
     problem:
-      "The center needed to meet NDMO and NDI requirements but had no inventory of what data it held, how sensitive it was or how reliable it was. Reporting pulled straight from operational systems.",
+      "The center needed to meet NDMO and NDI requirements across 7+ systems, but had no inventory of what data it held, how sensitive it was or how reliable it was, and nothing yet to show an auditor. Reporting pulled straight from operational systems.",
     built: [
       "Advised the center on its data governance program and wrote the plans for quality, classification and ownership.",
-      "Built a metadata extractor that reads every schema, table and column and drafts business descriptions and an Arabic classification for each.",
+      "Built an on-premise metadata extractor, running on a local model, that reads every schema, table and column across 7+ systems and drafts business descriptions and an Arabic classification for each.",
       "Defined data quality rules and profiled the core systems against them.",
+      "Built the compliance evidence for two NDMO domains, data quality and data classification.",
       "Designed and built the center’s data warehouse with Informatica so reporting no longer hits operational systems.",
     ],
     results: [
-      { value: "NDMO", label: "and NDI aligned governance plan" },
-      { value: "4 levels", label: "of classification applied column by column" },
+      { value: "7+", label: "systems profiled, described and classified" },
+      { value: "2 domains", label: "with NDMO evidence: data quality and classification" },
       { value: "1st", label: "data warehouse for the center" },
     ],
     architecture: [
@@ -159,6 +162,17 @@ export const projects: Project[] = [
       { label: "Governance", nodes: ["Classification", "DQ rules", "Ownership plan"] },
       { label: "Warehouse", nodes: ["Informatica", "Data warehouse"] },
     ],
+    challenges: [
+      {
+        title: "Evidence, not just plans",
+        detail: "NDMO asks for proof. The hardest part was building the evidence for two domains, data quality and data classification, so the center could show compliance rather than describe it.",
+      },
+      {
+        title: "No inventory to start from",
+        detail: "Nobody had a full list of what the 7+ systems held. The metadata extractor drafted it, schema by schema and column by column, so the team reviewed instead of writing from scratch.",
+      },
+    ],
+    recognition: "The center’s team sent a letter of thanks for the data quality and classification evidence.",
     stack: ["Informatica", "Python", "LLMs", "Data governance", "Data quality", "NDMO / NDI", "Data warehousing"],
   },
   {
