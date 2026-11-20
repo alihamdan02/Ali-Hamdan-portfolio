@@ -148,12 +148,12 @@ export const projects: Project[] = [
       "Advised the center on its data governance program and wrote the plans for quality, classification and ownership.",
       "Built an on-premise metadata extractor, running on a local model, that reads every schema, table and column across 7+ systems and drafts business descriptions and an Arabic classification for each.",
       "Defined data quality rules and profiled the core systems against them.",
-      "Built the compliance evidence for two NDMO domains, data quality and data classification.",
+      "Built the compliance evidence for two NDMO domains, data quality and data classification, in one month after a request that came without notice.",
       "Designed and built the center’s data warehouse with Informatica so reporting no longer hits operational systems.",
     ],
     results: [
-      { value: "7+", label: "systems profiled, described and classified" },
       { value: "2 domains", label: "with NDMO evidence: data quality and classification" },
+      { value: "1 month", label: "to build that evidence, on no notice" },
       { value: "1st", label: "data warehouse for the center" },
     ],
     architecture: [
@@ -165,7 +165,7 @@ export const projects: Project[] = [
     challenges: [
       {
         title: "Evidence, not just plans",
-        detail: "NDMO asks for proof. The hardest part was building the evidence for two domains, data quality and data classification, so the center could show compliance rather than describe it.",
+        detail: "NDMO asks for proof. The evidence for two domains, data quality and data classification, was requested suddenly and without notice, and the team built it in one month so the center could show compliance rather than describe it.",
       },
       {
         title: "No inventory to start from",
@@ -182,21 +182,22 @@ export const projects: Project[] = [
     client: "Awqaf, proof of concept",
     year: "2026",
     disciplines: ["AI"],
-    role: "AI Engineer, Tools & Solutions",
+    role: "AI Engineer, sole engineer on the project, Tools & Solutions",
+    duration: "2 months",
     summary:
-      "Employees ask about their leave in plain language. The agent writes the OData query, calls SAP with their own credentials and answers.",
+      "An AI agent on top of Awqaf’s SAP SuccessFactors. Employees ask in Arabic or English, the agent writes the OData query, calls SAP with their own credentials and answers.",
     problem:
-      "Checking a leave balance or the status of a time-off request meant logging into SuccessFactors and digging through screens. Awqaf wanted to see whether a chat assistant could answer those questions directly from SAP, without copying HR data anywhere else.",
+      "Checking a leave balance or the status of a time-off request meant logging into SuccessFactors and digging through screens, and every task was done by hand. Awqaf wanted an AI agent integrated with its own SAP that answers employees’ questions and acts for them, without copying HR data anywhere else.",
     built: [
       "Built a FastAPI service that sits between the chat and SAP SuccessFactors and speaks OData V2.",
       "Defined tools for leave history and time-account balances, with filters, sorting and paging the model can set itself.",
-      "Let the LLM decide when to call SAP and how to filter, then summarise the records in plain language.",
+      "Let the LLM decide when to call SAP and how to filter, then answer in plain Arabic or English.",
       "Passed each user’s own SAP credentials through, so the assistant can only see what that employee is allowed to see.",
       "Kept conversation history in Redis and shipped the whole stack with Docker Compose.",
     ],
     results: [
       { value: "OData", label: "queries written by the agent from plain language" },
-      { value: "2", label: "SAP entities exposed as tools: leave history and balances" },
+      { value: "Arabic", label: "and English questions, answered from live SAP data" },
       { value: "Per user", label: "permissions enforced by SAP itself" },
     ],
     architecture: [
@@ -205,6 +206,12 @@ export const projects: Project[] = [
       { label: "Integration", nodes: ["OData V2 client", "Passthrough auth"] },
       { label: "SAP", nodes: ["EmployeeTime", "TimeAccountDetail"] },
       { label: "Answer", nodes: ["Plain-language summary"] },
+    ],
+    challenges: [
+      {
+        title: "The SAP integration",
+        detail: "The hardest part. The agent has to build valid OData V2 queries against SuccessFactors, with the right entities, filters and paging, and call SAP with each employee’s own credentials so SAP, not the agent, decides what they can see.",
+      },
     ],
     stack: ["FastAPI", "Groq", "gpt-oss-20b", "Tool calling", "SAP SuccessFactors", "OData", "Redis", "Docker"],
   },
