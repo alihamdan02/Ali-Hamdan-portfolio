@@ -88,32 +88,47 @@ export const projects: Project[] = [
     client: "Kidana, through Elm",
     year: "2026",
     disciplines: ["Data"],
-    role: "Data Engineer, Elm",
+    role: "Data Engineer on the Elm team",
+    duration: "7 months",
     summary:
-      "End-to-end pipelines from SAP, APIs and files into a SQL Server warehouse that feeds Power BI and Kidana’s AI agents.",
+      "Kidana’s first data warehouse: 8+ systems, from SAP Ariba and SuccessFactors to Maximo and Tasleem, brought into SQL Server through Informatica and connected to Power BI.",
     problem:
-      "Kidana runs Hajj and Umrah operations on dozens of source systems, SAP among them. Reporting depended on manual extracts, full reloads strained production, and the AI team needed clean, current data to ground its agents on.",
+      "Kidana runs Hajj and Umrah operations on more than 8 systems, including SAP Ariba, SAP SuccessFactors, Maximo, supply chain, finance, IT Power, Tasleem and MOHU, with no data warehouse across them. Reporting depended on manual extracts, full reloads strained production, and the AI team needed clean, current data to ground its agents on.",
     built: [
-      "Built ingestion from SAP, REST APIs and flat files into a staging layer with Informatica Cloud Data Integration.",
+      "Built ingestion from 8+ systems, SAP among them, through REST APIs and flat files into a staging layer with Informatica Cloud Data Integration.",
       "Modelled the warehouse in SQL Server as facts and dimensions, with Slowly Changing Dimensions to keep history.",
       "Replaced full reloads with incremental loads that only move new and changed records.",
       "Ran data profiling and data quality rules, and reconciled counts across source, staging and warehouse before anything reached a report.",
-      "Orchestrated it all as IDMC taskflows that notify the team on every pass and every failure.",
-      "Registered datasets in the data catalog and documented each pipeline from source to target.",
+      "Connected the warehouse to Power BI, and orchestrated everything as IDMC taskflows that notify the team on every pass and every failure.",
+      "Documented every source system and every pipeline, and registered the datasets in the data catalog.",
+    ],
+    challenges: [
+      {
+        title: "Many systems, one model",
+        detail: "Each of the 8+ systems describes the business its own way. The hard part was a single data model, facts and dimensions that every system maps into correctly, instead of one warehouse per source.",
+      },
+      {
+        title: "Many kinds of source",
+        detail: "SAP modules, APIs and files each need different handling. All of them had to be engineered in Informatica Data Integration so they land in staging in the same shape and on the same schedule.",
+      },
+      {
+        title: "Parameters into API calls",
+        detail: "Several systems only answer through REST APIs that expect parameters on each call. Passing those parameters from Informatica into the API requests was its own piece of engineering.",
+      },
     ],
     results: [
+      { value: "8+", label: "systems in one warehouse, where there was none" },
       { value: "Incremental", label: "loads instead of nightly full reloads" },
-      { value: "3 layers", label: "reconciled: source, staging and warehouse" },
       { value: "1 source", label: "of truth for Power BI and the AI team" },
     ],
     architecture: [
-      { label: "Sources", nodes: ["SAP", "REST APIs", "Flat files"] },
-      { label: "Staging", nodes: ["IDMC / CDI mappings", "Profiling", "DQ rules"] },
+      { label: "Sources", nodes: ["SAP Ariba, SuccessFactors", "Maximo, Tasleem, MOHU", "REST APIs, files"] },
+      { label: "Staging", nodes: ["IDMC / CDI mappings", "API parameters", "Profiling, DQ rules"] },
       { label: "Warehouse", nodes: ["SQL Server", "Facts & dimensions", "SCD history"] },
       { label: "Orchestration", nodes: ["Taskflows", "Pass / fail alerts"] },
       { label: "Consumers", nodes: ["Power BI", "AI agents", "Data catalog"] },
     ],
-    stack: ["Informatica IDMC", "CDI", "SAP", "SQL Server", "SCD", "Incremental loading", "Data quality", "Power BI"],
+    stack: ["Informatica IDMC", "CDI", "SAP Ariba", "SAP SuccessFactors", "Maximo", "REST APIs", "SQL Server", "SCD", "Incremental loading", "Data quality", "Power BI"],
   },
   {
     slug: "ncw-data-governance",
