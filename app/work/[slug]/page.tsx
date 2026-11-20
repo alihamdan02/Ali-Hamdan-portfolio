@@ -84,6 +84,12 @@ export default async function CaseStudy({ params }: Props) {
                 <dt>Year</dt>
                 <dd>{p.year}</dd>
               </div>
+              {p.duration && (
+                <div>
+                  <dt>Duration</dt>
+                  <dd>{p.duration}</dd>
+                </div>
+              )}
             </dl>
             <span className="b-case-top">
               <strong>{top.value}</strong>
@@ -92,7 +98,7 @@ export default async function CaseStudy({ params }: Props) {
           </Tilt>
         </header>
 
-        <CaseNav />
+        <CaseNav hard={!!p.challenges?.length} />
 
         <section className="b-csec" id="c-arch" aria-labelledby="c-arch-h">
           <div className="b-sh">
@@ -118,6 +124,28 @@ export default async function CaseStudy({ params }: Props) {
           </div>
         </section>
 
+        {p.challenges && p.challenges.length > 0 && (
+          <section className="b-csec" id="c-hard" aria-labelledby="c-hard-h">
+            <div className="b-sh">
+              <div>
+                <p className="b-eyebrow">The hard part</p>
+                <h2 className="b-h2" id="c-hard-h">
+                  What made it difficult
+                </h2>
+              </div>
+            </div>
+            <div className="b-hard">
+              {p.challenges.map((c, n) => (
+                <Tilt key={c.title} className="b-card b-hard-c" strength={0.6}>
+                  <span className="b-hard-n">{String(n + 1).padStart(2, "0")}</span>
+                  <h3>{c.title}</h3>
+                  <p>{c.detail}</p>
+                </Tilt>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="b-csec" id="c-results" aria-labelledby="c-results-h">
           <div className="b-sh">
             <div>
@@ -130,6 +158,12 @@ export default async function CaseStudy({ params }: Props) {
           <div className="b-results">
             <Results results={p.results} />
           </div>
+          {p.recognition && (
+            <p className="b-recog">
+              <span aria-hidden="true">★</span>
+              {p.recognition}
+            </p>
+          )}
         </section>
 
         <section className="b-csec" id="c-stack" aria-labelledby="c-stack-h">

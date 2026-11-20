@@ -9,15 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 type Result = { value: string; label: string };
 type Kind =
-  | { type: "percent"; n: number }
+  | { type: "percent"; n: number; plus: boolean }
   | { type: "count"; n: number; unit: string; rest: string }
   | { type: "big"; n: number; suffix: string }
   | { type: "word" };
 
 /** Picks the picture that fits the number: a ring for a share, pips for a few things, a bar for a large count. */
 function kindOf(value: string): Kind {
-  let m = value.match(/^(\d+)%$/);
-  if (m) return { type: "percent", n: +m[1] };
+  let m = value.match(/^(\d+)%(\+?)$/);
+  if (m) return { type: "percent", n: +m[1], plus: m[2] === "+" };
   m = value.match(/^(\d+)([MK]\+?|\+)$/);
   if (m) return { type: "big", n: +m[1], suffix: m[2] };
   m = value.match(/^(\d+)(-|\s)?(.*)$/);
@@ -123,7 +123,7 @@ export default function Results({ results }: { results: Result[] }) {
             <div className="result-visual">
               <Visual kind={k} />
               {k.type === "percent" && (
-                <b className="result-value ring-value" data-count={k.n} data-suffix="%" aria-label={r.value}>
+                <b className="result-value ring-value" data-count={k.n} data-suffix={k.plus ? "%+" : "%"} aria-label={r.value}>
                   {r.value}
                 </b>
               )}

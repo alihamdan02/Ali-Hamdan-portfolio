@@ -15,6 +15,8 @@ export type Project = {
   year: string;
   disciplines: Discipline[];
   role: string;
+  /** How long it took, e.g. "5+ months". */
+  duration?: string;
   /** One sentence shown in the work list. */
   summary: string;
   problem: string;
@@ -22,6 +24,10 @@ export type Project = {
   results: { value: string; label: string }[];
   architecture: Stage[];
   stack: string[];
+  /** The hard parts, and how they were handled. Shown as its own section. */
+  challenges?: { title: string; detail: string }[];
+  /** Recognition from the client, stated plainly. */
+  recognition?: string;
 };
 
 export const projects: Project[] = [
@@ -30,31 +36,47 @@ export const projects: Project[] = [
     short: "MOFA classification",
     title: "On-premise data classification for a foreign ministry",
     client: "Ministry of Foreign Affairs",
-    year: "2025",
+    year: "2025 – 2026",
     disciplines: ["AI", "Data"],
     role: "AI Engineer, Tools & Solutions",
+    duration: "5+ months",
     summary:
-      "Three local LLM agents that label every table, column and row against NDMO levels, without a byte leaving the ministry.",
+      "An on-premise tool where local LLM agents classify the ministry’s data as Top Secret, Secret, Restricted or Public, from whole systems down to single rows, with a written reason for every label.",
     problem:
-      "The ministry had to classify data across 10 enterprise systems and more than 6 million records under NDMO and NDI rules. Doing it by hand meant analysts reading schemas column by column, and sending the data to a cloud model was not an option.",
+      "To meet NDMO and NDI data classification requirements, the ministry had to label all of its data as Top Secret, Secret, Restricted or Public. That data lives in more than 10 systems, which stay unnamed here, and adds up to more than 6 million records. Classifying it by hand was not realistic, and sending it to a cloud model was not an option.",
     built: [
       "Deployed gpt-oss-20b through Ollama on the ministry’s own servers, so every prompt and every record stayed inside their infrastructure.",
       "Built a table agent that profiles each system, writes structured metadata and identifies master and reference entities.",
       "Built a column agent that infers business meaning and proposes data quality rules that analysts used to write manually.",
-      "Built a compliance agent that assigns Top Secret, Secret, Restricted or Public at table, schema, column and row level.",
+      "Built a compliance agent that assigns Top Secret, Secret, Restricted or Public at system, database, schema, column and row level, and writes the justification for each label.",
       "Grounded all three agents with RAG over the ministry’s own glossaries and policies, and served them through FastAPI in Docker.",
     ],
+    challenges: [
+      {
+        title: "Five levels, not one",
+        detail: "A label was needed for every system, database, schema, column and row, and the levels had to agree with each other instead of being classified in isolation.",
+      },
+      {
+        title: "Every label has to explain itself",
+        detail: "Reviewers needed to know why something was marked Secret rather than Restricted, so each classification comes with a written justification they can check and approve.",
+      },
+      {
+        title: "Nothing leaves the building",
+        detail: "Classified government data could not go to a cloud API, so the model, the retrieval and the agents all run on the ministry’s own servers.",
+      },
+    ],
+    recognition: "Adopted by the ministry as its data classification tool, with formal thanks for the work.",
     results: [
-      { value: "92%", label: "agreement with expert reviewers on sampled classifications" },
-      { value: "70%", label: "less manual classification and governance work" },
-      { value: "6M+", label: "records across 10 enterprise systems" },
+      { value: "92%+", label: "accuracy against expert review" },
+      { value: "70%+", label: "less human effort on classification" },
+      { value: "6M+", label: "records across 10+ systems" },
     ],
     architecture: [
-      { label: "Sources", nodes: ["Oracle", "10 enterprise systems", "Policy documents"] },
+      { label: "Sources", nodes: ["10+ systems", "Oracle", "Policy documents"] },
       { label: "Profiling", nodes: ["Informatica IDMC", "Schema reader"] },
       { label: "Agents", nodes: ["Table agent", "Column agent", "Compliance agent"] },
       { label: "Model", nodes: ["gpt-oss-20b on Ollama", "RAG context"] },
-      { label: "Output", nodes: ["Classified catalog", "DQ rule proposals"] },
+      { label: "Output", nodes: ["Labels on 5 levels", "Justifications", "DQ rule proposals"] },
     ],
     stack: ["gpt-oss-20b", "Ollama", "RAG", "Python", "FastAPI", "Docker", "Oracle", "Informatica IDMC"],
   },
