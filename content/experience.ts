@@ -100,7 +100,7 @@ export const pipeline = [
   },
   {
     stage: "Reason",
-    does: "Put private LLM agents on top that answer from the governed data.",
-    tools: ["LLMs", "RAG", "LangGraph", "Ollama", "FastAPI", "Docker"],
+    does: "Serve the governed data: Power BI for reporting, and private LLM agents that answer from it.",
+    tools: ["Power BI", "LLMs", "RAG", "LangGraph", "Ollama", "FastAPI", "Docker"],
   },
 ];

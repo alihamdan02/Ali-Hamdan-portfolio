@@ -52,7 +52,7 @@ const personLd = {
     recognizedBy: { "@type": "Organization", name: c.issuer },
     url: c.url,
   })),
-  knowsAbout: ["Data engineering", "AWS", "Amazon Redshift", "AWS Glue", "Informatica IDMC", "Informatica Data Quality", "NDMO", "Data warehousing", "Data governance", "LLM agents", "RAG"],
+  knowsAbout: ["Data engineering", "AWS", "Amazon Redshift", "AWS Glue", "Informatica IDMC", "Informatica Data Quality", "Power BI", "NDMO", "Data warehousing", "Data governance", "LLM agents", "RAG"],
   sameAs: profile.links.map((l) => l.href),
 };
 

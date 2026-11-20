@@ -91,8 +91,9 @@ export const services = [
     kicker: "Freelance",
     title: "Pipelines, warehouses & private AI agents",
     pitch: "Scoped builds with a clear handover: you own the code, the docs and the runbook.",
-    points: ["AWS pipelines on S3, Glue, Redshift and Athena", "Informatica IDMC and IDQ", "Warehouse and lakehouse modelling", "RAG and agents on your own servers"],
-    tags: ["AWS", "LangGraph", "Ollama"],
+    points: ["AWS pipelines on S3, Glue, Redshift and Athena", "Informatica IDMC and IDQ", "Warehouse and lakehouse modelling",
+      "Power BI dashboards on governed data", "RAG and agents on your own servers"],
+    tags: ["AWS", "Power BI", "LangGraph"],
     cta: "Start a project",
   },
   {

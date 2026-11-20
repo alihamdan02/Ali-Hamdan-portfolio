@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { profile } from "@/content/profile";
 import { isDark } from "@/lib/theme";
 
-const skills = ["AWS", "Redshift", "Python", "Glue", "SQL", "Informatica", "Athena", "LLMs", "RAG", "S3", "LangGraph", "Ollama"];
+const skills = ["AWS", "Redshift", "Python", "Glue", "SQL", "Informatica", "Athena", "LLMs", "Power BI", "RAG", "S3", "LangGraph", "Ollama"];
 const aws = new Set(["AWS", "Redshift", "Glue", "Athena", "S3"]);
 
 /** Portrait tile: a three.js neural sphere behind the photo, a 3D ring of tools orbiting it, and the whole scene tilting with the cursor. */
