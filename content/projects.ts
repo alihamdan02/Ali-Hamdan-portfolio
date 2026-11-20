@@ -324,11 +324,12 @@ export const projects: Project[] = [
     client: "Optimiza",
     year: "2024",
     disciplines: ["AI"],
-    role: "AI Engineer, Optimiza",
+    role: "AI Engineer, sole engineer on the project, Optimiza",
+    duration: "3 months",
     summary:
       "Four cooperating agents that turn a question in either language into a checked SQL query and the right chart.",
     problem:
-      "Business users wanted answers from relational data without writing SQL, in Arabic as often as English. A single prompt to an LLM produced queries against columns that didn’t exist.",
+      "Teams inside Optimiza wanted answers from relational data without writing SQL, in Arabic as often as English. A single prompt to an LLM produced queries against columns that didn’t exist.",
     built: [
       "Split the job across four agents: a conversation manager, a schema analyst, a SQL engineer and a visualisation expert.",
       "Gave the SQL engineer only the tables and relationships the schema analyst found relevant, which stopped it inventing columns.",
@@ -338,13 +339,19 @@ export const projects: Project[] = [
     results: [
       { value: "4", label: "specialised agents in one pipeline" },
       { value: "2", label: "languages, Arabic and English" },
-      { value: "Schema-aware", label: "SQL generation over relational data" },
+      { value: "In use", label: "inside Optimiza, accurate and fast enough for daily questions" },
     ],
     architecture: [
       { label: "Input", nodes: ["Arabic / English question"] },
       { label: "Agents", nodes: ["Conversation manager", "Schema analyst", "SQL engineer", "Visualisation expert"] },
       { label: "Data", nodes: ["MySQL"] },
       { label: "Output", nodes: ["Table", "Plotly chart"] },
+    ],
+    challenges: [
+      {
+        title: "An architecture that holds up",
+        detail: "The hard part was the design, not the prompts. Each agent got one narrow job and only the context it needs, so a wrong guess in one step is caught by the next instead of reaching the user as a broken query.",
+      },
     ],
     stack: ["OpenAI API", "Multi-agent", "FastAPI", "MySQL", "Pandas", "Plotly / Dash"],
   },
