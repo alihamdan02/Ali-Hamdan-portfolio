@@ -2251,3 +2251,10 @@ kbd { font: 500 0.7rem var(--mono); padding: 2px 6px; border-radius: 5px; border
 /* 3D rings can reach past the screen edge on phones; never let them scroll the page sideways. */
 html, body { overflow-x: clip; }
 .b-photo { contain: paint; }
+
+/* Social links as brand marks */
+.b-socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.b-socials a { display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 16px 0 13px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.06); color: #eef2f1; text-decoration: none; font-size: 0.9rem; font-weight: 550; transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s; }
+.b-socials a:hover, .b-socials a:focus-visible { transform: translateY(-3px); background: #fff; border-color: #fff; color: var(--brand, #1b2326); }
+.b-socials a:hover span, .b-socials a:focus-visible span { color: #1b2326; }
+.b-socials svg { flex: none; }

@@ -8,6 +8,7 @@ import Cube from "@/components/b/Cube";
 import CmdButton from "@/components/b/CmdButton";
 import ScrollProgress from "@/components/b/ScrollProgress";
 import Jump from "@/components/b/Jump";
+import { brandIcons } from "@/lib/brandIcons";
 
 export function Mark() {
   return (
@@ -80,14 +81,24 @@ export function Contact() {
               Data Engineer CV <small>PDF</small>
             </a>
           </div>
-          <ul className="contact-links">
-            {profile.links.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} target="_blank" rel="noopener noreferrer">
-                  {l.label}
-                </a>
-              </li>
-            ))}
+          <ul className="b-socials" aria-label="Find me elsewhere">
+            {profile.links.map((l) => {
+              const icon = brandIcons[l.label];
+              return (
+                <li key={l.href}>
+                  <a href={l.href} target="_blank" rel="noopener noreferrer" aria-label={l.label} title={l.label} style={{ "--brand": icon?.hex } as React.CSSProperties}>
+                    {icon ? (
+                      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                        <path d={icon.path} fill="currentColor" />
+                      </svg>
+                    ) : (
+                      l.label
+                    )}
+                    <span>{l.label}</span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <ContactForm />
