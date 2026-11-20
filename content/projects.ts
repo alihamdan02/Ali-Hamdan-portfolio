@@ -254,12 +254,13 @@ export const projects: Project[] = [
     slug: "ai-applicant-tracking",
     short: "AI applicant tracking",
     title: "An applicant tracking system that reads CVs for you",
-    client: "Tools & Solutions",
+    client: "A client, freelance",
     year: "2026",
     disciplines: ["AI"],
-    role: "AI Engineer, Tools & Solutions",
+    role: "Freelance AI engineer, part of a small team",
+    duration: "2 months",
     summary:
-      "Parses CVs in any format, ranks them against a job, and lets a recruiter describe the role in conversation instead of filters.",
+      "Parses CVs in any format, ranks them against a job, and lets a recruiter describe the role in conversation instead of filters. Delivered to the client as a working product.",
     problem:
       "Recruiters were reading every CV by hand and matching on keywords, which misses good candidates who describe the same skill differently. Most CVs arrived as PDFs, Word files or photos, in Arabic or English.",
     built: [
@@ -272,7 +273,7 @@ export const projects: Project[] = [
     results: [
       { value: "2-pass", label: "ranking: keyword filter, then LLM judgement" },
       { value: "2", label: "languages, with translation built in" },
-      { value: "1", label: "chat to define the role and find candidates" },
+      { value: "Delivered", label: "to the client as a working product, in 2 months" },
     ],
     architecture: [
       { label: "Input", nodes: ["CV files", "Job brief"] },

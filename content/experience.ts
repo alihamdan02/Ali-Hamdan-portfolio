@@ -19,7 +19,7 @@ export const experience = [
   },
   {
     id: "exp-tools-solutions",
-    projects: ["mofa-data-classification", "ncw-data-governance", "awqaf-hr-assistant", "darah-data-quality-compliance", "ai-applicant-tracking", "sitechat"],
+    projects: ["mofa-data-classification", "ncw-data-governance", "awqaf-hr-assistant", "darah-data-quality-compliance", "sitechat"],
     company: "Tools & Solutions",
     title: "AI & Data Engineer",
     period: "Jan 2025 – Jun 2026",
