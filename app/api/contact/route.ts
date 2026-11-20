@@ -18,6 +18,8 @@ export async function POST(req: Request) {
   const name = String(body.name ?? "").trim().slice(0, 120);
   const email = String(body.email ?? "").trim().slice(0, 200);
   const message = String(body.message ?? "").trim().slice(0, 5000);
+  const topicLabels: Record<string, string> = { consulting: "Consulting", freelance: "Freelance project", research: "Research", role: "Full-time role", hi: "Hello" };
+  const topic = topicLabels[String(body.topic ?? "")] ?? "Message";
 
   // Honeypot: real people never see or fill this field.
   if (String(body.company ?? "")) return NextResponse.json({ ok: true });
@@ -41,8 +43,8 @@ export async function POST(req: Request) {
       from: process.env.CONTACT_FROM_EMAIL || "Portfolio <onboarding@resend.dev>",
       to: [process.env.CONTACT_TO_EMAIL || profile.email],
       reply_to: email,
-      subject: `Portfolio message from ${name}`,
-      text: `${message}\n\n— ${name} <${email}>`,
+      subject: `[${topic}] Portfolio message from ${name}`,
+      text: `Topic: ${topic}\n\n${message}\n\n— ${name} <${email}>`,
     }),
   });
 

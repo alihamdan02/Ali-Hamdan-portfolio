@@ -6,7 +6,7 @@ export const experience = [
     title: "Senior Data Engineer, Pricing & Dispatch Intelligence",
     period: "Nov 2026 – now",
     detail:
-      "Building the AWS lakehouse that brings trip, dispatch, pricing and location data into one place, and the data foundation for pricing and dispatch that adapt to demand instead of being configured by hand.",
+      "Building the AWS lakehouse on S3, Glue, Redshift and Athena that brings trip, dispatch, pricing and location data into one place, and the data foundation for pricing and dispatch that adapt to demand instead of being configured by hand.",
   },
   {
     id: "exp-elm",
@@ -24,7 +24,7 @@ export const experience = [
     title: "AI & Data Engineer",
     period: "Jan 2025 – Jun 2026",
     detail:
-      "Built on-premise LLM agents and Informatica pipelines for Saudi government clients, including MOFA and NCW. Classification, metadata extraction, data quality and medallion warehouses.",
+      "Built on-premise LLM agents and Informatica pipelines for Saudi government clients, including MOFA and NCW, and led Informatica data quality, profiling and NDMO / NDI consulting for Darah. Classification, metadata extraction, data quality and medallion warehouses.",
   },
   {
     id: "exp-optimiza",
@@ -47,18 +47,18 @@ export const education = {
 /** Badges are the issuers' own badge images; each links to its public verification page. */
 export const certifications = [
   {
-    name: "Cloudera AI Technical Professional",
-    issuer: "Cloudera",
-    year: "2025",
-    badge: "/badges/cloudera.webp",
-    url: "https://www.credly.com/badges/672c14d2-71a7-45e2-8a1e-9ac16de6c252",
-  },
-  {
     name: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services",
     year: "2025",
     badge: "/badges/aws.webp",
     url: "https://www.credly.com/badges/22bc8dbc-ff6b-461c-a01f-893707897200",
+  },
+  {
+    name: "Cloudera AI Technical Professional",
+    issuer: "Cloudera",
+    year: "2025",
+    badge: "/badges/cloudera.webp",
+    url: "https://www.credly.com/badges/672c14d2-71a7-45e2-8a1e-9ac16de6c252",
   },
   {
     name: "Generative AI Fundamentals",
@@ -80,18 +80,18 @@ export const certifications = [
 export const pipeline = [
   {
     stage: "Source",
-    does: "Pull from SAP, Oracle, REST APIs and files without hurting production.",
-    tools: ["Informatica IDMC", "CDI", "REST APIs", "Python"],
+    does: "Land data from SAP, Oracle, REST APIs and files in S3 without hurting production.",
+    tools: ["AWS S3", "Informatica IDMC", "REST APIs", "Python"],
   },
   {
     stage: "Stage",
     does: "Profile, validate and reconcile before anything is trusted.",
-    tools: ["Data profiling", "DQ rules", "SQL"],
+    tools: ["AWS Glue", "Informatica IDQ", "DQ rules", "SQL"],
   },
   {
     stage: "Warehouse",
-    does: "Model facts and dimensions, keep history, load incrementally.",
-    tools: ["SQL Server", "Oracle", "PostgreSQL", "SCD", "Medallion"],
+    does: "Model facts and dimensions, keep history, load incrementally, query the lake in place.",
+    tools: ["Amazon Redshift", "Amazon Athena", "SQL Server", "PostgreSQL", "Medallion"],
   },
   {
     stage: "Govern",
