@@ -2314,3 +2314,7 @@ html, body { overflow-x: clip; }
 @keyframes b-fade { from { opacity: 0; } }
 @keyframes b-pop { from { transform: scale(0.85); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .b-lightbox, .b-lightbox figure { animation: none; } }
+
+/* Currently card: AWS chips span the full card width */
+.b-now-tags { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; }
+.b-now-tags .b-chip { display: flex; justify-content: center; text-align: center; width: 100%; padding-inline: 4px; }
