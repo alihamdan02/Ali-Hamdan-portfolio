@@ -9,6 +9,7 @@ import CmdButton from "@/components/b/CmdButton";
 import ScrollProgress from "@/components/b/ScrollProgress";
 import Jump from "@/components/b/Jump";
 import { brandIcons } from "@/lib/brandIcons";
+import CopyEmail from "@/components/b/CopyEmail";
 
 export function Mark() {
   return (
@@ -68,9 +69,7 @@ export function Contact() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/me.webp" alt="" width={760} height={883} loading="lazy" />
             </span>
-            <a className="email" href={`mailto:${profile.email}`}>
-              {profile.email}
-            </a>
+            <CopyEmail email={profile.email} />
           </div>
           <div className="actions">
             <WhatsApp />

@@ -2258,3 +2258,37 @@ html, body { overflow-x: clip; }
 .b-socials a:hover, .b-socials a:focus-visible { transform: translateY(-3px); background: #fff; border-color: #fff; color: var(--brand, #1b2326); }
 .b-socials a:hover span, .b-socials a:focus-visible span { color: #1b2326; }
 .b-socials svg { flex: none; }
+
+/* Experience: same logo box for every company, names on one line */
+.b-co { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin: 12px 0 4px; }
+.b-co-logo { display: grid; place-items: center; width: 84px; height: 40px; padding: 6px 8px; border-radius: 10px; background: #fff; border: 1px solid var(--rule); }
+.b-co-logo img { height: auto !important; width: auto; max-width: 100%; max-height: 100%; object-fit: contain; border: 0 !important; padding: 0 !important; background: none !important; }
+.b-co h3 { font-size: 1.15rem; white-space: nowrap; letter-spacing: -0.02em; }
+@media (max-width: 1200px) and (min-width: 1101px) { .b-co h3 { font-size: 1.02rem; } }
+
+/* Certificate badges spread across the card */
+.b-certs-mini { display: grid !important; grid-template-columns: repeat(4, 1fr); justify-items: center; gap: 10px; width: 100%; }
+.b-certs-mini a { display: grid; place-items: center; width: 100%; }
+.b-certs-mini img { width: 100%; max-width: 72px; height: auto; }
+
+/* Email: readable, copy on click */
+.b-email { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.b-email-copy { display: inline-flex; align-items: center; gap: 12px; padding: 10px 14px 10px 14px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.05); color: #f2c6b5; font: 600 clamp(1.05rem, 2vw, 1.35rem) var(--sans); cursor: pointer; transition: border-color 0.2s, background 0.2s, transform 0.2s; text-align: left; }
+.b-email-copy:hover { border-color: #f2c6b5; background: rgba(242, 198, 181, 0.08); transform: translateY(-2px); }
+.b-email-copy svg { flex: none; color: #f2c6b5; }
+.b-email-tag { font: 500 0.7rem var(--mono); color: #9db3b7; padding: 4px 8px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.14); white-space: nowrap; transition: all 0.2s; }
+.b-email-tag.on { background: #3fbf7f; border-color: #3fbf7f; color: #062014; }
+.b-email-open { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.16); color: #eef2f1; transition: background 0.2s, color 0.2s; }
+.b-email-open:hover { background: #fff; color: #1b2326; }
+@media (max-width: 520px) { .b-email-copy { font-size: 0.98rem; flex-wrap: wrap; } }
+/* Hero headline: keep "Governed data first." on one line on desktop */
+.b-head h1 { font-size: clamp(2.6rem, 4.9vw, 4.1rem); }
+/* Tools on the far side of the orbit hide instead of showing mirrored text */
+.b-orbit .b-chip { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+/* Email tag shows as a small tooltip on hover and after copying, so the photo and address share one row */
+.b-email-copy { position: relative; }
+.b-email-tag { position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translate(-50%, 4px); opacity: 0; pointer-events: none; background: #0b1416; }
+.b-email-copy:hover .b-email-tag, .b-email-copy:focus-visible .b-email-tag, .b-email-tag.on { opacity: 1; transform: translate(-50%, 0); }
+.b-mail { flex-wrap: nowrap; }
+@media (max-width: 560px) { .b-mail { flex-wrap: wrap; } .b-me-small { width: 52px; height: 52px; } }
+@media (pointer: coarse) { .b-hint { display: none; } }

@@ -171,10 +171,12 @@ export default function Home() {
                 <li key={j.id} id={j.id} className={`b-job${i === 0 ? " now" : ""}`}>
                   <span className="b-when">{j.period}</span>
                   <span className="b-co">
-                    {org && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={org.logo} alt="" width={org.w} height={org.h} loading="lazy" />
-                    )}
+                    <span className="b-co-logo">
+                      {org && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={org.logo} alt="" width={org.w} height={org.h} loading="lazy" />
+                      )}
+                    </span>
                     <h3 tabIndex={-1}>{j.company}</h3>
                   </span>
                   <span className="b-role">{j.title}</span>
