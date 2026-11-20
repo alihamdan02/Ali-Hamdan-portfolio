@@ -4,6 +4,10 @@ import ThemeSwitch from "@/components/ThemeSwitch";
 import ContactForm from "@/components/ContactForm";
 import WhatsApp from "@/components/WhatsApp";
 import LogoReveal from "@/components/motion/LogoReveal";
+import Cube from "@/components/b/Cube";
+import CmdButton from "@/components/b/CmdButton";
+import ScrollProgress from "@/components/b/ScrollProgress";
+import Jump from "@/components/b/Jump";
 
 export function Mark() {
   return (
@@ -18,41 +22,55 @@ export function Mark() {
 
 export function Header() {
   return (
-    <header className="header">
-      <div className="wrap header-inner">
-        <Link href="/" className="wordmark">
-          <Mark />
-          {profile.name}
-        </Link>
-        <div className="header-right">
-          <nav className="nav" aria-label="Main">
-            <Link href="/#work">Work</Link>
-            <Link href="/#experience">Experience</Link>
-            <Link href="/#contact" className="nav-keep">
-              Contact
-            </Link>
-          </nav>
-          <ThemeSwitch />
-        </div>
+    <header className="b-nav" aria-label="Site">
+      <Link href="/" className="b-brand">
+        <Cube />
+        <span>
+          <b>{profile.name}</b>
+          <small>{profile.role}</small>
+        </span>
+      </Link>
+      <nav className="b-links" aria-label="Main">
+        <Link href="/#work">Work</Link>
+        <Link href="/#approach">Approach</Link>
+        <Link href="/#experience">Experience</Link>
+        <Link href="/#services">Services</Link>
+        <Link href="/#contact">Contact</Link>
+      </nav>
+      <div className="b-nav-right">
+        <CmdButton />
+        <ThemeSwitch />
+        <Jump to="contact" className="btn btn-primary b-magnet b-talk">
+          Let’s talk
+        </Jump>
       </div>
+      <ScrollProgress />
     </header>
   );
 }
 
 export function Contact() {
   return (
-    <section className="contact" id="contact" aria-labelledby="contact-title">
-      <div className="wrap contact-grid">
+    <section className="b-contact-wrap" id="contact" aria-labelledby="contact-title">
+      <div className="wrap">
+      <div className="b-contact">
         <div className="contact-info">
-          <h2 className="h2" id="contact-title">
+          <p className="b-eyebrow">Contact</p>
+          <h2 className="b-h2" id="contact-title">
             Have data to govern or an AI system to build?
           </h2>
           <p className="lede">
             Ask me a question, tell me about a project, or just say hello. I read everything and reply within a day.
           </p>
-          <a className="email" href={`mailto:${profile.email}`}>
-            {profile.email}
-          </a>
+          <div className="b-mail">
+            <span className="b-me-small">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/me.webp" alt="" width={760} height={883} loading="lazy" />
+            </span>
+            <a className="email" href={`mailto:${profile.email}`}>
+              {profile.email}
+            </a>
+          </div>
           <div className="actions">
             <WhatsApp />
             <a className="btn" href={profile.cv.ai} download>
@@ -74,6 +92,7 @@ export function Contact() {
         </div>
         <ContactForm />
       </div>
+      </div>
     </section>
   );
 }
@@ -85,7 +104,18 @@ export function Footer() {
         <span>
           © {new Date().getFullYear()} {profile.name}, {profile.location}
         </span>
-        <span>Colours on this site follow the four NDMO data classification levels.</span>
+        <span className="b-foot-k">
+          Press <kbd>Ctrl K</kbd> anywhere
+        </span>
+        <span>
+          Colours on this site follow the four NDMO data classification levels
+          <span className="b-sw" aria-hidden="true">
+            <i data-l="0" />
+            <i data-l="1" />
+            <i data-l="2" />
+            <i data-l="3" />
+          </span>
+        </span>
       </div>
     </footer>
   );
