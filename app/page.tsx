@@ -65,7 +65,7 @@ export default function Home() {
             <Jump to={now.target} className="b-tile b-now" label={`${now.name}: go to my current role`}>
               <span className="b-eyebrow">Currently</span>
               <span className="b-now-row">
-                <span className="b-logo-chip">
+                <span className="b-logo-chip b-co-logo">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={now.logo} alt="" width={now.w} height={now.h} />
                 </span>

@@ -2292,3 +2292,25 @@ html, body { overflow-x: clip; }
 .b-mail { flex-wrap: nowrap; }
 @media (max-width: 560px) { .b-mail { flex-wrap: wrap; } .b-me-small { width: 52px; height: 52px; } }
 @media (pointer: coarse) { .b-hint { display: none; } }
+
+/* Experience: logo and name side by side on one line */
+.b-co { flex-direction: row; align-items: center; gap: 8px; flex-wrap: nowrap; min-width: 0; padding-right: 4px; }
+.b-co-logo { width: 44px; height: 26px; padding: 3px 5px; border-radius: 7px; flex: none; }
+.b-co h3 { font-size: 0.96rem; letter-spacing: -0.025em; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 1250px) and (min-width: 1101px) { .b-co h3 { font-size: 0.95rem; } .b-co-logo { width: 46px; } }
+/* Current role card: same logo box, a little larger */
+.b-logo-chip.b-co-logo { width: 72px; height: 40px; padding: 6px 8px; }
+
+/* Photo zoom */
+.b-zoom { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 50%; transition: transform 0.2s; }
+.b-zoom.b-me-small { border: 1px solid #a8492d; background: radial-gradient(circle at 50% 70%, #c4573a, #3d2721); overflow: hidden; display: block; }
+.b-zoom:hover { transform: scale(1.06); }
+.b-lightbox { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; padding: 24px; background: rgba(5, 10, 11, 0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); animation: b-fade 0.2s ease-out; cursor: zoom-out; }
+.b-lightbox figure { position: relative; margin: 0; width: min(440px, 90vw); border-radius: 28px; overflow: hidden; background: radial-gradient(120% 80% at 50% 70%, #c4573a 0%, #6f3727 40%, #10282c 85%); box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7); cursor: default; animation: b-pop 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2); }
+.b-lightbox img { display: block; width: 100%; height: auto; padding-top: 24px; }
+.b-lightbox figcaption { position: absolute; left: 14px; right: 14px; bottom: 14px; padding: 10px 14px; border-radius: 14px; background: rgba(11, 20, 22, 0.7); backdrop-filter: blur(10px); color: #c5d0d2; font-size: 0.85rem; }
+.b-lightbox figcaption b { color: #fff; margin-right: 6px; }
+.b-lightbox-x { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(11, 20, 22, 0.6); color: #fff; font-size: 1rem; cursor: pointer; }
+@keyframes b-fade { from { opacity: 0; } }
+@keyframes b-pop { from { transform: scale(0.85); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .b-lightbox, .b-lightbox figure { animation: none; } }

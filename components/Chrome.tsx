@@ -10,6 +10,7 @@ import ScrollProgress from "@/components/b/ScrollProgress";
 import Jump from "@/components/b/Jump";
 import { brandIcons } from "@/lib/brandIcons";
 import CopyEmail from "@/components/b/CopyEmail";
+import PhotoZoom from "@/components/b/PhotoZoom";
 
 export function Mark() {
   return (
@@ -65,10 +66,10 @@ export function Contact() {
             Ask me a question, tell me about a project, or just say hello. I read everything and reply within a day.
           </p>
           <div className="b-mail">
-            <span className="b-me-small">
+            <PhotoZoom className="b-me-small">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/me.webp" alt="" width={760} height={883} loading="lazy" />
-            </span>
+            </PhotoZoom>
             <CopyEmail email={profile.email} />
           </div>
           <div className="actions">

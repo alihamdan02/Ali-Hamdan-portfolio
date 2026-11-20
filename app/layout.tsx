@@ -6,6 +6,7 @@ import { headScript } from "@/lib/theme";
 import SmoothScroll from "@/components/motion/SmoothScroll";
 import Ambient from "@/components/b/Ambient";
 import CommandPalette from "@/components/b/CommandPalette";
+import FaviconSpin from "@/components/b/FaviconSpin";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { certifications, education, experience } from "@/content/experience";
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <SmoothScroll />
         <CommandPalette />
+        <FaviconSpin />
         <Analytics />
         <SpeedInsights />
       </body>
