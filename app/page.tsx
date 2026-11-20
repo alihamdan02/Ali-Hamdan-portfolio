@@ -54,6 +54,7 @@ export default function Home() {
                 <span>Stack</span>
                 <span className="b-chip aws">AWS {profile.aws.join(" · ")}</span>
                 <span className="b-chip">Informatica IDMC</span>
+                <span className="b-chip">Power BI</span>
                 <span className="b-chip">LangGraph</span>
                 <span className="b-chip">Ollama</span>
               </div>
