@@ -38,7 +38,7 @@ export const projects: Project[] = [
     client: "Ministry of Foreign Affairs",
     year: "2025 – 2026",
     disciplines: ["AI", "Data"],
-    role: "AI Engineer, Tools & Solutions",
+    role: "AI Engineer, sole engineer on the project, Tools & Solutions",
     duration: "5+ months",
     summary:
       "An on-premise tool where local LLM agents classify the ministry’s data as Top Secret, Secret, Restricted or Public, from whole systems down to single rows, with a written reason for every label.",
@@ -48,17 +48,18 @@ export const projects: Project[] = [
       "Deployed gpt-oss-20b through Ollama on the ministry’s own servers, so every prompt and every record stayed inside their infrastructure.",
       "Built a table agent that profiles each system, writes structured metadata and identifies master and reference entities.",
       "Built a column agent that infers business meaning and proposes data quality rules that analysts used to write manually.",
-      "Built a compliance agent that assigns Top Secret, Secret, Restricted or Public at system, database, schema, column and row level, and writes the justification for each label.",
+      "Built a compliance agent that assigns Top Secret, Secret, Restricted or Public at system, database, schema, column and row level, with a written justification and a confidence score for every label.",
+      "Built a review screen where analysts see each label with its justification and confidence, then edit it or approve it.",
       "Grounded all three agents with RAG over the ministry’s own glossaries and policies, and served them through FastAPI in Docker.",
     ],
     challenges: [
       {
         title: "Five levels, not one",
-        detail: "A label was needed for every system, database, schema, column and row, and the levels had to agree with each other instead of being classified in isolation.",
+        detail: "A label was needed for every system, database, schema, column and row, and the levels had to agree. They roll up by the strictest rule: a table takes the highest label among its columns and rows, a schema the highest among its tables, and so on up to the whole system.",
       },
       {
         title: "Every label has to explain itself",
-        detail: "Reviewers needed to know why something was marked Secret rather than Restricted, so each classification comes with a written justification they can check and approve.",
+        detail: "Reviewers needed to know why something was marked Secret rather than Restricted. Each label comes with a justification and a confidence score, and analysts check, edit or approve it in the review screen.",
       },
       {
         title: "Nothing leaves the building",
@@ -67,8 +68,8 @@ export const projects: Project[] = [
     ],
     recognition: "Adopted by the ministry as its data classification tool, with formal thanks for the work.",
     results: [
-      { value: "92%+", label: "accuracy against expert review" },
-      { value: "70%+", label: "less human effort on classification" },
+      { value: "92%+", label: "accuracy against expert review, across the full dataset" },
+      { value: "70%+", label: "less analyst time, and fewer days, spent on classification" },
       { value: "6M+", label: "records across 10+ systems" },
     ],
     architecture: [
@@ -76,7 +77,7 @@ export const projects: Project[] = [
       { label: "Profiling", nodes: ["Informatica IDMC", "Schema reader"] },
       { label: "Agents", nodes: ["Table agent", "Column agent", "Compliance agent"] },
       { label: "Model", nodes: ["gpt-oss-20b on Ollama", "RAG context"] },
-      { label: "Output", nodes: ["Labels on 5 levels", "Justifications", "DQ rule proposals"] },
+      { label: "Output", nodes: ["Labels on 5 levels", "Justification + confidence", "Analyst review screen"] },
     ],
     stack: ["gpt-oss-20b", "Ollama", "RAG", "Python", "FastAPI", "Docker", "Oracle", "Informatica IDMC"],
   },

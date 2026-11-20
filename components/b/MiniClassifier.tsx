@@ -42,7 +42,7 @@ export default function MiniClassifier() {
         </div>
       ))}
       <p className="b-why">
-        <b>Why Top Secret?</b> passport_no identifies a person, and personal identifiers sit at the highest level in this sample policy.
+        <b>Why Top Secret? · confidence 0.94</b> passport_no identifies a person, and personal identifiers sit at the highest level in this sample policy. The table takes its highest label.
       </p>
       <div className="b-tally">
         {levels.map((l, i) => (
